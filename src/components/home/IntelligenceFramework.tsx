@@ -1,0 +1,54 @@
+import React from 'react';
+import IntelligenceCard from '@/components/ui/FrameworkCard';
+import { FrameworkCard } from '@/types';
+
+const IntelligenceFramework: React.FC = () => {
+  // Mock data - ready for admin panel
+  const frameworkCards: FrameworkCard[] = [
+    {
+      id: 1,
+      title: 'Sharper Analytics',
+      description: 'Turn raw data into clarity, enabling business leaders to act with confidence, and take data-driven smarter decisions',
+      image: '/images/home/intelligence/analytics.png',
+      link: '/services/analytics'
+    },
+    {
+      id: 2,
+      title: 'Smarter AI',
+      description: 'Deploy enterprise-grade AI that adapts, scales, and drives measurable business outcomes.',
+      image: '/images/home/intelligence/ai.png',
+      link: '/services/ai'
+    },
+    {
+      id: 3,
+      title: 'Scalable Systems',
+      description: 'Building resilient, cloud-native systems that scale AI securely across enterprises.',
+      image: '/images/home/intelligence/systems.png',
+      link: '/services/systems'
+    },
+    {
+      id: 4,
+      title: 'Secured Governance',
+      description: 'Ensuring trust, compliance, and transparency while empowering smarter, safer decisions.',
+      image: '/images/home/intelligence/governance.png',
+      link: '/services/governance'
+    }
+  ];
+
+  return (
+    <div className={`w-full flex justify-center items-center px-[24px] py-[50px] tablet:px-[60px] desktop:px-[100px] desktop:py-[80px] bg-black`}>
+      <div className='w-full flex flex-col gap-[80px] items-center justify-center'>
+        <div className='text-white text-center font-neue-regrade font-medium tablet:font-semibold text-[28px] tablet:text-[48px] leading-none'>
+          The 4S Intelligence Framework
+        </div>
+        <div className='flex flex-col desktop:flex-row gap-[40px] justify-between items-stretch'>
+          {frameworkCards.map((card) => (
+            <IntelligenceCard key={card.id} card={card} />
+          ))}
+        </div> 
+      </div>
+    </div>
+  );
+};
+
+export default IntelligenceFramework;
