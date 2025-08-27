@@ -20,12 +20,13 @@ const CompliaceCertificate: React.FC = () => {
             Global standards, dependable intelligence.
           </div>
           <div className='text-body-grey-2 text-center font-montserrat font-normal text-[12px] tablet:text-[16px]'>
-            Cognify's globally recognized compliance standards ensure security, transparency, and ethical responsibility. These certifications empower us to design smarter, safer products—making Cognify not just an innovator, but a dependable partner businesses can trust to scale intelligence with confidence.
+            Cognify&apos;s globally recognized compliance standards ensure security, transparency, and ethical responsibility. These certifications empower us to design smarter, safer products—making Cognify not just an innovator, but a dependable partner businesses can trust to scale intelligence with confidence.
           </div>
         </div>
         <div className='w-full flex flex-row flex-wrap gap-[40px] desktop:gap-[80px] justify-center'>
-          {images.map((img) => (
+          {images.map((img, index) => (
             <Image
+            key={index}
               src={img}
               alt='Certificate'
               width={160}

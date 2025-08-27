@@ -80,7 +80,7 @@ const Header: React.FC = () => {
 
         {/* CTA Button - Desktop */}
         <div className='hidden desktop:block'>
-          <Button variant='secondary'>Let's Talk Impact</Button>
+          <Button variant='secondary'>Let&apos;s Talk Impact</Button>
         </div>
 
         {/* Mobile menu button */}

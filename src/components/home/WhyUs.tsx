@@ -128,8 +128,8 @@ const WhyUs: React.FC = () => {
             className='w-full tablet:w-1/2 h-auto object-cover'
           />
           <div className='flex flex-col gap-[20px] items-start justify-ceter'>
-            {orbitalItems.map((item) => (
-              <div className="flex flex-col items-start justify-center gap-[12px]">
+            {orbitalItems.map((item, index) => (
+              <div key={index} className="flex flex-col items-start justify-center gap-[12px]">
                 <div className='text-white font-neue-regrade font-semibold text-[20px] leading-none'>
                   {item.title}
                 </div>
