@@ -1,93 +1,84 @@
-@import "tailwindcss";
-@import "slick-carousel/slick/slick.css";
-@import "slick-carousel/slick/slick-theme.css";
-
-@theme {
-  --breakpoint-mobile: 640px;
-  --breakpoint-tablet: 768px;
-  --breakpoint-desktop: 1280px;
-
-  --color-body-grey-1: #999999;
-  --color-body-grey-2: #828282;
-  --color-brand-purple: #6461FC;
-  --color-symbol-purple: #C5B9F6;
-  --color-brand-blue: #0BA2F7;
-  --color-card-bg: #0C0C15;
-  --color-tag-bg: #0F0F18;
-  --color-tag-border: #2D2341;
-  --color-metric-pink: #F70ED2;
-  --color-metric-green: #0E7733;
-
-  --font-neue-regrade: var(--font-neue-regrade), system-ui, sans-serif;
-  --font-montserrat: var(--font-montserrat), system-ui, sans-serif;
+.hero {
+  background-image: url('../../public/images/home/bg.png');
+  background-position: right;
+  background-size: cover;
 }
 
-@layer utilities {
-  .bg-gradient-purple-stops {
-    background: linear-gradient(90deg, #48376B 50%, #1B0A3F 100%);
-  }
-
-  .shadow-purple-glow {
-    box-shadow: 5px 0 100px 10px #281B6B;
-  }
-}
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ----- UI COMPONENT STYLING ----- */
+/* Button */
+.button {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  color: #FFFFFF;
+  font-family: var(--font-montserrat);
+  border-radius: 50px;
+  border: 1px;
 }
 
-body {
-  position: relative;
-  background: var(--background);
-  color: var(--foreground);
+.button img {
+  height: 16px;
+  width: auto;
 }
 
-/* Custom  styles */
-.coverflow-slider {
-  max-width: 1200px;
-  margin: 0 auto;
+.primary_button {
+  padding: 14px 36px;
+  font-size: 16px;
+  background-image: linear-gradient(to bottom, #511DD7, #7B53E2);
+  border-color: #521FD6;
 }
 
-.slide-wrapper {
-  transition: all 0.3s ease;
+/* .primary:hover {
+  background-color: #3730a3;
+} */
+
+.secondary_button {
+  padding: 12px 24px;
+  font-size: 14px;
+  box-shadow: inset 0 0 20px 0 rgba(255, 255, 255, 0.2);
 }
 
-.slide-content {
-  transform: scale(0.8) perspective(800px) rotateY(20deg);
-  opacity: 0.6;
-  transition: all 0.5s ease;
-  filter: blur(2px);
+/* .secondary:hover {
+  background-color: #d1d5db;
+} */
+
+
+/* Header Styling */
+.nav_link {
+  color: white;
+  font-family: var(--font-montserrat);
+  font-weight: 300;
+  font-size: 14px;
+  padding: 12px 24px;
 }
 
-.slide-content.active {
-  transform: scale(1) perspective(800px) rotateY(0deg);
-  opacity: 1;
-  z-index: 2;
-  filter: blur(0px);
+/* ----- SECTION COMPONENT STYLING ----- */
+/* Why Us Section */
+.whyus_bg {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 1px;
+  border-radius: 100%;
+  background-image: url('/images/home/why-us.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Target center slide in react-slick */
-.coverflow-slider .slick-slide.slick-center .slide-content {
-  transform: scale(1) perspective(800px) rotateY(0deg);
-  opacity: 1;
-  z-index: 2;
-  filter: blur(0px);
+/* ----- PAGES: TRUSTED BY ----- */
+.testimonial_outer_layer {
+  mix-blend-mode: multiply;
 }
 
-.coverflow-slider .slick-slide:not(.slick-center) .slide-content {
-  transform: scale(0.8) perspective(800px) rotateY(-0deg);
-  opacity: 0.6;
-  filter: blur(2px);
+.testimonial_bg_gradient {
+  background-image: linear-gradient(to bottom right, #8D60E8 50%, #3C1689 100%);
 }
 
-/* Left and right slides different rotation */
-.coverflow-slider .slick-slide.slick-center + .slick-slide .slide-content {
-  transform: scale(0.8) perspective(800px) rotateY(0deg);
+.testimonial_bg_mask {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 40%);
 }
