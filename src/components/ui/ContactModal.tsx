@@ -1,4 +1,3 @@
-// components/ui/ContactModal.tsx
 'use client';
 
 import React, { useState } from 'react';

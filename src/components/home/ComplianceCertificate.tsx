@@ -24,8 +24,9 @@ const CompliaceCertificate: React.FC = () => {
           </div>
         </div>
         <div className='w-full flex flex-row flex-wrap desktop:gap-[80px] justify-center desktop:justify-between'>
-          {images.map((img) => (
+          {images.map((img, index) => (
             <Image
+            key={index}
               src={img}
               alt='Certificate'
               width={160}
