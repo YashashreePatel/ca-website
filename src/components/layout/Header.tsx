@@ -82,7 +82,7 @@ const Header: React.FC = () => {
 
         {/* CTA Button - Desktop */}
         <div className='hidden desktop:block'>
-          <Button onClick={() => setIsModalOpen(true)} variant='secondary'>Let's Talk Impact</Button>
+          <Button onClick={() => setIsModalOpen(true)} variant='secondary'>Let&apos;s Talk Impact</Button>
         </div>
 
         {/* Mobile menu button */}

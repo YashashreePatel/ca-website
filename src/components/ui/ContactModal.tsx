@@ -43,10 +43,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
       <div className="relative flex flex-col desktop:flex-row bg-card-bg rounded-[16px] max-w-4xl w-full p-[12px] desktop:p-[24px] gap-[12px]">
         <div className="w-1/2 flex flex-col gap-[15px] justify-center">
           <div className="text-white font-neue-regrade font-bold text-[20px]">
-            LET'S COLLABORATE
+            Let&apos;s Collaborate
           </div>
           <div className="text-body-grey-1 font-montserrat text-[16px]">
-            If you're ready to turn your data into your greatest competitive advantage, let's talk. Whether you need to modernize your data stack, train your first ML model, or design the next generation of AI-powered products, we're here to help you every step of the way.
+            If you&apos;re ready to turn your data into your greatest competitive advantage, let&apos;s talk. Whether you need to modernize your data stack, train your first ML model, or design the next generation of AI-powered products, we&apos;re here to help you every step of the way.
           </div>
 
           <div className="flex flex-col gap-[5px]">

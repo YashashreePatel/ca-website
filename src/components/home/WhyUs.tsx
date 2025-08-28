@@ -77,8 +77,8 @@ const ImpactSlide: React.FC<{ impacts: CompanyImpacts }> = ({ impacts }) => {
         {impacts.title}
       </div>
       <div className='flex flex-row gap-[20px] items-center justify-between'>
-        {impacts.numericData.map((item) => (
-          <div className='flex flex-row gap-[12px] items-center justify-center px-[24px] py-[12px] border-[1px] border-white/20 rounded-[16px]'>
+        {impacts.numericData.map((item, index) => (
+          <div key={index} className='flex flex-row gap-[12px] items-center justify-center px-[24px] py-[12px] border-[1px] border-white/20 rounded-[16px]'>
             <div className='text-white text-center font-neue-regrade font-semibold  text-[32px] leading-none'>
               {item.number}
             </div>
@@ -363,8 +363,8 @@ const WhyUs: React.FC = () => {
             className='w-full tablet:w-1/2 h-auto object-cover'
           />
           <div className='flex flex-col gap-[20px] items-start justify-ceter'>
-            {slide1.data.map((item) => (
-              <div className="flex flex-col items-start justify-center gap-[12px]">
+            {slide1.data.map((item, index) => (
+              <div key={index} className="flex flex-col items-start justify-center gap-[12px]">
                 <div className='text-white font-neue-regrade font-semibold text-[20px] leading-none'>
                   {item.title}
                 </div>
