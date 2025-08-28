@@ -10,7 +10,7 @@ const IntelligenceCard: React.FC<CardProps> = ({ card }) => {
   return (
     <a 
       href={card.link} 
-      className='relative flex flex-col items-center gap-[8px] bg-card-bg px-[34px] py-[24px] rounded-[16px] hover:bg-[#212248] transition-all duration-300 hover:scale-105'
+      className='relative flex flex-col items-center gap-[8px] bg-card-bg px-[34px] py-[24px] rounded-[16px] hover:bg-card-bg/30 transition-all duration-300 hover:scale-105'
     >
       {/* Arrow icon */}
       <div className='absolute h-[24px] w-auto top-[24px] right-[34px] group-hover:opacity-100 transition-opacity'>

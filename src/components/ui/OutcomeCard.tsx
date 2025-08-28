@@ -28,8 +28,8 @@ const MetricBadge: React.FC<{ metric: OutcomeMetric }> = ({ metric }) => {
 
 const OutcomeCard: React.FC<OutcomeCardProps> = ({ card }) => {
   return (
-    <div className='relative items-center w-[350px] tablet:w-[9px] desktop:w-[1080px] flex flex-col-reverse tablet:flex-row items-start gap-[80px] p-[40px] bg-black border-[1px] border-brand-purple/20 rounded-[16px]'>
-      <div className='flex flex-col gap-[24px] justify-center items-start'>
+    <div className='relative items-center w-full flex flex-col-reverse tablet:flex-row items-start gap-[80px] p-[40px] bg-black border-[1px] border-brand-purple/20 rounded-[16px]'>
+      <div className='w-full desktop:w-2/3 flex flex-col gap-[12px] desktop:gap-[24px] justify-center items-start'>
         <div className='flex flex-wrap gap-[16px]'>
           {card.tags.map((tag, index) => (
             <div
@@ -51,11 +51,11 @@ const OutcomeCard: React.FC<OutcomeCardProps> = ({ card }) => {
 
         <Button variant='primary'>View Case Study</Button>
       </div>
-      <div className='relative w-full justify-center'>
+      <div className='relative h-full w-full desktop:w-1/3 justify-center'>
         <img
           src={card.image}
           alt={card.title}
-          className='w-full h-auto object-contain rounded-[8px]'
+          className='h-full w-auto object-cover rounded-[8px]'
         />
         {card.metrics.map((metric) => (
           <MetricBadge key={metric.id} metric={metric} />

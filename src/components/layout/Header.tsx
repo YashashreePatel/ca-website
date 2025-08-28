@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 import Button from '@/components/ui/Button';
 
 import styles from '@/components/style.module.css';
+import ContactModal from '@/components/ui/ContactModal';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,10 +44,11 @@ const Header: React.FC = () => {
     }
     return pathname?.startsWith(href);
   };
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <header className={`w-full fixed top-0 px-[24px] py-[24px] tablet:px-[80px] desktop:px-[100px] desktop:py-[24px] z-50 transition-all duration-300`}>
-      <nav className='w-full flex flex-row items-center justify-between bg-white/5 rounded-[16px] px-[100px] py-[24px] backdrop-blur-lg'>
+      <nav className='w-full flex flex-row items-center justify-between bg-white/5 rounded-[16px] px-[12px] py-[22px] desktop:px-[100px] desktop:py-[24px] backdrop-blur-lg'>
         {/* Logo */}
         <Link
           href='/'
@@ -80,7 +82,7 @@ const Header: React.FC = () => {
 
         {/* CTA Button - Desktop */}
         <div className='hidden desktop:block'>
-          <Button variant='secondary'>Let&apos;s Talk Impact</Button>
+          <Button onClick={() => setIsModalOpen(true)} variant='secondary'>Let's Talk Impact</Button>
         </div>
 
         {/* Mobile menu button */}
@@ -108,32 +110,30 @@ const Header: React.FC = () => {
             )}
           </svg>
         </button>
-
-        {/* Mobile Navigation */}
-        {/* <div
-          id='mobile-menu'
-          className={`desktop:hidden transition-all duration-300 ease-in-out ${isMenuOpen
-              ? 'max-h-screen opacity-100 visible'
-              : 'max-h-0 opacity-0 invisible overflow-hidden'
-            }`}
-        >
-          <div className='px-2 pt-2 pb-6 space-y-1 bg-gray-900/95 backdrop-blur-sm rounded-lg mt-2 border border-gray-800/50'>
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`block px-3 py-3 text-base font-medium transition-colors rounded-md ${isActiveLink(item.href)
-                    ? 'text-white bg-blue-600/20 border border-blue-500/30'
-                    : 'text-gray-300 hover:text-white hover:bg-gray-800/50'
-                  }`}
-                aria-current={isActiveLink(item.href) ? 'page' : undefined}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        </div> */}
       </nav>
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="desktop:hidden w-full flex flex-row items-center justify-between bg-white/5 rounded-[16px] mt-[5px] px-[12px] py-[22px] backdrop-blur-lg">
+            <div className='w-full flex flex-col gap-[10px] items-center justify-center'>
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`w-full block px-[12px] py-[18px] font-montserrat font-normal transition-colors rounded-[16px] ${isActiveLink(item.href)
+                    ? 'text-white'
+                    : 'text-white/50 hover:text-white hover:bg-symbol-purple hover:text-white'
+                    }`}
+                  aria-current={isActiveLink(item.href) ? 'page' : undefined}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+        </div>)}
+        <ContactModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </header>
   );
 };

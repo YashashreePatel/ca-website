@@ -1,68 +1,310 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 
 import styles from '../style.module.css';
-import { CompanyValue } from '@/types';
+import { CompanyValues, CompanyImpacts, CompanyNumerics } from '@/types';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const ValuesSlide: React.FC<{ values: CompanyValues }> = ({ values }) => {
+  const renderValueItem = (item: { id: number; title: string; description: string }) => (
+    <div key={item.id} className='w-full flex flex-col gap-[16px] justify-center items-center'>
+      <div className='text-white text-center font-neue-regrade font-semibold text-[16px] leading-none'>
+        {item.title}
+      </div>
+      <div className='text-body-grey-2 text-center font-montserrat font-normal text-[16px]'>
+        {item.description}
+      </div>
+    </div>
+  );
+
+  const leftColumn = values.data.slice(0, 2);
+  const centerColumn = values.data.slice(2, 3);
+  const rightColumn = values.data.slice(3, 6);
+
+  return (
+    <div className='relative w-full flex flex-col items-center gap-[40px] p-[40px] bg-black border-[1px] border-brand-purple/20 rounded-[16px]'>
+      <div className='text-symbol-purple text-center font-montserrat font-semibold text-[20px] leading-none'>
+        {values.title}
+      </div>
+
+      <div className='flex flex-row gap-[80px] items-center justify-end'>
+        <div className='flex flex-col gap-[50px] items-center justify-end'>
+          {leftColumn.map(renderValueItem)}
+        </div>
+
+        <div className='flex flex-col gap-[50px] items-center justify-end'>
+          {centerColumn.map(renderValueItem)}
+          <Image
+            src={values.image}
+            alt={`Slide ${values.slide}`}
+            width={160}
+            height={48}
+            priority
+            className='w-full h-auto'
+          />
+        </div>
+
+        <div className='flex flex-col gap-[50px] items-center justify-end'>
+          {rightColumn.map(renderValueItem)}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ImpactSlide: React.FC<{ impacts: CompanyImpacts }> = ({ impacts }) => {
+  const renderValueItem = (item: { id: number; title: string; description: string }) => (
+    <div key={item.id} className='w-full flex flex-col gap-[16px] justify-center items-start'>
+      <div className='text-white text-left font-neue-regrade font-semibold text-[16px] leading-none'>
+        {item.title}
+      </div>
+      <div className='text-body-grey-2 text-left font-montserrat font-normal text-[16px]'>
+        {item.description}
+      </div>
+    </div>
+  );
+
+  const leftColumn = impacts.data.slice(0, 2);
+  const rightColumn = impacts.data.slice(2, 5);
+
+  return (
+    <div className='relative w-full flex flex-col items-center gap-[40px] p-[40px] bg-black border-[1px] border-brand-purple/20 rounded-[16px]'>
+      <div className='text-symbol-purple text-center font-montserrat font-semibold text-[20px] leading-none'>
+        {impacts.title}
+      </div>
+      <div className='flex flex-row gap-[20px] items-center justify-between'>
+        {impacts.numericData.map((item) => (
+          <div className='flex flex-row gap-[12px] items-center justify-center px-[24px] py-[12px] border-[1px] border-white/20 rounded-[16px]'>
+            <div className='text-white text-center font-neue-regrade font-semibold  text-[32px] leading-none'>
+              {item.number}
+            </div>
+            <div className='text-white text-left font-montserrat font-normal text-[16px]'>
+              {item.description}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className='flex flex-row gap-[80px] items-center justify-end'>
+        <div className='flex flex-col gap-[50px] items-center justify-end'>
+          {leftColumn.map(renderValueItem)}
+        </div>
+        <div className='flex flex-col gap-[50px] items-center justify-end'>
+          <Image
+            src={impacts.image}
+            alt={`${impacts.slide}`}
+            width={160}
+            height={48}
+            priority
+            className='w-full h-auto'
+          />
+        </div>
+        <div className='flex flex-col gap-[50px] items-center justify-end'>
+          {rightColumn.map(renderValueItem)}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const NumericSlide: React.FC<{ numerics: CompanyNumerics }> = ({ numerics }) => {
+  const renderValueItem = (item: { id: number; icon: string; number: string; description: string }) => (
+    <div key={item.id} className='w-full flex flex-col gap-[8px] justify-center items-center'>
+      <div className='w-full flex flex-row gap-[16px] items-center justify-center'>
+        <img
+          src={item.icon}
+          alt={item.number}
+          className='w-[40px] h-[40px] object-cover'
+        />
+        <div className='text-symbol-purple font-neue-regrade font-semibold text-[40px] leading-none'>
+          {item.number}
+        </div>
+      </div>
+      <div className='text-white text-center font-montserrat font-normal text-[16px]'>
+        {item.description}
+      </div>
+    </div>
+  );
+
+  const topRow = numerics.data.slice(0, 3);
+  const bottomRow = numerics.data.slice(3, 6);
+
+  return (
+    <div className='relative w-full flex flex-col items-center gap-[40px] p-[40px] bg-black border-[1px] border-brand-purple/20 rounded-[16px]'>
+      <div className='text-symbol-purple text-center font-montserrat font-semibold text-[20px] leading-none'>
+        {numerics.title}
+      </div>
+      <div className='w-full flex flex-col gap-[80px] items-center justify-center'>
+        <div className='w-full flex flex-row items-center justify-between'>
+          {topRow.map(renderValueItem)}
+        </div>
+        <div className='w-full flex flex-row items-center justify-between'>
+          {bottomRow.map(renderValueItem)}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const WhyUs: React.FC = () => {
   const [activeItem, setActiveItem] = useState<number | null>(null);
 
-  const orbitalItems: CompanyValue[] = [
-    {
-      id: 1,
-      title: "Lead with purpose, not platforms",
-      description: "Every engagement begins with a single focus: what will truly move the needle for your business—not trends, but what matters most.",
-      position: { x: 5, y: 70 },
-      textPosition: 'left'
-    },
-    {
-      id: 2,
-      title: "Lead boldly, with empathy",
-      description: "We prioritize depth with scale and outcomes over outputs—because real transformation is built through partnership, not mass production.",
-      position: { x: 5, y: 30 },
-      textPosition: 'left'
-    },
-    {
-      id: 3,
-      title: "Design for impact, not complexity",
-      description: "While others highlight technical depth, we focus on business clarity—turning insights into action, systems into enablers, and outcomes into results.",
-      position: { x: 50, y: 0 },
-      textPosition: 'top'
-    },
-    {
-      id: 4,
-      title: "Not your typical AI firm",
-      description: "We're a new kind of partner, focused on turning AI's potential into real, measurable business impact.",
-      position: { x: 95, y: 30 },
-      textPosition: 'right'
-    },
-    {
-      id: 5,
-      title: "Co-create, not just deliver",
-      description: "Working shoulder-to-shoulder with your teams, we align strategy and technology with your people, culture, and purpose.",
-      position: { x: 95, y: 70 },
-      textPosition: 'right'
-    }
-  ];
+  const slide1: CompanyValues = {
+    slide: 1,
+    title: 'Elevating Intelligence. Accelerating impact. Building what truly matters.',
+    image: '/images/home/why-us/slide1.png',
+    data: [
+      {
+        id: 1,
+        title: "Lead with purpose, not platforms",
+        description: "Every engagement begins with a single focus: what will truly move the needle for your business—not trends, but what matters most.",
+      },
+      {
+        id: 2,
+        title: "Lead boldly, with empathy",
+        description: "We prioritize depth with scale and outcomes over outputs—because real transformation is built through partnership, not mass production.",
+      },
+      {
+        id: 3,
+        title: "Design for impact, not complexity",
+        description: "While others highlight technical depth, we focus on business clarity—turning insights into action, systems into enablers, and outcomes into results.",
+      },
+      {
+        id: 4,
+        title: "Not your typical AI firm",
+        description: "We're a new kind of partner, focused on turning AI's potential into real, measurable business impact.",
+      },
+      {
+        id: 5,
+        title: "Co-create, not just deliver",
+        description: "Working shoulder-to-shoulder with your teams, we align strategy and technology with your people, culture, and purpose.",
+      }
+    ]
+  };
 
-  const getTextPositionStyles = (textPosition: string, isActive: boolean) => {
-    const baseStyles = `absolute transition-all duration-300 ${isActive ? 'opacity-100 scale-100' : 'opacity-70 scale-95'
-      }`;
+  const slide2: CompanyImpacts = {
+    slide: 2,
+    title: 'Turning intelligence into impact. Human-first. Future-ready.',
+    image: '/images/home/why-us/slide2.png',
+    numericData: [
+      {
+        id: 1,
+        number: '12+',
+        description: 'years of cumulative experience'
+      },
+      {
+        id: 2,
+        number: '40+',
+        description: 'projects delivered'
+      },
+      {
+        id: 3,
+        number: '2',
+        description: 'Global locations'
+      },
+      {
+        id: 4,
+        number: '5+',
+        description: 'Industries served'
+      }
+    ],
+    data: [
+      {
+        id: 1,
+        title: "Solutioning",
+        description: "Ensure data integrity with enterprise-grade security",
+      },
+      {
+        id: 2,
+        title: "Engineering",
+        description: "Accelerate time-to-value with fast, seamless",
+      },
+      {
+        id: 3,
+        title: "Strategy",
+        description: "Ensure data integrity with enterprise-grade security",
+      },
+      {
+        id: 4,
+        title: "AI",
+        description: "Harness the power of AI across your organization",
+      }
+    ]
+  };
 
-    switch (textPosition) {
-      case 'right':
-        return `${baseStyles} left-full ml-[15px] top-1/2 -translate-y-1/2`;
-      case 'left':
-        return `${baseStyles} right-full mr-[15px] top-1/2 -translate-y-1/2`;
-      case 'top':
-        return `${baseStyles} bottom-full mb-[15px] left-1/2 -translate-x-1/2`;
-      case 'bottom':
-        return `${baseStyles} top-full mt-[15px] left-1/2 -translate-x-1/2`;
-      default:
-        return baseStyles;
-    }
+  const slide3: CompanyNumerics = {
+    slide: 3,
+    title: 'Need a title here',
+    data: [
+      {
+        id: 1,
+        icon: '/images/home/why-us/icons/desktop.png',
+        number: '50+',
+        description: 'Dashboards'
+      },
+      {
+        id: 2,
+        icon: '/images/home/why-us/icons/tabs.png',
+        number: '150+',
+        description: 'Data Views'
+      },
+      {
+        id: 3,
+        icon: '/images/home/why-us/icons/cpu.png',
+        number: '90%',
+        description: 'Precision in Model Performance'
+      },
+      {
+        id: 4,
+        icon: '/images/home/why-us/icons/trend-down.png',
+        number: '>25+',
+        description: 'Reductions in Infrastructure Spend'
+      },
+      {
+        id: 5,
+        icon: '/images/home/why-us/icons/head-circuit.png',
+        number: '100+',
+        description: 'Men Hours Saved per Month'
+      },
+      {
+        id: 6,
+        icon: '/images/home/why-us/icons/dollar.png',
+        number: '50M+',
+        description: 'Saved in Cost'
+      }
+    ]
+  };
+
+  const sliderRef = useRef<Slider>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    centerMode: true,
+    centerPadding: '0px',
+    beforeChange: (current: number, next: number) => {
+      setCurrentSlide(next);
+    },
+  };
+  const goToNext = () => {
+    sliderRef.current?.slickNext();
+  };
+
+  const goToPrev = () => {
+    sliderRef.current?.slickPrev();
+  };
+
+  const goToSlide = (index: number) => {
+    sliderRef.current?.slickGoTo(index);
   };
 
   return (
@@ -71,51 +313,44 @@ const WhyUs: React.FC = () => {
         <div className='text-white text-center font-neue-regrade font-medium tablet:font-semibold text-[28px] tablet:text-[48px] leading-none'>
           Why Us?
         </div>
-        <div className='hidden desktop:block relative w-full h-[800px] p-[40px] flex flex-col items-center border-[1px] border-brand-purple/20 rounded-[16px]'>
-          <div className={`text-center text-symbol-purple font-montserrat font-semibold text-[20px]`}>
-            Elevating Intelligence. Accelerating Impact. Building what truly matters.
-          </div>
-          <div className={`${styles.whyus_bg} flex items-center border-white/30`}>
-            {orbitalItems.map((item) => (
-              <div
-                key={item.id}
-                className="absolute"
-                style={{
-                  left: `${item.position.x}%`,
-                  top: `${item.position.y}%`,
-                  transform: 'translate(-50%, -50%)'
-                }}
-              >
-                <button
-                  onClick={() => setActiveItem(activeItem === item.id ? null : item.id)}
-                  className={`
-                relative w-[50px] h-[50px] rounded-full flex items-center justify-center
-                transition-all duration-300 hover:scale-110 cursor-pointer
-                ${activeItem === item.id
-                      ? 'bg-brand-blue scale-110'
-                      : 'bg-black border border-white/30 hover:bg-tag-bg'
-                    }
-              `}
-                >
-                  {/* Pulse effect for active item */}
-                  {activeItem === item.id && (
-                    <div className="absolute inset-0 rounded-full bg-brand-blue animate-ping opacity-20"></div>
-                  )}
-                </button>
-
-                {/* Text Label */}
-                <div className={getTextPositionStyles(item.textPosition, activeItem === item.id)}>
-                  <div className="w-[350px] flex flex-col items-start justify-center gap-[12px]">
-                    <div className='text-white font-neue-regrade font-semibold text-[20px] leading-none'>
-                      {item.title}
-                    </div>
-                    <div className={`${activeItem === item.id ? '' : ''} text-wrap text-body-grey-2 font-montserrat font-normal text-[16px]`}>
-                      {item.description}
-                    </div>
-                  </div>
-                </div>
+        <div className='hidden desktop:block coverflow-slider w-full h-full relative flex flex-col gap-[40px] justify-between items-stretch'>
+          <Slider ref={sliderRef} {...settings}>
+            <div key={0} className="slide-wrapper h-full">
+              <div className="slide-content flex justify-center">
+                <ValuesSlide values={slide1} />
               </div>
-            ))}
+            </div>
+            <div key={1} className="slide-wrapper h-full">
+              <div className="slide-content flex justify-center">
+                <ImpactSlide impacts={slide2} />
+              </div>
+            </div>
+            <div key={2} className="slide-wrapper h-full">
+              <div className="slide-content flex justify-center">
+                <NumericSlide numerics={slide3} />
+              </div>
+            </div>
+          </Slider>
+          <div className='relative flex flex-row gap-[40px] mt-[40px] items-center justify-center'>
+            <button
+              onClick={goToPrev}
+              className="relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
+              <span className="material-symbols-outlined">arrow_back</span>
+            </button>
+            <div className="flex flex-row gap-[10px]">
+              {[0, 1, 2].map((index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-[5px] h-[5px] bg-white rounded-full ${currentSlide === index ? 'w-[40px]' : ''}`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={goToNext}
+              className="relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
+              <span className="material-symbols-outlined">arrow_forward</span>
+            </button>
           </div>
         </div>
         <div className='flex flex-col tablet:flex-row desktop:hidden gap-[32px] items-center justify-center'>
@@ -128,8 +363,8 @@ const WhyUs: React.FC = () => {
             className='w-full tablet:w-1/2 h-auto object-cover'
           />
           <div className='flex flex-col gap-[20px] items-start justify-ceter'>
-            {orbitalItems.map((item, index) => (
-              <div key={index} className="flex flex-col items-start justify-center gap-[12px]">
+            {slide1.data.map((item) => (
+              <div className="flex flex-col items-start justify-center gap-[12px]">
                 <div className='text-white font-neue-regrade font-semibold text-[20px] leading-none'>
                   {item.title}
                 </div>

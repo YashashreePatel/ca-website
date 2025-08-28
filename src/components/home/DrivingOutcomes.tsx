@@ -15,11 +15,11 @@ const DrivingOutcomes: React.FC = () => {
   const outcomeCards: OutcomeCardType[] = [
     {
       id: 1,
-      title: "1111How we saved $3.1M in 9 months for a global fintech firm",
+      title: "How we saved $3.1M in 9 months for a global fintech firm",
       description: "We partnered with a leading fintech enterprise to modernize their data pipelines and optimize cloud infrastructure. The result? A scalable AI solution that reduced operational costs by $3.1M in just 9 months of time.",
       tags: ["AI Design", "Tech Innovation"],
       ctaText: "View case study",
-      ctaLink: "/case-studies/fintech-cost-savings",
+      ctaLink: "/",
       image: "/images/home/outcome.jpeg",
       metrics: [
         {
@@ -42,25 +42,25 @@ const DrivingOutcomes: React.FC = () => {
     },
     {
       id: 2,
-      title: "2222How we saved $3.1M in 9 months for a global fintech firm",
-      description: "We partnered with a leading fintech enterprise to modernize their data pipelines and optimize cloud infrastructure. The result? A scalable AI solution that reduced operational costs by $3.1M in just 9 months of time.",
-      tags: ["AI Design", "Tech Innovation"],
+      title: "Optimizing Chatbot Efficiency to Reduce Escalations and Support Costs",
+      description: "Diagnose the root cause of increasing chatbot escalations and implement solutions to enhance the chatbot's effectiveness, ultimately reducing escalation rates and support costs.",
+      tags: ["NLP", "LLM", "Machine Learning"],
       ctaText: "View case study",
-      ctaLink: "/case-studies/fintech-cost-savings",
+      ctaLink: "/",
       image: "/images/home/outcome.jpeg",
       metrics: [
         {
           id: 1,
-          value: "85%",
-          label: "queries automated by the Gen AI Bot",
+          value: "35%",
+          label: "Reduced chatbot escalations",
           position: { x: 85, y: 15 },
           width: '200px',
           color: 'metric-pink'
         },
         {
           id: 2,
-          value: "84K+",
-          label: "cases handled",
+          value: "$3.1 M",
+          label: "saving",
           position: { x: 75, y: 85 },
           width: '100px',
           color: 'metric-green'
@@ -69,33 +69,44 @@ const DrivingOutcomes: React.FC = () => {
     },
     {
       id: 3,
-      title: "333How we saved $3.1M in 9 months for a global fintech firm",
-      description: "We partnered with a leading fintech enterprise to modernize their data pipelines and optimize cloud infrastructure. The result? A scalable AI solution that reduced operational costs by $3.1M in just 9 months of time.",
-      tags: ["AI Design", "Tech Innovation"],
+      title: "Optimizing Marketing Performance with Data-Driven Insights for Spenga",
+      description: "Manage marketing performance across multiple locations and accurately assess the performance of individual marketing agencies when all lead data is aggregated.",
+      tags: ["Python", "Tableau", "Data Integration"],
       ctaText: "View case study",
-      ctaLink: "/case-studies/fintech-cost-savings",
+      ctaLink: "/",
       image: "/images/home/outcome.jpeg",
       metrics: [
         {
           id: 1,
-          value: "85%",
-          label: "queries automated by the Gen AI Bot",
+          value: "",
+          label: "Optimized marketing performance with data-driven insights",
           position: { x: 85, y: 15 },
           width: '200px',
           color: 'metric-pink'
-        },
-        {
-          id: 2,
-          value: "84K+",
-          label: "cases handled",
-          position: { x: 75, y: 85 },
-          width: '100px',
-          color: 'metric-green'
         }
       ]
-    }
+    },
+    {
+      id: 4,
+      title: "Cloud Cost Optimization for a SaaS Product Company",
+      description: "Analyze cloud usage and implement strategies to reduce AWS costs without compromising performance or availability.",
+      tags: ["AWS EC2", "Lambda", "CloudWatch"],
+      ctaText: "View case study",
+      ctaLink: "/",
+      image: "/images/home/outcome.jpeg",
+      metrics: [
+        {
+          id: 1,
+          value: "35%",
+          label: "Reduced AWS costs",
+          position: { x: 85, y: 15 },
+          width: '200px',
+          color: 'metric-pink'
+        }
+      ]
+    },
   ];
-  
+
   const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const settings = {
@@ -114,7 +125,6 @@ const DrivingOutcomes: React.FC = () => {
     },
   };
   const goToNext = () => {
-    console.log('HIHI', sliderRef.current);
     sliderRef.current?.slickNext();
   };
 
@@ -132,11 +142,11 @@ const DrivingOutcomes: React.FC = () => {
         <div className='text-white text-center font-neue-regrade font-medium tablet:font-semibold text-[28px] tablet:text-[48px] leading-none'>
           Driving & Delivering Impactful Outcomes
         </div>
-        <div className='w-full relative flex flex-col gap-[40px] justify-between items-stretch'>
+        <div className='coverflow-slider w-full relative flex flex-col gap-[40px] justify-between items-stretch'>
           <Slider ref={sliderRef} {...settings}>
             {outcomeCards.map((outcome) => (
-              <div key={outcome.id} className="px-4">
-                <div className="flex justify-center">
+              <div key={outcome.id} className="slide-wrapper">
+                <div className="slide-content flex justify-center">
                   <OutcomeCard card={outcome} />
                 </div>
               </div>
@@ -145,7 +155,7 @@ const DrivingOutcomes: React.FC = () => {
           <div className='relative flex flex-row gap-[40px] items-center justify-center'>
             <button
               onClick={goToPrev}
-              className="relative w-[40px] !h-[40px] !rounded-[12px] !bg-black hover:!bg-body-grey-2 !text-white !text-[10px] after:!content-[''] !border-[1px] !border-white/30 !flex !items-center !justify-center">
+              className="relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
               <span className="material-symbols-outlined">arrow_back</span>
             </button>
             <div className="flex flex-row gap-[10px]">
@@ -159,7 +169,7 @@ const DrivingOutcomes: React.FC = () => {
             </div>
             <button
               onClick={goToNext}
-              className="!relative !w-[40px] !h-[40px] !rounded-[12px] !bg-black hover:!bg-body-grey-2 !text-white !text-[10px] after:!content-[''] !border-[1px] !border-white/30 !flex !items-center !justify-center">
+              className="relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
               <span className="material-symbols-outlined">arrow_forward</span>
             </button>
           </div>

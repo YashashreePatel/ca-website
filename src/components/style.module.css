@@ -21,6 +21,7 @@
   height: 16px;
   width: auto;
 }
+
 .primary_button {
   padding: 14px 36px;
   font-size: 16px;
@@ -67,4 +68,20 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* ----- PAGES: TRUSTED BY ----- */
+.testimonial_outer_layer {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(115, 115, 115, 0) 90%);
+  mix-blend-mode: multiply;
+}
+
+.testimonial_bg_gradient {
+  background-image: linear-gradient(to bottom right, #8D60E8 50%, #3C1689 100%);
+  mix-blend-mode: multiply;
+}
+
+.testimonial_bg_mask {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(115, 115, 115, 0) 90%);
+  mix-blend-mode: multiply;
 }

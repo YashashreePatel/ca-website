@@ -45,13 +45,42 @@ export interface Testimonial {
   tags: string[];
 }
 
-export interface CompanyValue {
-  id: number;
+export interface CompanyValues {
+  slide: number;
   title: string;
-  description: string;
-  // icon: string;
-  position: { x: number; y: number };
-  textPosition: 'left' | 'right' | 'top' | 'bottom';
+  image: string;
+  data: {
+    id: number;
+    title: string;
+    description: string;
+  }[];
+}
+
+export interface CompanyImpacts {
+  slide: number;
+  title: string;
+  image: string;
+  numericData: {
+    id: number;
+    number: string;
+    description: string;
+  }[],
+  data: {
+    id: number;
+    title: string;
+    description: string;
+  }[];
+}
+
+export interface CompanyNumerics {
+  slide: number;
+  title: string;
+  data: {
+    id: number;
+    icon: string;
+    number: string;
+    description: string;
+  }[];
 }
 
 export interface InsightArticle {
