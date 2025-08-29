@@ -38,8 +38,16 @@ const IntelligenceFramework: React.FC = () => {
   return (
     <div className={`w-full flex justify-center items-center px-[24px] py-[50px] tablet:px-[60px] desktop:px-[100px] desktop:py-[80px] bg-black`}>
       <div className='w-full flex flex-col gap-[80px] items-center justify-center'>
-        <div className='text-white text-center font-neue-regrade font-medium tablet:font-semibold text-[28px] tablet:text-[48px] leading-none'>
-          The 4S Intelligence Framework
+        <div className='w-full desktop:w-[830px] flex flex-col gap-[16px] justify-center items-center'>
+          <div className='text-white text-center font-neue-regrade font-medium tablet:font-semibold text-[28px] tablet:text-[48px] leading-none'>
+            The 4S Intelligence Framework
+          </div>
+          <div className='text-white text-center font-montserrat font-semibold text-[12px] tablet:text-[16px]'>
+            Sharper insights, smarter AI, scalable systems, secured trust—your intelligence, redefined.
+          </div>
+          <div className='text-body-grey-2 text-center font-montserrat font-normal text-[12px] tablet:text-[16px]'>
+            The 4S Intelligence Framework is designed to help your business unlock clarity, accelerate innovation, and achieve your true potential with confidence and precision.
+          </div>
         </div>
         <div className='flex flex-col desktop:flex-row gap-[40px] justify-between items-stretch'>
           {frameworkCards.map((card) => (
