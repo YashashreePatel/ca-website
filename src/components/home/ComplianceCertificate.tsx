@@ -23,7 +23,7 @@ const CompliaceCertificate: React.FC = () => {
             Cogniify&apos;s globally recognized compliance standards ensure security, transparency, and ethical responsibility. These certifications empower us to design smarter, safer products—making Cogniify not just an innovator, but a dependable partner businesses can trust to scale intelligence with confidence.
           </div>
         </div>
-        <div className='w-full flex flex-row flex-wrap desktop:gap-[80px] justify-center desktop:justify-between'>
+        <div className='w-full flex flex-row flex-wrap justify-center desktop:justify-between'>
           {images.map((img, index) => (
             <Image
               key={index}

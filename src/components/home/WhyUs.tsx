@@ -31,7 +31,7 @@ const ValuesSlide: React.FC<{ values: CompanyValues }> = ({ values }) => {
         {values.title}
       </div>
 
-      <div className='flex flex-row gap-[80px] items-center justify-end'>
+      <div className='flex flex-col desktop:flex-row gap-[50px] desktop:gap-[80px] items-center justify-end'>
         <div className='flex flex-col gap-[50px] items-center justify-end'>
           {leftColumn.map(renderValueItem)}
         </div>
@@ -76,7 +76,7 @@ const ImpactSlide: React.FC<{ impacts: CompanyImpacts }> = ({ impacts }) => {
       <div className='text-symbol-purple text-center font-montserrat font-semibold text-[20px] leading-none'>
         {impacts.title}
       </div>
-      <div className='flex flex-row gap-[20px] items-center justify-between'>
+      <div className='flex flex-row flex-wrap gap-[20px] items-center justify-center desktop:justify-between'>
         {impacts.numericData.map((item, index) => (
           <div key={index} className='flex flex-row gap-[12px] items-center justify-center px-[24px] py-[12px] border-[1px] border-white/20 rounded-[16px]'>
             <div className='text-white text-center font-neue-regrade font-semibold  text-[32px] leading-none'>
@@ -88,7 +88,7 @@ const ImpactSlide: React.FC<{ impacts: CompanyImpacts }> = ({ impacts }) => {
           </div>
         ))}
       </div>
-      <div className='flex flex-row gap-[80px] items-center justify-end'>
+      <div className='flex flex-col desktop:flex-row gap-[50px] desktop:gap-[80px] items-center justify-end'>
         <div className='flex flex-col gap-[50px] items-center justify-end'>
           {leftColumn.map(renderValueItem)}
         </div>
@@ -137,11 +137,11 @@ const NumericSlide: React.FC<{ numerics: CompanyNumerics }> = ({ numerics }) => 
       <div className='text-symbol-purple text-center font-montserrat font-semibold text-[20px] leading-none'>
         {numerics.title}
       </div>
-      <div className='w-full flex flex-col gap-[80px] items-center justify-center'>
-        <div className='w-full flex flex-row items-center justify-between'>
+      <div className='w-full flex flex-col gap-[50px] desktop:gap-[80px] items-center justify-center'>
+        <div className='w-full flex flex-row flex-wrap gap-[50px] items-center justify-between'>
           {topRow.map(renderValueItem)}
         </div>
-        <div className='w-full flex flex-row items-center justify-between'>
+        <div className='w-full flex flex-row flex-wrap gap-[50px] items-center justify-between'>
           {bottomRow.map(renderValueItem)}
         </div>
       </div>
@@ -313,7 +313,7 @@ const WhyUs: React.FC = () => {
         <div className='text-white text-center font-neue-regrade font-medium tablet:font-semibold text-[28px] tablet:text-[48px] leading-none'>
           Why Us?
         </div>
-        <div className='hidden desktop:block coverflow-slider w-full h-full relative flex flex-col gap-[40px] justify-between items-stretch'>
+        <div className='block coverflow-slider w-full h-full relative flex flex-col gap-[40px] justify-between items-stretch'>
           <Slider ref={sliderRef} {...settings}>
             <div key={0} className="slide-wrapper h-full">
               <div className="slide-content flex justify-center">
@@ -351,28 +351,6 @@ const WhyUs: React.FC = () => {
               className="relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
               <span className="material-symbols-outlined">arrow_forward</span>
             </button>
-          </div>
-        </div>
-        <div className='flex flex-col tablet:flex-row desktop:hidden gap-[32px] items-center justify-center'>
-          <Image
-            src='/images/home/why-us-sm.png'
-            alt='why us image'
-            width={800}
-            height={48}
-            priority
-            className='w-full tablet:w-1/2 h-auto object-cover'
-          />
-          <div className='flex flex-col gap-[20px] items-start justify-ceter'>
-            {slide1.data.map((item, index) => (
-              <div key={index} className="flex flex-col items-start justify-center gap-[12px]">
-                <div className='text-white font-neue-regrade font-semibold text-[20px] leading-none'>
-                  {item.title}
-                </div>
-                <div className={`${activeItem === item.id ? '' : ''} text-wrap text-body-grey-2 font-montserrat font-normal text-[16px]`}>
-                  {item.description}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

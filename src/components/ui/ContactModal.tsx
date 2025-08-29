@@ -33,22 +33,22 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center mx-[24px] desktop:mx-0">
       <div 
         className="absolute inset-0 bg-black/70 backdrop-blur-sm"
         onClick={onClose}
       />
       
-      <div className="relative flex flex-col desktop:flex-row bg-card-bg rounded-[16px] max-w-4xl w-full p-[12px] desktop:p-[24px] gap-[12px]">
-        <div className="w-1/2 flex flex-col gap-[15px] justify-center">
-          <div className="text-white font-neue-regrade font-bold text-[20px]">
+      <div className="relative flex flex-col desktop:flex-row bg-card-bg rounded-[16px] max-w-4xl w-full p-[24px] gap-[12px] items-center desktop:items-start">
+        <div className="w-full desktop:w-1/2 flex flex-col gap-[15px] justify-center">
+          <div className="text-white text-center desktop:text-left font-neue-regrade font-bold text-[20px]">
             Let&apos;s Collaborate
           </div>
-          <div className="text-body-grey-1 font-montserrat text-[16px]">
+          <div className="text-body-grey-1 text-center desktop:text-left font-montserrat text-[16px]">
             If you&apos;re ready to turn your data into your greatest competitive advantage, let&apos;s talk. Whether you need to modernize your data stack, train your first ML model, or design the next generation of AI-powered products, we&apos;re here to help you every step of the way.
           </div>
 
-          <div className="flex flex-col gap-[5px]">
+          <div className="flex flex-col gap-[5px] items-center desktop:items-start">
             <div className="flex items-center gap-[5px]">
               <span className="material-symbols-outlined text-symbol-purple">phone</span>
               <span className="text-body-grey-1 font-montserrat">+1 (419)-973-0449</span>
@@ -60,10 +60,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
         
-        <div className="bg-tag-bg rounded-[16px] p-[12px]">
-          <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="w-full desktop:w-1/2 bg-tag-bg rounded-[16px] p-[12px]">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-[20px] items-center desktop:items-start">
             {/* Form Fields Row 1 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="w-full flex flex-col tablet:flex-row gap-4">
               <input
                 type="text"
                 name="fullName"
