@@ -7,10 +7,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Testimonials: React.FC = () => {
-  // const [currentSlide, setCurrentSlide] = useState(0);
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
-  console.log('Window width:', window.innerWidth);
-}, []);
+    setIsClient(true);
+  }, []);
+
   // Mock data - ready for admin panel
   const testimonials: Testimonial[] = [
     {
@@ -112,38 +114,40 @@ const Testimonials: React.FC = () => {
           </div>
           <Button variant='primary'>Connect with Us</Button>
         </div>
-        <div className='coverflow-slider w-full relative flex flex-col gap-[40px] justify-between items-stretch'>
-          <Slider ref={sliderRef} {...settings}>
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="slide-wrapper">
-                <div className="slide-content flex justify-center">
-                  <TestimonialCard testimonial={testimonial} />
+        {isClient && (
+          <div className='coverflow-slider w-full relative flex flex-col gap-[40px] justify-between items-stretch'>
+            <Slider ref={sliderRef} {...settings}>
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="slide-wrapper">
+                  <div className="slide-content flex justify-center">
+                    <TestimonialCard testimonial={testimonial} />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </Slider>
-          <div className='relative flex flex-row gap-[40px] items-center justify-center'>
-            <button
-              onClick={goToPrev}
-              className="relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
-              <span className="material-symbols-outlined">arrow_back</span>
-            </button>
-            <div className="flex flex-row gap-[10px]">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-[5px] h-[5px] bg-white rounded-full ${currentSlide === index ? 'w-[40px]' : ''}`}
-                />
               ))}
+            </Slider>
+            <div className='relative flex flex-row gap-[40px] items-center justify-center'>
+              <button
+                onClick={goToPrev}
+                className="relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
+                <span className="material-symbols-outlined">arrow_back</span>
+              </button>
+              <div className="flex flex-row gap-[10px]">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`w-[5px] h-[5px] bg-white rounded-full ${currentSlide === index ? 'w-[40px]' : ''}`}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={goToNext}
+                className="relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
+                <span className="material-symbols-outlined">arrow_forward</span>
+              </button>
             </div>
-            <button
-              onClick={goToNext}
-              className="relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
-              <span className="material-symbols-outlined">arrow_forward</span>
-            </button>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
