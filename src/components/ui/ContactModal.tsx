@@ -55,7 +55,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             </div>
             <div className="flex items-center gap-[5px]">
               <span className="material-symbols-outlined text-symbol-purple">mail</span>
-              <span className="text-body-grey-1 font-montserrat">business@cognifyanalytics.ai</span>
+              <span className="text-body-grey-1 font-montserrat">info@cognifyanalytics.ai</span>
             </div>
           </div>
         </div>

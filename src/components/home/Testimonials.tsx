@@ -19,7 +19,7 @@ const Testimonials: React.FC = () => {
       role: "CEO",
       company: "Innovation Labs Pvt.",
       industry: 'Data Infrastructure',
-      content: "They not only delivered a top notch service and assistance but also provided strategic solutions that helped us improve our digital presence. Highly recommend @cognifyanalytics.",
+      content: "They not only delivered a top notch service and assistance but also provided strategic solutions that helped us improve our digital presence. Highly recommend @cogniifyanalytics.",
       avatar: "/images/home/testimonials/innovation-labs.png",
       tags: ["LLC", "Corporation", "Content House"]
     },
@@ -29,7 +29,7 @@ const Testimonials: React.FC = () => {
       role: "Marketing Director",
       company: "Spenga",
       industry: 'Health & Fitness / Wellness',
-      content: "Cognify Analytics transformed our marketing strategy. Their data-driven approach helped us separate and optimize leads from different agencies, giving us unprecedented insights into our marketing performance",
+      content: "Cogniify Analytics transformed our marketing strategy. Their data-driven approach helped us separate and optimize leads from different agencies, giving us unprecedented insights into our marketing performance",
       avatar: "/images/home/testimonials/innovation-labs.png",
       tags: ["Data Driven", "Marketing Optimization", "Lead Insights"]
     },
@@ -39,7 +39,7 @@ const Testimonials: React.FC = () => {
       role: "Founder",
       company: "TokenQuest",
       industry: 'Blockchain / Crypto',
-      content: "Cognify contributed technical support during our early development stage and helped resolve some key issues in the build. Their blockchain understanding was useful in navigating toward audit readiness",
+      content: "Cogniify contributed technical support during our early development stage and helped resolve some key issues in the build. Their blockchain understanding was useful in navigating toward audit readiness",
       avatar: "/images/home/testimonials/innovation-labs.png",
       tags: ["Technical Support", "Blockchain Expertise", "Audit Readiness"]
     },
@@ -49,7 +49,7 @@ const Testimonials: React.FC = () => {
       role: "Fractional Chief Product Officer",
       company: "Singh Advisories",
       industry: 'Consulting / Product Strategy',
-      content: "Cognify contributed technical support during our early development stage and helped resolve some key issues in the build. Their blockchain understanding was useful in navigating toward audit readiness",
+      content: "Cogniify contributed technical support during our early development stage and helped resolve some key issues in the build. Their blockchain understanding was useful in navigating toward audit readiness",
       avatar: "/images/home/testimonials/innovation-labs.png",
       tags: ["Trusted Partner", "Product Innovation", "Engineering Solutions"]
     },

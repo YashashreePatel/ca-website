@@ -13,9 +13,9 @@ const AboveFooter: React.FC = () => {
         </div>
         <Button onClick={() => setIsModalOpen(true)} variant='primary'>Get Started</Button>
       </div>
-      <ContactModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
       />
     </div>
   );

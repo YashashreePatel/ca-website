@@ -29,7 +29,7 @@ const neueRegrade = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Cognify - AI Solutions for Modern Business',
+  title: 'Cogniify - AI Solutions for Modern Business',
   description: 'Transform your business with cutting-edge AI solutions',
   keywords: 'AI, artificial intelligence, machine learning, automation, business solutions'
 };

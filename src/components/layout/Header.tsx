@@ -53,11 +53,11 @@ const Header: React.FC = () => {
         <Link
           href='/'
           className='focus:outline-none'
-          aria-label='Cognify - Home'
+          aria-label='Cogniify - Home'
         >
           <Image
             src='/images/logo-white.png'
-            alt='Cognify Logo'
+            alt='Cogniify Logo'
             width={160}
             height={48}
             priority

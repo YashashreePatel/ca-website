@@ -46,13 +46,13 @@ const ExecutionPhilosophy: React.FC = () => {
             From insight to execution, building intelligence that lasts.
           </div>
           <div className='text-body-grey-2 text-center font-montserrat font-normal text-[12px] tablet:text-[16px]'>
-            With global expertise, Cognify turns insights into execution—delivering strategies, engineering, and AI that drive outcomes.
+            With global expertise, Cogniify turns insights into execution—delivering strategies, engineering, and AI that drive outcomes.
           </div>
         </div>
         <div className="w-full">
           <Image
             src='/images/home/philosophy.png'
-            alt='Cognify Logo'
+            alt='Cogniify Logo'
             width={1000}
             height={48}
             priority
@@ -60,7 +60,7 @@ const ExecutionPhilosophy: React.FC = () => {
           />
           <Image
             src='/images/home/philosophy-sm.png'
-            alt='Cognify Logo'
+            alt='Cogniify Logo'
             width={500}
             height={24}
             priority

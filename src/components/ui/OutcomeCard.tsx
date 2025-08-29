@@ -1,4 +1,3 @@
-// components/home/OutcomeCard.tsx
 import React from 'react';
 import Button from '@/components/ui/Button';
 import { OutcomeCard as OutcomeCardType, OutcomeMetric } from '@/types';
