@@ -11,10 +11,13 @@
   flex-direction: row;
   gap: 8px;
   align-items: center;
+  text-align: center;
   color: #FFFFFF;
   font-family: var(--font-montserrat);
   border-radius: 50px;
   border: 1px;
+  padding: 14px 36px;
+  font-size: 16px;
 }
 
 .button img {
@@ -23,8 +26,6 @@
 }
 
 .primary_button {
-  padding: 14px 36px;
-  font-size: 16px;
   background-image: linear-gradient(to bottom, #511DD7, #7B53E2);
   border-color: #521FD6;
 }
@@ -34,8 +35,6 @@
 } */
 
 .secondary_button {
-  padding: 12px 24px;
-  font-size: 14px;
   box-shadow: inset 0 0 20px 0 rgba(255, 255, 255, 0.2);
 }
 

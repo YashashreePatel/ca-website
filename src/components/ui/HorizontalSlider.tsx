@@ -16,6 +16,7 @@ const HorizontalSlider: React.FC = () => {
     '/images/home/trusted-by/image3.png',
     '/images/home/trusted-by/image4.png',
     '/images/home/trusted-by/image5.png',
+    '/images/home/trusted-by/image6.png',
   ];
   const sliderRef = useRef<HTMLDivElement>(null);
 

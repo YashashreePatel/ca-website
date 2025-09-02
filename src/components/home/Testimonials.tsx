@@ -11,7 +11,7 @@ const Testimonials: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   useEffect(() => {
     setIsClient(true);
     setWindowWidth(window.innerWidth);
@@ -27,23 +27,13 @@ const Testimonials: React.FC = () => {
   // Mock data - ready for admin panel
   const testimonials: Testimonial[] = [
     {
-      id: 1,
-      name: "",
-      role: "CEO",
-      company: "Innovation Labs Pvt.",
-      industry: 'Data Infrastructure',
-      content: "They not only delivered a top notch service and assistance but also provided strategic solutions that helped us improve our digital presence. Highly recommend @cogniifyanalytics.",
-      avatar: "/images/home/testimonials/innovation-labs.png",
-      tags: ["LLC", "Corporation", "Content House"]
-    },
-    {
       id: 2,
       name: "James Rodriguez",
       role: "Marketing Director",
       company: "Spenga",
       industry: 'Health & Fitness / Wellness',
       content: "Cogniify Analytics transformed our marketing strategy. Their data-driven approach helped us separate and optimize leads from different agencies, giving us unprecedented insights into our marketing performance",
-      avatar: "/images/home/testimonials/innovation-labs.png",
+      avatar: "/images/home/testimonials/spenga.png",
       tags: ["Data Driven", "Marketing Optimization", "Lead Insights"]
     },
     {
@@ -53,7 +43,7 @@ const Testimonials: React.FC = () => {
       company: "TokenQuest",
       industry: 'Blockchain / Crypto',
       content: "Cogniify contributed technical support during our early development stage and helped resolve some key issues in the build. Their blockchain understanding was useful in navigating toward audit readiness",
-      avatar: "/images/home/testimonials/innovation-labs.png",
+      avatar: "/images/home/testimonials/token-quest.png",
       tags: ["Technical Support", "Blockchain Expertise", "Audit Readiness"]
     },
     {
@@ -63,7 +53,7 @@ const Testimonials: React.FC = () => {
       company: "Singh Advisories",
       industry: 'Consulting / Product Strategy',
       content: "Cogniify contributed technical support during our early development stage and helped resolve some key issues in the build. Their blockchain understanding was useful in navigating toward audit readiness",
-      avatar: "/images/home/testimonials/innovation-labs.png",
+      avatar: "/images/home/testimonials/singh-advisories.png",
       tags: ["Trusted Partner", "Product Innovation", "Engineering Solutions"]
     },
   ];
@@ -76,30 +66,28 @@ const Testimonials: React.FC = () => {
       dots: false,
       infinite: true,
       speed: 500,
+      slidesToShow: 3,
       slidesToScroll: 1,
       arrows: false,
+      centerMode: true,
       centerPadding: '0px',
       beforeChange: (current: number, next: number) => {
         setCurrentSlide(next);
       },
     };
 
-    if (windowWidth < 768) {
+    if (windowWidth < 1024) {
       return {
         ...baseSettings,
         slidesToShow: 1,
-        centerMode: true,
-      };
-    } else if (windowWidth < 1024) {
-      return {
-        ...baseSettings,
-        slidesToShow: 1,
+        slidesToScroll: 1,
         centerMode: true,
       };
     } else {
       return {
         ...baseSettings,
         slidesToShow: 3,
+        slidesToScroll: 1,
         centerMode: true,
       };
     }

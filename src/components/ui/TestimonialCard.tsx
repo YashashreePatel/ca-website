@@ -9,11 +9,11 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
   return (
     <>
       <div className='relative w-full flex flex-col p-[40px] items-start justify-center gap-[32px] bg-card-bg rounded-[16px] overflow-hidden'>
-        <div className='w-[64px] h-[64px] justify-center rounded-full shadow-purple-glow'>
+        <div className='w-[120px] h-[64px] justify-center rounded-[8px] shadow-purple-glow'>
           <img
             src={testimonial.avatar}
             alt={testimonial.name}
-            className='w-full h-full object-cover'
+            className='w-full h-full rounded-[8px] object-cover'
           />
         </div>
         <div className='text-body-grey-2 font-montserrat font-normal text-[16px]'>

@@ -7,6 +7,7 @@ import './globals.css';
 
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import CookieConsent from '@/components/ui/CookieConsent';
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -47,6 +48,7 @@ export default function RootLayout({
       <body className={`relative overflow-x-hidden ${neueRegrade.variable} ${montserrat.variable}`}>
         <Header />
         {children}
+        <CookieConsent />
         <Footer />
       </body>
     </html>
