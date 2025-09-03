@@ -49,8 +49,8 @@ const CookieConsent: React.FC = () => {
           </div>
           <div className='w-full flex flex-col tablet:flex-row justify-center gap-[10px]'>
             {/* <Button onClick={() => setShowPreferences(true)} variant='primary'>Customize</Button> */}
-            <Button onClick={() => setShowPreferences(true)} variant='secondary'>Necessary Only</Button>
-            <Button onClick={() => setShowPreferences(true)} variant='primary'>Accept All</Button>
+            <Button onClick={acceptNecessary} variant='secondary'>Necessary Only</Button>
+            <Button onClick={acceptAll} variant='primary'>Accept All</Button>
           </div>
         </div>
       </div>

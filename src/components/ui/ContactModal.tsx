@@ -30,15 +30,21 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
     onClose();
   };
 
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = (event: any) => {
+    setIsChecked(event.target.checked);
+  };
+
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center mx-[24px] desktop:mx-0">
-      <div 
+      <div
         className="absolute inset-0 bg-black/70 backdrop-blur-sm"
         onClick={onClose}
       />
-      
+
       <div className="relative flex flex-col desktop:flex-row bg-card-bg rounded-[16px] max-w-4xl w-full p-[24px] gap-[12px] items-center desktop:items-start">
         <div className="w-full desktop:w-1/2 flex flex-col gap-[15px] justify-center">
           <div className="text-white text-center desktop:text-left font-neue-regrade font-bold text-[20px]">
@@ -59,7 +65,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             </div>
           </div>
         </div>
-        
+
         <div className="w-full desktop:w-1/2 bg-tag-bg rounded-[16px] p-[12px]">
           <form onSubmit={handleSubmit} className="flex flex-col gap-[20px] items-center desktop:items-start">
             {/* Form Fields Row 1 */}
@@ -83,7 +89,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                 required
               />
             </div>
-            
+
             {/* Phone Number */}
             <input
               type="tel"
@@ -93,7 +99,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
               onChange={handleInputChange}
               className="w-full px-4 py-3 bg-[#2a2d47] border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            
+
             {/* Project Description */}
             <textarea
               name="project"
@@ -104,12 +110,22 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
               className="w-full px-4 py-3 bg-[#2a2d47] border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
               required
             />
-            
+
+            <label>
+              <input
+                type="checkbox"
+                checked={isChecked}
+                onChange={handleCheckboxChange}
+                className="text-white text-center desktop:text-left font-montserrat text-[16px]"
+              />
+              I agree to the terms and policy.
+            </label>
+
             {/* Submit Button */}
             <Button variant='primary'>Send Your Inqury</Button>
           </form>
         </div>
-        
+
         {/* Close Button */}
         <button
           onClick={onClose}

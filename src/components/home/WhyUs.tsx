@@ -9,6 +9,9 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import Button from '@/components/ui/Button';
+import ContactModal from '@/components/ui/ContactModal';
+
 const ValuesSlide: React.FC<{ values: CompanyValues }> = ({ values }) => {
   const renderValueItem = (item: { id: number; title: string; description: string }) => (
     <div key={item.id} className='w-full flex flex-col gap-[16px] justify-center items-center'>
@@ -24,7 +27,9 @@ const ValuesSlide: React.FC<{ values: CompanyValues }> = ({ values }) => {
   const leftColumn = values.data.slice(0, 2);
   const centerColumn = values.data.slice(2, 3);
   const rightColumn = values.data.slice(3, 6);
-
+  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
   return (
     <div className='relative w-full flex flex-col items-center gap-[40px] p-[40px] bg-black border-[1px] border-brand-purple/20 rounded-[16px]'>
       <div className='text-symbol-purple text-center font-montserrat font-semibold text-[20px] leading-none'>
@@ -52,6 +57,12 @@ const ValuesSlide: React.FC<{ values: CompanyValues }> = ({ values }) => {
           {rightColumn.map(renderValueItem)}
         </div>
       </div>
+
+      <Button onClick={() => setIsModalOpen(true)} variant='primary' iconSrc='/images/icons/sparkle-fill.svg' iconAlt='Arrow'>Let&apos;s Talk Impact</Button>
+      <ContactModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   );
 };
@@ -70,6 +81,8 @@ const ImpactSlide: React.FC<{ impacts: CompanyImpacts }> = ({ impacts }) => {
 
   const leftColumn = impacts.data.slice(0, 2);
   const rightColumn = impacts.data.slice(2, 5);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className='relative w-full flex flex-col items-center gap-[40px] p-[40px] bg-black border-[1px] border-brand-purple/20 rounded-[16px]'>
@@ -106,6 +119,11 @@ const ImpactSlide: React.FC<{ impacts: CompanyImpacts }> = ({ impacts }) => {
           {rightColumn.map(renderValueItem)}
         </div>
       </div>
+      <Button onClick={() => setIsModalOpen(true)} variant='primary' iconSrc='/images/icons/sparkle-fill.svg' iconAlt='Arrow'>Let&apos;s Talk Impact</Button>
+      <ContactModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   );
 };
@@ -132,6 +150,8 @@ const NumericSlide: React.FC<{ numerics: CompanyNumerics }> = ({ numerics }) => 
   const topRow = numerics.data.slice(0, 3);
   const bottomRow = numerics.data.slice(3, 6);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
   return (
     <div className='relative w-full flex flex-col items-center gap-[40px] p-[40px] bg-black border-[1px] border-brand-purple/20 rounded-[16px]'>
       <div className='text-symbol-purple text-center font-montserrat font-semibold text-[20px] leading-none'>
@@ -145,6 +165,11 @@ const NumericSlide: React.FC<{ numerics: CompanyNumerics }> = ({ numerics }) => 
           {bottomRow.map(renderValueItem)}
         </div>
       </div>
+      <Button onClick={() => setIsModalOpen(true)} variant='primary' iconSrc='/images/icons/sparkle-fill.svg' iconAlt='Arrow'>Let&apos;s Talk Impact</Button>
+      <ContactModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   );
 };
