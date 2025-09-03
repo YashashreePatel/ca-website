@@ -111,12 +111,11 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
               required
             />
 
-            <label>
+            <label className="text-white text-center desktop:text-left font-montserrat text-[16px]">
               <input
                 type="checkbox"
                 checked={isChecked}
                 onChange={handleCheckboxChange}
-                className="text-white text-center desktop:text-left font-montserrat text-[16px]"
               />
               I agree to the terms and policy.
             </label>
