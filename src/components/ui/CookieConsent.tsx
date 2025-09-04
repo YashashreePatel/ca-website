@@ -6,9 +6,10 @@ import Button from './Button';
 
 const CookieConsent: React.FC = () => {
   const [showBanner, setShowBanner] = useState(false);
-  const [showPreferences, setShowPreferences] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const consent = localStorage.getItem('cookieConsent');
     if (!consent) {
       setShowBanner(true);
@@ -16,33 +17,35 @@ const CookieConsent: React.FC = () => {
   }, []);
 
   const acceptAll = () => {
+    console.log("Accept All clicked");
     localStorage.setItem('cookieConsent', JSON.stringify({
       necessary: true,
       analytics: true,
       marketing: true,
-      functional: true
+      functional: true,
     }));
     setShowBanner(false);
   };
 
   const acceptNecessary = () => {
+    console.log("Necessary Only clicked");
     localStorage.setItem('cookieConsent', JSON.stringify({
       necessary: true,
       analytics: false,
       marketing: false,
-      functional: false
+      functional: false,
     }));
     setShowBanner(false);
   };
 
-  if (!showBanner) return null;
+  if (!mounted || !showBanner) return null;
 
   return (
     <>
       <div className='w-full fixed bottom-0 left-0 z-50 bg-white/5 px-[24px] py-[50px] tablet:px-[60px] desktop:px-[100px] desktop:py-[80px] backdrop-blur-lg'>
         <div className='flex flex-col items-center justify-center gap-[10px]'>
           <div className='text-white font-montserrat font-normal text-[16px]'>
-            We use cookies to enhance your experience and analyze site usage.
+            We use cookies to enhance your experience and analyze site usage. 
             <a href="/privacy" className="text-brand-bule hover:underline">
               Learn more
             </a>

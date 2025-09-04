@@ -22,8 +22,8 @@ export default function Button({
 
   return (
     <button
-      className={`${styles.button} ${variantClasses[variant]} ${variant === 'primary' ? styles.primary_button : styles.secondary_button}`}
       {...props}
+      className={`${styles.button} ${variantClasses[variant]} ${variant === 'primary' ? styles.primary_button : styles.secondary_button}`}
     >
       {iconSrc && <Image src={iconSrc} alt={iconAlt} width={20} height={20} />}
       {children}
