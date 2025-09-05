@@ -4,6 +4,8 @@ import ContactModal from '@/components/ui/ContactModal';
 import styles from '../style.module.css';
 
 import AboutUsTab from '@/components/ui/about/AboutUsTab';
+import PhilosophyTab from '@/components/ui/about/PhilosophyTab';
+import MissionAndVisionTab from '@/components/ui/about/MissionAndVisionTab';
 
 const Hero: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,6 +30,12 @@ const Hero: React.FC = () => {
       <div className="w-full">
         {activeTab === 'About' &&
           <AboutUsTab />
+        }
+        {activeTab === 'Philosophy' &&
+          <PhilosophyTab />
+        }
+        {activeTab === 'Mission & Vision' &&
+          <MissionAndVisionTab />
         }
       </div>
     </div>
