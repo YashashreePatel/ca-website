@@ -6,6 +6,7 @@ import styles from '../style.module.css';
 import AboutUsTab from '@/components/ui/about/AboutUsTab';
 import PhilosophyTab from '@/components/ui/about/PhilosophyTab';
 import MissionAndVisionTab from '@/components/ui/about/MissionAndVisionTab';
+import WhyUsSlider from '@/components/ui/WhyUsSlider';
 
 const Hero: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,6 +37,9 @@ const Hero: React.FC = () => {
         }
         {activeTab === 'Mission & Vision' &&
           <MissionAndVisionTab />
+        }
+        {activeTab === 'Why Cogniify' &&
+          <WhyUsSlider />
         }
       </div>
     </div>
