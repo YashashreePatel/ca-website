@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 import ContactModal from '@/components/ui/ContactModal';
-import TestimonialCard from '@/components/ui/TestimonialCard';
+import TestimonialCard from '@/components/ui/home/TestimonialCard';
 import { Testimonial } from '@/types';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";

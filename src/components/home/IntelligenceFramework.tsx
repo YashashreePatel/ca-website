@@ -1,5 +1,5 @@
 import React from 'react';
-import IntelligenceCard from '@/components/ui/FrameworkCard';
+import IntelligenceCard from '@/components/ui/home/FrameworkCard';
 import { FrameworkCard } from '@/types';
 
 const IntelligenceFramework: React.FC = () => {

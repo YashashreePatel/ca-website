@@ -31,8 +31,8 @@ const Header: React.FC = () => {
   }, [pathname]);
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Solutions', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/' },
     { name: 'Industries', href: '/' },
     { name: 'Resources', href: '/' },
     { name: 'Careers', href: 'https://app.dover.com/jobs/cognifyanalytics' },

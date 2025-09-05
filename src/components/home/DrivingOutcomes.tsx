@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import OutcomeCard from '@/components/ui/OutcomeCard';
+import OutcomeCard from '@/components/ui/home/OutcomeCard';
 import { OutcomeCard as OutcomeCardType } from '@/types';
 
 import { Swiper, SwiperSlide } from 'swiper/react';

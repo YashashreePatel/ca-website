@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import InsightCard from '@/components/ui/InsightCard';
+import InsightCard from '@/components/ui/home/InsightCard';
 import Slider from 'react-slick';
 import { InsightArticle } from '@/types';
 

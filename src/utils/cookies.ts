@@ -1,6 +1,3 @@
-// src/utils/cookies.ts
-
-// Declare gtag type for TypeScript
 declare global {
   interface Window {
     gtag: (command: string, ...args: unknown[]) => void;

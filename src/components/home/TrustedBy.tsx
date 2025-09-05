@@ -2,7 +2,7 @@ import React from 'react';
 // import fs from "fs";
 // import path from "path";
 
-import HorizontalSlider from '@/components/ui/HorizontalSlider';
+import HorizontalSlider from '@/components/ui/home/HorizontalSlider';
 import styles from '../style.module.css';
 
 const TrustedBy: React.FC = () => {
