@@ -10,7 +10,7 @@ const IntelligenceFramework: React.FC = () => {
       title: 'Sharper Analytics',
       description: 'Turn raw data into clarity, enabling business leaders to act with confidence, and take data-driven smarter decisions',
       image: '/images/home/intelligence/analytics.png',
-      link: '/services/analytics'
+      link: '/services/sharper-analytics'
     },
     {
       id: 2,
