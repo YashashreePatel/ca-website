@@ -7,7 +7,7 @@ const MissionAndVisionTab: React.FC = () => {
         <div className='text-white text-center font-neue-regrade font-semibold text-[48px] leading-none'>
           Our Mission
         </div>
-        <div className='flex flex-col gap-[24px] font-montserrat text-[16px] text-normal text-white'>
+        <div className='flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
           <span>
             At Cognify, our mission is clear: to deliver scalable, secure, and ROI-focused AI and analytics solutions that turn intelligence into measurable impact. We don&apos;t just build systems—we build outcomes.
           </span>
@@ -22,7 +22,7 @@ const MissionAndVisionTab: React.FC = () => {
           </span>
         </div>
 
-        <div className='flex flex-col gap-[5px] items-start font-montserrat text-normal text-[16px]'>
+        <div className='flex flex-col gap-[10px] items-start font-montserrat font-normal text-[16px]'>
           <span className='text-symbol-purple'>Mission at a Glance:</span>
           <span className='pl-[5px] text-white'>- Build scalable AI systems that grow with the business.</span>
           <span className='pl-[5px] text-white'>- Ensure security and governance for long-term trust.</span>
@@ -36,7 +36,7 @@ const MissionAndVisionTab: React.FC = () => {
         <div className='text-white text-center font-neue-regrade font-semibold text-[48px] leading-none'>
           Our Vision
         </div>
-        <div className='flex flex-col gap-[24px] font-montserrat text-[16px] text-normal text-white'>
+        <div className='flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
           <span>
             Our vision is to create a future where AI doesn&apos;t replace people—it elevates them. A future where intelligence is seamlessly embedded into the DNA of every enterprise, guiding decisions, driving growth, and enabling sustainable impact.
           </span>
@@ -51,7 +51,7 @@ const MissionAndVisionTab: React.FC = () => {
           </span>
         </div>
 
-        <div className='flex flex-col gap-[5px] items-start font-montserrat text-normal text-[16px]'>
+        <div className='flex flex-col gap-[10px] items-start font-montserrat font-normal text-[16px]'>
           <span className='text-symbol-purple'>Vision at a Glance:</span>
           <span className='pl-[5px] text-white'>- Build solutions with precision and purpose.</span>
           <span className='pl-[5px] text-white'>- Align intelligence with business outcomes that matter.</span>

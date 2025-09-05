@@ -32,7 +32,7 @@ const Header: React.FC = () => {
 
   const navigation = [
     { name: 'About', href: '/about' },
-    { name: 'Services', href: '/' },
+    { name: 'Services', href: '/services' },
     { name: 'Industries', href: '/' },
     { name: 'Resources', href: '/' },
     { name: 'Careers', href: 'https://app.dover.com/jobs/cognifyanalytics' },

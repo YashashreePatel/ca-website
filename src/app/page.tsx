@@ -23,7 +23,10 @@ export default async function Home() {
         <Testimonials />
         <WhyUs />
         <FeaturedInsights />
-        <AboveFooter />
+        <AboveFooter
+          title="Activate Your AI Future"
+          buttonText="Get Started"
+        />
     </div>
   );
 }

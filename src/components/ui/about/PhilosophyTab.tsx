@@ -7,7 +7,7 @@ const PhilosophyTab: React.FC = () => {
       <div className='text-white text-center font-neue-regrade font-semibold text-[48px] leading-none'>
         Philosophy
       </div>
-      <div className='font-montserrat text-[16px] text-semibold text-white'>
+      <div className='font-montserrat text-[16px] font-semibold text-white'>
         At Cognify, philosophy is not a statement on the wall—it&apos;s a discipline that shapes every solution we design, every partnership we build, and every outcome we deliver.
       </div>
       <div className='flex flex-col gap-[20px] items-center justify-center'>
@@ -68,7 +68,7 @@ const PhilosophyTab: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className='font-montserrat text-[16px] text-semibold text-white'>
+      <div className='font-montserrat text-[16px] font-semibold text-white'>
         At Cognify, our philosophy ensures one thing above all: that every piece of intelligence we deliver becomes an engine of clarity, trust, and measurable business value.
       </div>
     </div>

@@ -44,6 +44,10 @@ export default function RootLayout({
     <html lang='en'>
       <head>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+          rel="stylesheet"
+        />
       </head>
       <body className={`relative overflow-x-hidden ${neueRegrade.variable} ${montserrat.variable}`}>
         <Header />
