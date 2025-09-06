@@ -17,21 +17,21 @@ const IntelligenceFramework: React.FC = () => {
       title: 'Smarter AI',
       description: 'Deploy enterprise-grade AI that adapts, scales, and drives measurable business outcomes.',
       image: '/images/home/intelligence/ai.png',
-      link: '/services/ai'
+      link: '/services/smarter-ai'
     },
     {
       id: 3,
       title: 'Scalable Systems',
       description: 'Building resilient, cloud-native systems that scale AI securely across enterprises.',
       image: '/images/home/intelligence/systems.png',
-      link: '/services/systems'
+      link: '/services/scalable-systems'
     },
     {
       id: 4,
       title: 'Secured Governance',
       description: 'Ensuring trust, compliance, and transparency while empowering smarter, safer decisions.',
       image: '/images/home/intelligence/governance.png',
-      link: '/services/governance'
+      link: '/services/secured-governance'
     }
   ];
 
