@@ -9,7 +9,7 @@ const BackButton: React.FC<{ fallbackUrl?: string }> = ({ fallbackUrl = '/' }) =
   return (
     <button
       onClick={() => router.back()}
-      className="w-full flex flex-row items-center justify-start font-montserrat text-white font-normal text-[16px] transition"
+      className="w-full flex flex-row items-center justify-start font-montserrat text-symbol-purple font-normal text-[16px] transition"
     >
       <span className="material-symbols-outlined">keyboard_arrow_left</span>
       <span>Back</span>
