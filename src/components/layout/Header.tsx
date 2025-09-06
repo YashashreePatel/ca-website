@@ -47,7 +47,7 @@ const Header: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <header className={`w-full fixed top-0 px-[24px] py-[24px] tablet:px-[80px] desktop:px-[100px] desktop:py-[24px] z-50 transition-all duration-300`}>
+    <header className={`w-full fixed top-0 px-[24px] py-[24px] tablet:px-[60px] desktop:px-[100px] z-50 transition-all duration-300`}>
       <nav className='w-full flex flex-row items-center justify-between bg-white/5 rounded-[16px] px-[12px] py-[22px] desktop:px-[100px] desktop:py-[24px] backdrop-blur-lg'>
         {/* Logo */}
         <Link

@@ -12,7 +12,7 @@ const AboutUsTab: React.FC = () => {
           Data is the new currency, and the Future Belongs to Those Who Understand & Leverage Their Data. But raw data alone is worthless—like unrefined gold buried deep in the earth.
         </div>
         <div className='font-normal text-white'>
-          At Cognify, we mine, refine, and transform that data into something far more valuable: clarity and data driven intelligence.<br />
+          At Cogniify, we mine, refine, and transform that data into something far more valuable: clarity and data driven intelligence.<br />
           At our core, we are not just a consulting firm—we are curious minds on a mission to solve complex problems through the lens of AI and data. We do solve these complex problems with the best business impact at the core, and interweave it with not only ROI, but also operational excellence, and sustainability in mind.
         </div>
         <div className='font-normal text-white'>
@@ -63,7 +63,7 @@ const AboutUsTab: React.FC = () => {
           This is what we do. This is who we are.
         </div>
         <div className='font-normal text-white'>
-          At Cognify, we believe technology should work for you, not the other way around. Let&apos;s build intelligence that doesn&apos;t just inform—but transforms. We are your AI & Analytics partner for what&apos;s next.
+          At Cogniify, we believe technology should work for you, not the other way around. Let&apos;s build intelligence that doesn&apos;t just inform—but transforms. We are your AI & Analytics partner for what&apos;s next.
         </div>
       </div>
     </div>

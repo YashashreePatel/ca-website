@@ -9,7 +9,7 @@ const MissionAndVisionTab: React.FC = () => {
         </div>
         <div className='flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
           <span>
-            At Cognify, our mission is clear: to deliver scalable, secure, and ROI-focused AI and analytics solutions that turn intelligence into measurable impact. We don&apos;t just build systems—we build outcomes.
+            At Cogniify, our mission is clear: to deliver scalable, secure, and ROI-focused AI and analytics solutions that turn intelligence into measurable impact. We don&apos;t just build systems—we build outcomes.
           </span>
           <span>
             Our mission is grounded in our philosophy of clarity, simplicity, trust, and outcomes. By embedding these principles into every engagement, we ensure that our work does more than meet technical requirements—it transforms businesses.
@@ -41,7 +41,7 @@ const MissionAndVisionTab: React.FC = () => {
             Our vision is to create a future where AI doesn&apos;t replace people—it elevates them. A future where intelligence is seamlessly embedded into the DNA of every enterprise, guiding decisions, driving growth, and enabling sustainable impact.
           </span>
           <span>
-            Cognify&apos;s vision stays true to our philosophy by ensuring that AI is not just about automation or hype, but about human-centered, purposeful transformation. We believe the future belongs to organizations that harness data with clarity, deploy AI responsibly, and scale systems with trust.
+            Cogniify&apos;s vision stays true to our philosophy by ensuring that AI is not just about automation or hype, but about human-centered, purposeful transformation. We believe the future belongs to organizations that harness data with clarity, deploy AI responsibly, and scale systems with trust.
           </span>
           <span>
             This vision helps our clients step beyond short-term solutions and embrace intelligence as a long-term capability—future-proofing their business against disruption, while opening doors to innovation and growth.
