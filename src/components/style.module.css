@@ -50,6 +50,15 @@
 } */
 
 
+/* Reveal Card */
+.reveal_card_title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
 /* Header Styling */
 .nav_link {
   color: white;

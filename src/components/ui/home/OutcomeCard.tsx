@@ -27,7 +27,7 @@ const MetricBadge: React.FC<{ metric: OutcomeMetric }> = ({ metric }) => {
 
 const OutcomeCard: React.FC<OutcomeCardProps> = ({ card }) => {
   return (
-    <div className='relative items-center w-full flex flex-col-reverse tablet:flex-row items-start gap-[80px] p-[40px] bg-black border-[1px] border-brand-purple/20 rounded-[16px]'>
+    <div className='relative items-center w-full flex flex-col-reverse tablet:flex-row items-start gap-[80px] p-[40px] bg-black border-[2px] border-brand-purple/20 rounded-[16px]'>
       <div className='w-full desktop:w-2/3 flex flex-col gap-[12px] desktop:gap-[24px] justify-center items-start'>
         <div className='flex flex-wrap gap-[16px]'>
           {card.tags.map((tag, index) => (

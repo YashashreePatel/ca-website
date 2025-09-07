@@ -1,3 +1,10 @@
+export interface RevealCard {
+  id: number;
+  number?: string;
+  title: string;
+  description: string;
+}
+
 export interface FrameworkCard {
   id: number;
   title: string;
