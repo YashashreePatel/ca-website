@@ -45,8 +45,8 @@ const PhilosophyTab: React.FC = () => {
       </div>
       <div className='grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-[20px] desktop:gap-[30px] items-stretch'>
         {revealCards.map((card) => (
-          <div className='col-span-1'>
-            <HoverRevealCard key={card.id} content={card} />
+          <div key={card.id} className='col-span-1'>
+            <HoverRevealCard content={card} />
           </div>
         ))}
       </div>
