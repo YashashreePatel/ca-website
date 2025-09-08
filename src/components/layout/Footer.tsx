@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+
 // import Twitter from '@/assets/icons/x-fill.svg';
 // import Instagram from '@/assets/icons/instagram-fill.svg';
 // import YouTube from '@/assets/icons/youtube-fill.svg';
@@ -10,43 +12,43 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const footerSections = {
-    product: {
-      title: 'Product',
-      links: [
-        { name: 'Features', href: '/' },
-        { name: 'Integration', href: '/' },
-        { name: 'Updates', href: '/' },
-        { name: 'FAQ', href: '/' },
-        { name: 'Pricing', href: '/' }
-      ],
-    },
+    // product: {
+    //   title: 'Product',
+    //   links: [
+    //     { name: 'Features', href: '/' },
+    //     { name: 'Integration', href: '/' },
+    //     { name: 'Updates', href: '/' },
+    //     { name: 'FAQ', href: '/' },
+    //     { name: 'Pricing', href: '/' }
+    //   ],
+    // },
     company: {
       title: 'Company',
       links: [
         { name: 'About', href: '/about' },
-        { name: 'Blog', href: '/' },
+        { name: 'Services', href: '/services' },
         { name: 'Careers', href: 'https://app.dover.com/jobs/cognifyanalytics' },
-        { name: 'Manifesto', href: '/' },
-        { name: 'Press', href: '/' },
-        { name: 'Contract', href: '/' }
+        // { name: 'Manifesto', href: '/' },
+        // { name: 'Press', href: '/' },
+        // { name: 'Contract', href: '/' }
       ],
     },
-    resources: {
-      title: 'Resources',
-      links: [
-        { name: 'Examples', href: '/' },
-        { name: 'Community', href: '/' },
-        { name: 'Guides', href: '/' },
-        { name: 'Docs', href: '/' },
-        { name: 'Press', href: '/' }
-      ],
-    },
+    // resources: {
+    //   title: 'Resources',
+    //   links: [
+    //     { name: 'Examples', href: '/' },
+    //     { name: 'Community', href: '/' },
+    //     { name: 'Guides', href: '/' },
+    //     { name: 'Docs', href: '/' },
+    //     { name: 'Press', href: '/' }
+    //   ],
+    // },
     legal: {
       title: 'Legal',
       links: [
-        { name: 'Privacy', href: '/' },
-        { name: 'Terms', href: '/' },
-        { name: 'Security', href: '/' }
+        { name: 'Privacy & Terms', href: '/privacy' },
+        // { name: 'Terms', href: '/' },
+        // { name: 'Security', href: '/' }
       ],
     }
   };
@@ -76,9 +78,9 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className='w-full px-[80px] py-[40px] bg-black border-t-[1px] border-t-white/15'>
-      <div className='w-full h-full flex flex-col desktop:flex-row gap-[30px] justify-between items-center desktop:items-stretch'>
-        <div className='w-full flex flex-row gap-[30px] desktop:flex-col items-start justify-between'>
+    <footer className='w-full px-[24px] py-[40px] tablet:px-[60px] desktop:px-[100px] bg-black border-t-[1px] border-t-white/15'>
+      <div className='w-full h-full flex flex-row gap-[30px] justify-between items-center desktop:items-stretch'>
+        <div className='w-full flex flex-col gap-[30px] items-start justify-between'>
           <Link
             href='/'
             className='focus:outline-none'
@@ -93,10 +95,16 @@ const Footer: React.FC = () => {
               className='w-[140px] h-auto'
             />
           </Link>
-
+          <Link
+            target='blank'
+            href='https://www.linkedin.com/company/cogniify-ai/'
+            className='text-body-grey-2 hover:text-symbol-purple'>
+            <LinkedInIcon className='!w-[30px] !h-[30px]'/>
+          </Link>
+          
           {/* Social links */}
-          <div className='flex gap-[10px] justify-between'>
-            {/* {socialLinks.map((social) => (
+          {/* <div className='flex gap-[10px] justify-between'>
+            {socialLinks.map((social) => (
                   <Link
                     key={social.name}
                     href={social.href}
@@ -107,7 +115,7 @@ const Footer: React.FC = () => {
                   >
                     <YouTube className="w-5 h-5 text-white" />
                   </Link>
-                ))} */}
+                ))}
             <Image
               src='/images/icons/x-twitter.png'
               alt='x logo'
@@ -132,10 +140,10 @@ const Footer: React.FC = () => {
               priority
               className='w-[24px] h-auto'
             />
-          </div>
+          </div> */}
 
         </div>
-        <div className='w-full flex flex-row flex-wrap justify-between desktop:justify-evenly items-start gap-[30px] desktop:gap-[80px]'>
+        <div className='w-full flex flex-col desktop:flex-row flex-wrap justify-center desktop:justify-end items-end desktop:items-start gap-[30px] desktop:gap-[80px]'>
           {/* Navigation sections */}
           {Object.entries(footerSections).map(([key, section]) => (
             <div key={key} className='flex flex-col justify-center items-start gap-[20px]'>
@@ -147,7 +155,7 @@ const Footer: React.FC = () => {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className='text-white/50 font-montserrat font-normal text-[16px] leading-none'
+                      className='text-white/50 hover:text-symbol-purple font-montserrat font-normal text-[16px] leading-none'
                     >
                       {link.name}
                     </Link>

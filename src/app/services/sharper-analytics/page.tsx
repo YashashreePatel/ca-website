@@ -3,6 +3,9 @@ import FAQ from '@/components/ui/FAQ';
 import AboveFooter from '@/components/layout/AboveFooter';
 import BackButton from '@/components/ui/BackButton';
 
+import { RevealCard } from '@/types';
+import HoverRevealCard from '@/components/ui/HoverRevealCard';
+
 type FAQItem = {
   question: string;
   answer: string;
@@ -32,46 +35,102 @@ const faqs: FAQItem[] = [
 ];
 
 export default async function SharperAnalytics() {
+  const revealCards: RevealCard[] = [
+    {
+      id: 1,
+      title: 'Define Requirements',
+      data: [
+        'Clarify business and technical specs',
+        'Outline scalability, availability, security, and compliance limits',
+        'Select IaaS, PaaS, SaaS, or a hybrid model'
+      ]
+    },
+    {
+      id: 2,
+      title: 'Architecture Design',
+      data: [
+        'Architect compute, storage, and networking services',
+        'Pick the right provider (AWS, Azure, GCP)',
+        'Plan for high availability, disaster recovery, and cost efficiency'
+      ]
+    },
+    {
+      id: 3,
+      title: 'Resource Provisioning',
+      data: [
+        'Implement IaC using Terraform, CloudFormation, etc.',
+        'Automate provisioning for dev, test, and prod environments',
+        'Enforce security via IAM, VPCs, and firewalls'
+      ]
+    },
+    {
+      id: 4,
+      title: 'Application Deployment',
+      data: [
+        'Containerize applications (Docker, Kubernetes, ECS/EKS/GKE/AKS)',
+        'Implement CI/CD pipelines for consistent, automated deployments',
+        'Configure services ex.load balancers, DNS routing, and API gateways'
+      ]
+    },
+    {
+      id: 5,
+      title: 'Monitoring & Optimization',
+      data: [
+        'Integrate observability tools (CloudWatch, Prometheus, Grafana)',
+        'Monitor performance, availability, and security metrics',
+        'Set up alerts and autoscaling policies for dynamic resource management'
+      ]
+    },
+    {
+      id: 6,
+      title: 'Automation & Governance',
+      data: [
+        'Automate workflows with AWS Lambda, Azure Logic Apps, or Step Functions',
+        'Implement tagging, cost tracking, and budgeting controls',
+        'Maintain security policy compliance and audit readiness'
+      ]
+    }
+  ]
+
   return (
     <div className={`w-full flex flex-col gap-[80px] px-[24px] pb-[80px] pt-[180px] tablet:px-[60px] desktop:px-[100px] bg-black`}>
       <BackButton />
-      <div className='flex flex-col gap-[40px] font-montserrat font-normal text-[16px]'>
-        <div className='text-white'>
-          In today&apos;s world, organizations generate more data than ever before. But without the right tools and expertise, data quickly becomes overwhelming. Our Sharper Analytics service transforms unstructured data into actionable insights—helping you understand the “why” behind the numbers and make informed, future-ready decisions.
-        </div>
-
-        <div className='flex flex-col gap-[10px] items-start text-white'>
-          <span>What We Offer:</span>
-          <span className='pl-[5px] flex flex-row gap-[5px] items-center'>
-            <span className="material-symbols-outlined text-[#AE98FF]">search</span>
-            <span className='text-[#AE98FF]'>Data Discovery & Integration:</span> Seamlessly connect data from multiple sources to create a unified, trustworthy foundation.
+      <div className='flex flex-col gap-[40px] font-montserrat font-normal text-[16px] text-white'>
+        <div className='flex flex-col gap-[24px]'>
+          <span>
+            Sharper Analytics is where clarity begins. In a world flooded with data, businesses often struggle to separate signals from noise. At Cognify, we help leaders unlock insights that matter—insights that fuel confident decisions and measurable outcomes.
           </span>
-          <span className='pl-[5px] flex flex-row gap-[5px] items-center'>
-            <span className="material-symbols-outlined text-[#AE98FF]">bar_chart</span>
-            <span className='text-[#AE98FF]'>Advanced Analytics & Dashboards:</span> Interactive dashboards and visual reports that make complex data easy to interpret.
+          <span>
+            Our philosophy of simplicity and outcomes comes alive here. We don&apos;t overwhelm with endless dashboards. We build analytics ecosystems that deliver precision, speed, and relevance. Every metric, KPI, and visualization is designed to align with business priorities, ensuring leaders see what truly drives value.
           </span>
-          <span className='pl-[5px] flex flex-row gap-[5px] items-center'>
-            <span className="material-symbols-outlined text-[#AE98FF]">star_shine</span>
-            <span className='text-[#AE98FF]'>Predictive Insights:</span> Go beyond descriptive analytics to forecast trends and uncover hidden opportunities.
-          </span>
-          <span className='pl-[5px] flex flex-row gap-[5px] items-center'>
-            <span className="material-symbols-outlined text-[#AE98FF]">target</span>
-            <span className='text-[#AE98FF]'>Customized KPIs & Metrics:</span> Tailored performance indicators that align with your business goals and strategies.
-          </span>
-          <span className='pl-[5px] flex flex-row gap-[5px] items-center'>
-            <span className="material-symbols-outlined text-[#AE98FF]">bolt</span>
-            <span className='text-[#AE98FF]'>Self Service Enablement:</span> Empower your teams with user-friendly tools to explore data independently.
+          <span>
+            Sharper Analytics helps clients move from hindsight to foresight—enabling strategy powered by evidence, not guesswork.
           </span>
         </div>
 
         <div className='flex flex-col gap-[5px] items-start text-white'>
           <span>Why Choose Sharper Analytics?</span>
-          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Clarity over Complexity:</span> Simplify large datasets into meaningful insights.</span>
-          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Smarter Decisions:</span> Make confident choices backed by evidence, not guesswork.</span>
-          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Competitive Advantage:</span> Stay ahead by spotting patterns and opportunities early.</span>
-          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Scalable & Future-Proof:</span> Solutions that grow with your business and adapt to changing needs.</span>
+          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Data Engineering & Pipelines:</span> Reliable pipelines ensure data flows seamlessly, enabling enterprises to trust their information and unlock insights that fuel better business performance.</span>
+          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Business Intelligence & Dashboards:</span> Well-designed dashboards give leaders the clarity they need—turning complexity into simple, actionable stories that drive growth and alignment.</span>
+          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Predictive & Prescriptive Analytics:</span> Analytics that not only explain the past but anticipate what&apos;s next—helping organizations act with foresight, agility, and confidence.</span>
+        </div>
+      </div>
+
+      <div className='flex flex-col gap-[40px] items-center'>
+        <div className='text-white text-center font-neue-regrade font-semibold text-[48px] leading-none'>
+          Our Approach
         </div>
 
+        <div className='grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-[20px] desktop:gap-[30px] items-stretch'>
+          {revealCards.map((card) => (
+            <div key={card.id} className='col-span-1 h-auto tablet:h-[300px]'>
+              <HoverRevealCard content={card} number={true} subtitle={false} data={true} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className='flex flex-col gap-[40px] font-montserrat font-normal text-[16px] text-white'>
         <div className='flex flex-col gap-[5px] items-start text-white'>
           <span>Who It&apos;s For?</span>
           <span className='pl-[5px]'>- Business leaders seeking confidence in decision-making.</span>

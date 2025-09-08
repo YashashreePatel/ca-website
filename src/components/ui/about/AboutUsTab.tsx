@@ -36,9 +36,9 @@ const AboutUsTab: React.FC = () => {
           </div>
         </div>
         <img
-          src='/images/about/tabs/about-us.png'
+          src='/images/about/tabs/about-us.gif'
           alt='about us tab image'
-          className='w-full tablet:w-1/2 object-cover rounded-[8px]'
+          className='h-full w-auto object-cover rounded-[8px]'
         />
       </div>
 

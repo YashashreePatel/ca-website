@@ -15,7 +15,6 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -25,7 +24,6 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);
@@ -33,8 +31,8 @@ const Header: React.FC = () => {
   const navigation = [
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
-    { name: 'Industries', href: '/' },
-    { name: 'Resources', href: '/' },
+    // { name: 'Industries', href: '/' },
+    // { name: 'Resources', href: '/' },
     { name: 'Careers', href: 'https://app.dover.com/jobs/cognifyanalytics' },
   ];
 
@@ -71,7 +69,7 @@ const Header: React.FC = () => {
             <Link
               key={item.name}
               href={item.href}
-              className={`${styles.nav_link} ${isActiveLink(item.href) ? 'nav-link-active' : ''
+              className={`${styles.nav_link} hover:text-symbol-purple ${isActiveLink(item.href) ? 'nav-link-active' : ''
                 }`}
               aria-current={isActiveLink(item.href) ? 'page' : undefined}
             >

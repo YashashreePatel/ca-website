@@ -13,7 +13,7 @@ export default async function Services() {
     },
     {
       id: 2,
-      title: 'Smarter AI',
+      title: 'Smaarter AI',
       description: 'Deploy enterprise-grade AI that adapts, scales, and drives measurable business outcomes.',
       image: '/images/home/intelligence/ai.png',
       link: '/services/smarter-ai'
@@ -50,6 +50,8 @@ export default async function Services() {
           With Cognify, you don&apos;t just get capabilities—you get a partner who designs intelligence that grows, adapts, and delivers sustained business value.
         </div>
       </div>
+
+
       <div className='flex flex-col desktop:flex-row gap-[40px] justify-between items-stretch'>
         {frameworkCards.map((card) => (
           <IntelligenceCard key={card.id} card={card} />

@@ -1,5 +1,3 @@
-'use client';
-
 import Hero from '@/components/about/Hero';
 import Tabs from '@/components/about/Tabs';
 
