@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
       links: [
         { name: 'Privacy & Terms', href: '/privacy' },
         // { name: 'Terms', href: '/' },
-        // { name: 'Security', href: '/' }
+        { name: 'Security', href: '/#security' }
       ],
     }
   };

@@ -10,7 +10,7 @@ const CompliaceCertificate: React.FC = () => {
     '/images/home/certificates/certificate5.png'
   ];
   return (
-    <div className={`w-full flex justify-center items-center px-[24px] py-[50px] tablet:px-[60px] desktop:px-[100px] desktop:py-[80px] bg-black`}>
+    <div id='security' className={`scroll-mt-[100px] w-full flex justify-center items-center px-[24px] py-[50px] tablet:px-[60px] desktop:px-[100px] desktop:py-[80px] bg-black`}>
       <div className='w-full flex flex-col gap-[80px] items-center justify-center'>
         <div className='w-full desktop:w-[830px] flex flex-col gap-[16px] justify-center items-center'>
           <div className='text-white text-center font-neue-regrade font-medium tablet:font-semibold text-[28px] tablet:text-[48px] leading-none'>

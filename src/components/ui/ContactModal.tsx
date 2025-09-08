@@ -8,32 +8,148 @@ interface ContactModalProps {
   onClose: () => void;
 }
 
+interface FormData {
+  fullName: string;
+  email: string;
+  phone: string;
+  project: string;
+}
+
+interface FormErrors {
+  fullName?: string;
+  email?: string;
+  project?: string;
+  privacy?: string;
+}
+
 const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     fullName: '',
     email: '',
     phone: '',
     project: ''
   });
 
+  const [isChecked, setIsChecked] = useState(false);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
-  };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    onClose();
+    // Clear error when user starts typing
+    if (errors[name as keyof FormErrors]) {
+      setErrors({
+        ...errors,
+        [name]: undefined
+      });
+    }
   };
-
-  const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(event.target.checked);
+    
+    // Clear privacy error when user checks the box
+    if (event.target.checked && errors.privacy) {
+      setErrors({
+        ...errors,
+        privacy: undefined
+      });
+    }
+  };
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    // Validate full name
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = 'Full name is required';
+    }
+
+    // Validate email
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email address is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    // Validate project description
+    if (!formData.project.trim()) {
+      newErrors.project = 'Project description is required';
+    }
+
+    // Validate privacy checkbox
+    if (!isChecked) {
+      newErrors.privacy = 'You must agree to the policy and terms';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const submissionData = {
+        id: Date.now().toString(),
+        fullName: formData.fullName.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim() || null,
+        project: formData.project.trim(),
+        submittedAt: new Date().toISOString(),
+        status: 'new'
+      };
+
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+      if (response.ok) {
+        // Reset form
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          project: ''
+        });
+        setIsChecked(false);
+        setErrors({});
+        
+        // Show success message
+        setShowSuccessMessage(true);
+        
+        // Hide success message and close modal after 3 seconds
+        setTimeout(() => {
+          setShowSuccessMessage(false);
+          onClose();
+        }, 3000);
+        
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.message || 'Failed to submit form. Please try again.'}`);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -42,10 +158,28 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center mx-[24px] desktop:mx-0">
       <div
         className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-        onClick={onClose}
+        onClick={() => !showSuccessMessage && onClose()}
       />
 
       <div className="relative flex flex-col desktop:flex-row bg-card-bg rounded-[16px] max-w-4xl w-full p-[24px] gap-[12px] items-center desktop:items-start">
+        
+        {/* Success Message Overlay */}
+        {showSuccessMessage && (
+          <div className="absolute inset-0 bg-green-600/95 rounded-[16px] flex items-center justify-center z-10">
+            <div className="text-center text-white p-8">
+              <div className="font-neue-regrade font-bold text-[24px] mb-2">
+                Thank You!
+              </div>
+              <div className="font-montserrat text-[16px] mb-4">
+                Your inquiry has been submitted successfully.
+              </div>
+              <div className="font-montserrat text-[14px] opacity-80">
+                We&apos;ll get back to you within 24 hours.
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="w-full desktop:w-1/2 flex flex-col gap-[15px] justify-center">
           <div className="text-white text-center desktop:text-left font-neue-regrade font-bold text-[20px]">
             Let&apos;s Collaborate
@@ -70,24 +204,42 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
           <form onSubmit={handleSubmit} className="flex flex-col gap-[20px] items-center desktop:items-start">
             {/* Form Fields Row 1 */}
             <div className="w-full flex flex-col tablet:flex-row gap-4">
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Full Name"
-                value={formData.fullName}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-[#2a2d47] border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-[#2a2d47] border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
+              <div className="w-full">
+                <input
+                  type="text"
+                  name="fullName"
+                  placeholder="Full Name"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  className={`w-full px-4 py-3 bg-[#2a2d47] border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${
+                    errors.fullName 
+                      ? 'border-red-500 focus:ring-red-500' 
+                      : 'border-gray-600 focus:ring-blue-500'
+                  }`}
+                  required
+                />
+                {errors.fullName && (
+                  <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
+                )}
+              </div>
+              <div className="w-full">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className={`w-full px-4 py-3 bg-[#2a2d47] border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${
+                    errors.email 
+                      ? 'border-red-500 focus:ring-red-500' 
+                      : 'border-gray-600 focus:ring-blue-500'
+                  }`}
+                  required
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                )}
+              </div>
             </div>
 
             {/* Phone Number */}
@@ -101,37 +253,61 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             />
 
             {/* Project Description */}
-            <textarea
-              name="project"
-              placeholder="Tell us about your project"
-              value={formData.project}
-              onChange={handleInputChange}
-              rows={6}
-              className="w-full px-4 py-3 bg-[#2a2d47] border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-              required
-            />
-
-            <label className="text-white text-center desktop:text-left font-montserrat text-[16px]">
-              <input
-                type="checkbox"
-                checked={isChecked}
-                onChange={handleCheckboxChange}
+            <div className="w-full">
+              <textarea
+                name="project"
+                placeholder="Tell us about your project"
+                value={formData.project}
+                onChange={handleInputChange}
+                rows={6}
+                className={`w-full px-4 py-3 bg-[#2a2d47] border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 resize-none ${
+                  errors.project 
+                    ? 'border-red-500 focus:ring-red-500' 
+                    : 'border-gray-600 focus:ring-blue-500'
+                }`}
+                required
               />
-              I agree to the terms and policy.
-            </label>
+              {errors.project && (
+                <p className="text-red-500 text-sm mt-1">{errors.project}</p>
+              )}
+            </div>
+
+            {/* Privacy Checkbox */}
+            <div className="w-full">
+              <label className="flex flex-row gap-[5px] text-white text-center desktop:text-left font-montserrat text-[16px]">
+                <input
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
+                  className="mt-1"
+                />
+                <span>I agree to the <a className='text-brand-blue underline' href='/privacy' target='blank'>policy and terms.</a></span>
+              </label>
+              {errors.privacy && (
+                <p className="text-red-500 text-sm mt-1">{errors.privacy}</p>
+              )}
+            </div>
 
             {/* Submit Button */}
-            <Button variant='primary'>Send Your Inqury</Button>
+            <Button 
+              variant='primary' 
+              disabled={isSubmitting || showSuccessMessage}
+              type="submit"
+            >
+              {isSubmitting ? 'Submitting...' : 'Send Your Inquiry'}
+            </Button>
           </form>
         </div>
 
         {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center text-gray-300 hover:text-white transition-colors"
-        >
-          <span className="material-symbols-outlined text-lg">close</span>
-        </button>
+        {!showSuccessMessage && (
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center text-gray-300 hover:text-white transition-colors"
+          >
+            <span className="material-symbols-outlined text-lg">close</span>
+          </button>
+        )}
       </div>
     </div>
   );

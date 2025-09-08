@@ -69,7 +69,7 @@ const Header: React.FC = () => {
             <Link
               key={item.name}
               href={item.href}
-              className={`${styles.nav_link} hover:text-symbol-purple ${isActiveLink(item.href) ? 'nav-link-active' : ''
+              className={`${styles.nav_link} !hover:text-symbol-purple ${isActiveLink(item.href) ? 'nav-link-active' : ''
                 }`}
               aria-current={isActiveLink(item.href) ? 'page' : undefined}
             >

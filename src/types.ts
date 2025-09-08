@@ -101,3 +101,12 @@ export interface InsightArticle {
   tags: string[];
   link: string;
 }
+
+export interface TeamMembers {
+  id: number;
+  name: string;
+  title: string;
+  team: 'core' | 'advisor';
+  image: string;
+  linkedin: string;
+}
