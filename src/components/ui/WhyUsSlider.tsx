@@ -262,7 +262,7 @@ const WhyUsSlider: React.FC = () => {
 
   const slide3: CompanyNumerics = {
     slide: 3,
-    title: 'Need a title here',
+    title: 'Business Value Delivered',
     data: [
       {
         id: 1,
