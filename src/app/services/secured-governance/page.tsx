@@ -76,7 +76,7 @@ export default async function SecuredGovernance() {
       <div className='flex flex-col gap-[40px] font-montserrat font-normal text-[16px] text-white'>
         <div className='flex flex-col gap-[24px]'>
           <span>
-            Secured Governance is the foundation of trust. Without governance, AI is fragile. Without security, innovation is risky. Cognify embeds governance at every layer to ensure compliance, accountability, and transparency.
+            Secured Governance is the foundation of trust. Without governance, AI is fragile. Without security, innovation is risky. Cogniify embeds governance at every layer to ensure compliance, accountability, and transparency.
           </span>
           <span>
             This aligns directly with our philosophy of building AI responsibly. We design frameworks that protect data, respect privacy, and meet global standards—while still enabling agility. For clients, this means confidence: knowing that intelligence is both powerful and principled.

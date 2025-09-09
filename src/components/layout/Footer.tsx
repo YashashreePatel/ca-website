@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
     company: {
       title: 'Company',
       links: [
-        { name: 'About', href: '/about' },
+        { name: 'About Us', href: '/about-us' },
         { name: 'Services', href: '/services' },
         { name: 'Careers', href: 'https://app.dover.com/jobs/cognifyanalytics' },
         // { name: 'Manifesto', href: '/' },

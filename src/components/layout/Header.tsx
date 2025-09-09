@@ -29,7 +29,7 @@ const Header: React.FC = () => {
   }, [pathname]);
 
   const navigation = [
-    { name: 'About', href: '/about' },
+    { name: 'About Us', href: '/about-us' },
     { name: 'Services', href: '/services' },
     // { name: 'Industries', href: '/' },
     // { name: 'Resources', href: '/' },

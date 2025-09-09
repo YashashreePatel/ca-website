@@ -77,7 +77,7 @@ export default async function SecuredGovernance() {
       <div className='flex flex-col gap-[40px] font-montserrat font-normal text-[16px] text-white'>
         <div className='flex flex-col gap-[24px]'>
           <span>
-            Scalable Systems ensure that intelligence doesn&apos;t just work—it endures. Many AI initiatives fail because they can&apos;t scale. Cognify&apos;s expertise lies in engineering systems that grow with the business—secure, resilient, and future-ready.
+            Scalable Systems ensure that intelligence doesn&apos;t just work—it endures. Many AI initiatives fail because they can&apos;t scale. Cogniify&apos;s expertise lies in engineering systems that grow with the business—secure, resilient, and future-ready.
           </span>
           <span>
             Guided by our philosophy of clarity and trust, we design architectures that minimize friction and maximize flexibility. Whether migrating legacy systems to cloud-native platforms or building end-to-end MLOps pipelines, our focus is on sustainable performance.

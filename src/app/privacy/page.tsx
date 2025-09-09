@@ -8,7 +8,7 @@ export default async function Privacy() {
       </div>
       <div className='w-full flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
         <span>
-          Cogniify Analytics is committed to the protection of the privacy rights of individuals. This Privacy Policy (&apos;<span className='font-semibold text-[#AE98FF]'>Cogniify Privacy Policy</span>&apos;) explains how Cogniify handles information relating to an identified or identifiable individual (&apos;Personal Information&apos;) that is provided to Cogniify or that Cogniify collects when you visit www.cogniifyanalytics.com (the &apos;<span className='font-semibold text-[#AE98FF]'>Site</span>&apos;). More specifically, this Privacy Policy informs you as to the categories of Personal Information that we collect or process, why such Personal Information is processed, how it is used and what rights you have. This Privacy Policy does not apply to Personal Information collected on any third-party site or application (including advertising) that may link to or be accessible from our websites. We are not responsible for the privacy policies or data collection, use and disclosure practices of those sites. We encourage you to review the privacy policies of each site you visit.
+          Cogniify Analytics is committed to the protection of the privacy rights of individuals. This Privacy Policy (&apos;<span className='font-semibold text-[#AE98FF]'>Cogniify Privacy Policy</span>&apos;) explains how Cogniify handles information relating to an identified or identifiable individual (&apos;Personal Information&apos;) that is provided to Cogniify or that Cogniify collects when you visit <a target='blank' href='www.cogniify.ai' className='text-brand-blue underline'>www.cogniify.ai</a> (the &apos;<span className='font-semibold text-[#AE98FF]'>Site</span>&apos;). More specifically, this Privacy Policy informs you as to the categories of Personal Information that we collect or process, why such Personal Information is processed, how it is used and what rights you have. This Privacy Policy does not apply to Personal Information collected on any third-party site or application (including advertising) that may link to or be accessible from our websites. We are not responsible for the privacy policies or data collection, use and disclosure practices of those sites. We encourage you to review the privacy policies of each site you visit.
         </span>
         <span>
           The terms &apos;you,&apos; &apos;your,&apos; and &apos;yours&apos; refer to anyone utilizing the Site. The terms &apos;Cogniify,&apos; &apos;we,&apos; &apos;us,&apos; and &apos;our&apos; refer to Cogniify Analytics, Inc. and its subsidiaries and affiliates. By using the Site, you consent to the practices set forth in this Privacy Policy. We may periodically make changes to this Privacy Policy that we will include on this page. It is your responsibility to review this Privacy Policy frequently and remain informed about any changes.
@@ -109,7 +109,7 @@ export default async function Privacy() {
           We will honor such request, withdrawal or objection as required under applicable data protection rules, but you should bear in mind that these rights are not absolute; they do not always apply and may be subject to exceptions.
         </span>
         <span>
-          To exercise your rights, you may send an email to <a className='text-brand-blue' target='blank' href='mailto:info@cognifyanalytics.ai'>info@cognifyanalytics.ai</a>. If you are not satisfied with our response, you have the right to make a complaint to the data protection authority in the jurisdiction where you live or work. The contact details of each Data Protection Authority can be found at the following website: <a className='text-brand-blue' target='blank' href='http://ec.europa.eu/justice/data-protection/article-29/structure/data-protection-authorities/index_en.htm'>http://ec.europa.eu/justice/data-protection/article-29/structure/data-protection-authorities/index_en.htm</a>.
+          To exercise your rights, you may send an email to <a className='text-brand-blue' target='blank' href='mailto:info@cogniify.ai'>info@cogniify.ai</a>. If you are not satisfied with our response, you have the right to make a complaint to the data protection authority in the jurisdiction where you live or work. The contact details of each Data Protection Authority can be found at the following website: <a className='text-brand-blue' target='blank' href='http://ec.europa.eu/justice/data-protection/article-29/structure/data-protection-authorities/index_en.htm'>http://ec.europa.eu/justice/data-protection/article-29/structure/data-protection-authorities/index_en.htm</a>.
         </span>
       </div>
 
@@ -145,7 +145,7 @@ export default async function Privacy() {
           10. California Consumer Privacy Rights
         </span>
         <span>
-          If you are a California Consumer you may have additional rights. See <a className='text-brand-blue' target='blank' href='https://c3.ai/legal/ccpa-privacy-notice-for-california-residents/'>California Consumer Privacy Rights</a> for additional information.
+          If you are a California Consumer you may have additional rights.
         </span>
       </div>
 
@@ -154,7 +154,13 @@ export default async function Privacy() {
           11. Questions and Concerns
         </span>
         <span>
-          If you have any questions or concerns regarding the way we collect or handle your information, please contact us at <a className='text-brand-blue' target='blank' href='mailto:info@cognifyanalytics.ai'>info@cognifyanalytics.ai</a>. Our physical mailing address is:
+          If you have any questions or concerns regarding the way we collect or handle your information, please contact us at <a className='text-brand-blue' target='blank' href='mailto:info@cogniify.ai'>info@cogniify.ai </a>. Our physical mailing address is:
+        </span>
+
+        <span className='pl-[30px] flex flex-col gap-[5px]'>
+          <span>Cogniify Analytics,</span>
+          <span>141 Burgess Ct,</span>
+          <span>Danville , CA 94526</span>
         </span>
 
         <span>

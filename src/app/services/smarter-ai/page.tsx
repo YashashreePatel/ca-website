@@ -76,7 +76,7 @@ export default async function SmarterAI() {
       <div className='flex flex-col gap-[40px] font-montserrat font-normal text-[16px] text-white'>
         <div className='flex flex-col gap-[24px]'>
           <span>
-            Smarter AI is about intelligence with intent. Too often, AI projects remain proofs of concept. At Cognify, we embed AI into production—designed to adapt, scale, and deliver impact.
+            Smarter AI is about intelligence with intent. Too often, AI projects remain proofs of concept. At Cogniify, we embed AI into production—designed to adapt, scale, and deliver impact.
           </span>
           <span>
             Staying true to our philosophy, we design AI that serves people, not replaces them. We combine explainability, ethics, and business alignment to ensure that every algorithm is not only accurate but also trusted. Smarter AI helps enterprises predict, automate, and personalize at scale—turning ambition into outcomes.

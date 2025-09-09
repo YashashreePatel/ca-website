@@ -13,7 +13,7 @@ export default async function Services() {
     },
     {
       id: 2,
-      title: 'Smaarter AI',
+      title: 'Smarter AI',
       description: 'Deploy enterprise-grade AI that adapts, scales, and drives measurable business outcomes.',
       image: '/images/home/intelligence/ai.png',
       link: '/services/smarter-ai'
@@ -41,13 +41,13 @@ export default async function Services() {
       </div>
       <div className='flex flex-col gap-[24px] font-montserrat text-[16px]'>
         <div className='font-semibold text-[#AE98FF]'>
-          At Cognify, our services are anchored in the 4S Intelligence Framework—Sharper Analytics, Smarter AI, Scalable Systems, and Secured Governance. Together, they form a holistic approach that transforms data into clarity, intelligence into impact, and vision into measurable results.
+          At Cogniify, our services are anchored in the 4S Intelligence Framework—Sharper Analytics, Smarter AI, Scalable Systems, and Secured Governance. Together, they form a holistic approach that transforms data into clarity, intelligence into impact, and vision into measurable results.
         </div>
         <div className='font-normal text-white'>
           Unlike traditional consultancies, we don&apos;t deliver siloed projects. We build end-to-end ecosystems that stay true to our philosophy of clarity, trust, and outcomes. Each “S” represents more than a service—it represents a principle of transformation. Sharper Analytics ensures leaders see the right signals. Smarter AI transforms potential into performance. Scalable Systems embed resilience and agility into enterprises. Secured Governance safeguards innovation with trust and accountability.
         </div>
         <div className='font-normal text-white'>
-          With Cognify, you don&apos;t just get capabilities—you get a partner who designs intelligence that grows, adapts, and delivers sustained business value.
+          With Cogniify, you don&apos;t just get capabilities—you get a partner who designs intelligence that grows, adapts, and delivers sustained business value.
         </div>
       </div>
 

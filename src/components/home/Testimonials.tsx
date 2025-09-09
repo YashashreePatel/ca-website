@@ -26,18 +26,18 @@ const Testimonials: React.FC = () => {
 
   // Mock data - ready for admin panel
   const testimonials: Testimonial[] = [
-    {
-      id: 2,
-      name: "James Rodriguez",
-      role: "Marketing Director",
-      company: "Spenga",
-      industry: 'Health & Fitness / Wellness',
-      content: "Cogniify Analytics transformed our marketing strategy. Their data-driven approach helped us separate and optimize leads from different agencies, giving us unprecedented insights into our marketing performance",
-      avatar: "/images/home/testimonials/spenga.png",
-      tags: ["Data Driven", "Marketing Optimization", "Lead Insights"]
+     {
+      id: 1,
+      name: "Versha Singh",
+      role: "Fractional Chief Product Officer",
+      company: "Singh Advisories",
+      industry: 'Consulting / Product Strategy',
+      content: "Cogniify contributed technical support during our early development stage and helped resolve some key issues in the build. Their blockchain understanding was useful in navigating toward audit readiness",
+      avatar: "/images/home/testimonials/singh-advisories.png",
+      tags: ["Trusted Partner", "Product Innovation", "Engineering Solutions"]
     },
     {
-      id: 3,
+      id: 2,
       name: "Eli Meerson",
       role: "Founder",
       company: "TokenQuest",
@@ -47,15 +47,15 @@ const Testimonials: React.FC = () => {
       tags: ["Technical Support", "Blockchain Expertise", "Audit Readiness"]
     },
     {
-      id: 4,
-      name: "Versha Singh",
-      role: "Fractional Chief Product Officer",
-      company: "Singh Advisories",
-      industry: 'Consulting / Product Strategy',
-      content: "Cogniify contributed technical support during our early development stage and helped resolve some key issues in the build. Their blockchain understanding was useful in navigating toward audit readiness",
-      avatar: "/images/home/testimonials/singh-advisories.png",
-      tags: ["Trusted Partner", "Product Innovation", "Engineering Solutions"]
-    },
+      id: 3,
+      name: "James Rodriguez",
+      role: "Marketing Director",
+      company: "Spenga",
+      industry: 'Health & Fitness / Wellness',
+      content: "Cogniify transformed our marketing strategy. Their data-driven approach helped us separate and optimize leads from different agencies, giving us unprecedented insights into our marketing performance",
+      avatar: "/images/home/testimonials/spenga.png",
+      tags: ["Data Driven", "Marketing Optimization", "Lead Insights"]
+    }
   ];
 
   const sliderRef = useRef<Slider>(null);

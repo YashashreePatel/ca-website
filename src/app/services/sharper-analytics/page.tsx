@@ -98,7 +98,7 @@ export default async function SharperAnalytics() {
       <div className='flex flex-col gap-[40px] font-montserrat font-normal text-[16px] text-white'>
         <div className='flex flex-col gap-[24px]'>
           <span>
-            Sharper Analytics is where clarity begins. In a world flooded with data, businesses often struggle to separate signals from noise. At Cognify, we help leaders unlock insights that matter—insights that fuel confident decisions and measurable outcomes.
+            Sharper Analytics is where clarity begins. In a world flooded with data, businesses often struggle to separate signals from noise. At Cogniify, we help leaders unlock insights that matter—insights that fuel confident decisions and measurable outcomes.
           </span>
           <span>
             Our philosophy of simplicity and outcomes comes alive here. We don&apos;t overwhelm with endless dashboards. We build analytics ecosystems that deliver precision, speed, and relevance. Every metric, KPI, and visualization is designed to align with business priorities, ensuring leaders see what truly drives value.

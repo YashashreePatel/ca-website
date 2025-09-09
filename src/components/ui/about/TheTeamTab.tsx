@@ -31,7 +31,7 @@ const TheTeamTab: React.FC = () => {
     {
       id: 4,
       name: 'Rohan Rekhi',
-      title: 'Senior Data Engineer at BlackRock',
+      title: 'Leader Data Engineering at BlackRock',
       team: 'advisor',
       image: '/images/about/team/rohan.jpeg',
       linkedin: 'https://www.linkedin.com/in/rohan-rekhi-46789b3/'
@@ -44,6 +44,22 @@ const TheTeamTab: React.FC = () => {
       image: '/images/about/team/santha.jpeg',
       linkedin: 'https://www.linkedin.com/in/santha-nandakumar/'
     },
+    {
+      id: 6,
+      name: 'Vinoj Kumar',
+      title: 'Vice President of Engineering at Upwork',
+      team: 'advisor',
+      image: '/images/about/team/vinoj.jpeg',
+      linkedin: 'https://www.linkedin.com/in/vinojnkumar/'
+    },
+    {
+      id: 7,
+      name: 'Hemanth Venkateswara',
+      title: 'Assistant Professor at Georgia State University',
+      team: 'advisor',
+      image: '/images/about/team/hemanth.jpeg',
+      linkedin: 'https://www.linkedin.com/in/hemanth-venkateswara-360a093/'
+    }
   ]
   return (
     <div className='w-full flex flex-col gap-[80px] justify-center'>
