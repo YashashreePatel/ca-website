@@ -20,55 +20,55 @@ const faqs: FAQItem[] = [
 
 export default async function SmarterAI() {
   const revealCards: RevealCard[] = [
-    {
-      id: 1,
-      title: 'Define KPIs',
-      data: [
-        'Based on OKRs by business teams, define quantitative metrics',
-        'Create KPIs based on those metrics'
-      ]
-    },
-    {
-      id: 2,
-      title: 'Data Collection',
-      data: [
-        'Identify data sources and connections',
-        'Define Medallion Architecture or any other architecture based on business'
-      ]
-    },
-    {
-      id: 3,
-      title: 'Prepare Data Lakes',
-      data: [
-        'Based on Architecture prepare data warehouse and schemas',
-        'Define security checks and user access'
-      ]
-    },
-    {
-      id: 4,
-      title: 'Develop Workflows',
-      data: [
-        'Create Bronze, Silver and Gold layer workflows',
-        'Define QC checks'
-      ]
-    },
-    {
-      id: 5,
-      title: 'Deploy',
-      data: [
-        'Import Data Model and create semantic layer',
-        'Develop views and reports that help answer defined KPIs'
-      ]
-    },
-    {
-      id: 6,
-      title: 'Schedule & Monitor',
-      data: [
-        'Schedule Data workflow and Dashboard refresh on set cadence',
-        'Using Monitoring Tools ensure data is secure, reliable and consistent'
-      ]
-    }
-  ]
+      {
+        id: 1,
+        title: 'Define Problem',
+        data: [
+          'Clearly define the business or research problem to be solved',
+          'Identify goals, success criteria, and constraints'
+        ]
+      },
+      {
+        id: 2,
+        title: 'Data Collection & EDA',
+        data: [
+          'Gather relevant data from various sources',
+          'Explore data to understand distributions, missing values, patterns, and relationships'
+        ]
+      },
+      {
+        id: 3,
+        title: 'Model Development',
+        data: [
+          'Choose appropriate algorithms',
+          'Train baseline models and evaluate initial results'
+        ]
+      },
+      {
+        id: 4,
+        title: 'Feature Engineering',
+        data: [
+          'Create, select, and transform features to improve model performance',
+          'Build reusable and automated pipelines for data preprocessing'
+        ]
+      },
+      {
+        id: 5,
+        title: 'Model Deployment',
+        data: [
+          'Package and deploy the model to a production environment',
+          'Set up monitoring for accuracy and performance'
+        ]
+      },
+      {
+        id: 6,
+        title: 'Automate & Monitor',
+        data: [
+          'Automate the entire ML pipeline (e.g., using Airflow, MLflow)',
+          'Monitor model drift, data quality, and retrain as needed'
+        ]
+      }
+    ]
 
   return (
     <div className={`w-full flex flex-col gap-[80px] px-[24px] pb-[80px] pt-[180px] tablet:px-[60px] desktop:px-[100px] bg-black`}>

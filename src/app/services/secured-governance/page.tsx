@@ -22,50 +22,56 @@ export default async function SecuredGovernance() {
   const revealCards: RevealCard[] = [
     {
       id: 1,
-      title: 'Define Problem',
+      title: 'Define Requirements',
       data: [
-        'Clearly define the business or research problem to be solved',
-        'Identify goals, success criteria, and constraints'
+        'Clarify business and technical specs',
+        'Outline scalability, availability, security, and compliance limits',
+        'Select IaaS, PaaS, SaaS, or a hybrid model'
       ]
     },
     {
       id: 2,
-      title: 'Data Collection & EDA',
+      title: 'Architecture Design',
       data: [
-        'Gather relevant data from various sources',
-        'Explore data to understand distributions, missing values, patterns, and relationships'
+        'Architect compute, storage, and networking services',
+        'Pick the right provider (AWS, Azure, GCP)',
+        'Plan for high availability, disaster recovery, and cost efficiency'
       ]
     },
     {
       id: 3,
-      title: 'Model Development',
+      title: 'Resource Provisioning',
       data: [
-        'Choose appropriate algorithms',
-        'Train baseline models and evaluate initial results'
+        'Implement IaC using Terraform, CloudFormation, etc.',
+        'Automate provisioning for dev, test, and prod environments',
+        'Enforce security via IAM, VPCs, and firewalls'
       ]
     },
     {
       id: 4,
-      title: 'Feature Engineering',
+      title: 'Application Deployment',
       data: [
-        'Create, select, and transform features to improve model performance',
-        'Build reusable and automated pipelines for data preprocessing'
+        'Containerize applications (Docker, Kubernetes, ECS/EKS/GKE/AKS)',
+        'Implement CI/CD pipelines for consistent, automated deployments',
+        'Configure services ex.load balancers, DNS routing, and API gateways'
       ]
     },
     {
       id: 5,
-      title: 'Model Deployment',
+      title: 'Monitoring & Optimization',
       data: [
-        'Package and deploy the model to a production environment',
-        'Set up monitoring for accuracy and performance'
+        'Integrate observability tools (CloudWatch, Prometheus, Grafana)',
+        'Monitor performance, availability, and security metrics',
+        'Set up alerts and autoscaling policies for dynamic resource management'
       ]
     },
     {
       id: 6,
-      title: 'Automate & Monitor',
+      title: 'Automation & Governance',
       data: [
-        'Automate the entire ML pipeline (e.g., using Airflow, MLflow)',
-        'Monitor model drift, data quality, and retrain as needed'
+        'Automate workflows with AWS Lambda, Azure Logic Apps, or Step Functions',
+        'Implement tagging, cost tracking, and budgeting controls',
+        'Maintain security policy compliance and audit readiness'
       ]
     }
   ]

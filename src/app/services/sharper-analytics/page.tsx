@@ -38,56 +38,50 @@ export default async function SharperAnalytics() {
   const revealCards: RevealCard[] = [
     {
       id: 1,
-      title: 'Define Requirements',
+      title: 'Define KPIs',
       data: [
-        'Clarify business and technical specs',
-        'Outline scalability, availability, security, and compliance limits',
-        'Select IaaS, PaaS, SaaS, or a hybrid model'
+        'Based on OKRs by business teams, define quantitative metrics',
+        'Create KPIs based on those metrics'
       ]
     },
     {
       id: 2,
-      title: 'Architecture Design',
+      title: 'Data Collection',
       data: [
-        'Architect compute, storage, and networking services',
-        'Pick the right provider (AWS, Azure, GCP)',
-        'Plan for high availability, disaster recovery, and cost efficiency'
+        'Identify data sources and connections',
+        'Define Medallion Architecture or any other architecture based on business'
       ]
     },
     {
       id: 3,
-      title: 'Resource Provisioning',
+      title: 'Prepare Data Lakes',
       data: [
-        'Implement IaC using Terraform, CloudFormation, etc.',
-        'Automate provisioning for dev, test, and prod environments',
-        'Enforce security via IAM, VPCs, and firewalls'
+        'Based on Architecture prepare data warehouse and schemas',
+        'Define security checks and user access'
       ]
     },
     {
       id: 4,
-      title: 'Application Deployment',
+      title: 'Develop Workflows',
       data: [
-        'Containerize applications (Docker, Kubernetes, ECS/EKS/GKE/AKS)',
-        'Implement CI/CD pipelines for consistent, automated deployments',
-        'Configure services ex.load balancers, DNS routing, and API gateways'
+        'Create Bronze, Silver and Gold layer workflows',
+        'Define QC checks'
       ]
     },
     {
       id: 5,
-      title: 'Monitoring & Optimization',
+      title: 'Deploy',
       data: [
-        'Integrate observability tools (CloudWatch, Prometheus, Grafana)',
-        'Monitor performance, availability, and security metrics',
-        'Set up alerts and autoscaling policies for dynamic resource management'
+        'Import Data Model and create semantic layer',
+        'Develop views and reports that help answer defined KPIs'
       ]
     },
     {
       id: 6,
-      title: 'Automation & Governance',
+      title: 'Schedule & Monitor',
       data: [
-        'Automate workflows with AWS Lambda, Azure Logic Apps, or Step Functions',
-        'Implement tagging, cost tracking, and budgeting controls',
-        'Maintain security policy compliance and audit readiness'
+        'Schedule Data workflow and Dashboard refresh on set cadence',
+        'Using Monitoring Tools ensure data is secure, reliable and consistent'
       ]
     }
   ]
