@@ -23,7 +23,7 @@ const FAQ: React.FC<FAQProps> = ({ faqs }) => {
         <div key={index} className="w-full text-left py-[30px] border-b-2 border-[#292929] text-white">
           <button
             onClick={() => toggleFAQ(index)}
-            className="flex justify-between items-center w-full"
+            className="cursor-pointer flex justify-between items-center w-full"
           >
             <span>{faq.question}</span>
             <span className='text-[#AE98FF] transition-all duration-500 ease-in-out'>{openIndex === index ? "-" : "+"}</span>

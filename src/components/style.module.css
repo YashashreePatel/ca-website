@@ -6,7 +6,6 @@
 
 .about_hero_bg {
   background-image: url('../../public/images/about/bg.png');
-  mix-blend-mode: luminosity;
   background-position: bottom;
   background-size: cover;
 }

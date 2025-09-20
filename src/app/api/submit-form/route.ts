@@ -25,6 +25,39 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // reCAPTCHA validation
+    const token = body.token;
+    if (!token) {
+      return NextResponse.json(
+        { message: 'Missing reCAPTCHA token' },
+        { status: 400 }
+      );
+    }
+
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+    if (!secretKey) {
+      throw new Error("Missing RECAPTCHA_SECRET_KEY in environment variables");
+    }
+
+    const verifyRes = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `secret=${secretKey}&response=${token}`,
+      }
+    );
+
+    const verifyData = await verifyRes.json();
+
+    if (!verifyData.success) {
+      console.error("reCAPTCHA failed:", verifyData);
+      return NextResponse.json(
+        { message: 'reCAPTCHA verification failed', errors: verifyData['error-codes'] },
+        { status: 400 }
+      );
+    }
+    
     // Create the submission object
     const submission: FormSubmission = {
       id: body.id || Date.now().toString(),
@@ -47,7 +80,7 @@ export async function POST(request: NextRequest) {
         existingSubmissions = JSON.parse(fileContent);
       }
     } catch (error) {
-      console.log('No existing submissions file found, creating new one');
+      console.log('No existing submissions file found, creating new one', error);
       existingSubmissions = [];
     }
 

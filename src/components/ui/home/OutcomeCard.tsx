@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
+
 import Button from '@/components/ui/Button';
 import { OutcomeCard as OutcomeCardType, OutcomeMetric } from '@/types';
 
@@ -51,10 +53,12 @@ const OutcomeCard: React.FC<OutcomeCardProps> = ({ card }) => {
         <Button variant='primary'>View Case Study</Button>
       </div>
       <div className='relative h-full w-full desktop:w-1/3 justify-center'>
-        <img
+        <Image
           src={card.image}
           alt={card.title}
-          className='h-full w-auto object-cover rounded-[8px]'
+          width={1000}
+          height={1000}
+          className='h-full w-full object-cover rounded-[8px]'
         />
         {card.metrics.map((metric) => (
           <MetricBadge key={metric.id} metric={metric} />

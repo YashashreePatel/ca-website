@@ -2,12 +2,6 @@ import React, { useState, useRef } from 'react';
 import OutcomeCard from '@/components/ui/home/OutcomeCard';
 import { OutcomeCard as OutcomeCardType } from '@/types';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 import Slider from 'react-slick';
 
 const DrivingOutcomes: React.FC = () => {
@@ -155,7 +149,7 @@ const DrivingOutcomes: React.FC = () => {
           <div className='relative flex flex-row gap-[40px] items-center justify-center'>
             <button
               onClick={goToPrev}
-              className="relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
+              className="cursor-pointer relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
               <span className="material-symbols-outlined">arrow_back</span>
             </button>
             <div className="flex flex-row gap-[10px]">
@@ -163,13 +157,13 @@ const DrivingOutcomes: React.FC = () => {
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`w-[5px] h-[5px] bg-white rounded-full ${currentSlide === index ? 'w-[40px]' : ''}`}
+                  className={`cursor-pointer w-[5px] h-[5px] bg-white rounded-full ${currentSlide === index ? 'w-[40px]' : ''}`}
                 />
               ))}
             </div>
             <button
               onClick={goToNext}
-              className="relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
+              className="cursor-pointer relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
               <span className="material-symbols-outlined">arrow_forward</span>
             </button>
           </div>

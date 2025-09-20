@@ -4,12 +4,13 @@ import { RevealCard } from '@/types';
 
 interface RevealCardProps {
   content: RevealCard;
+  icon: boolean;
   number: boolean;
   subtitle: boolean;
   data: boolean;
 }
 
-const HoverRevealCard: React.FC<RevealCardProps> = ({ content, number, subtitle, data }) => {
+const HoverRevealCard: React.FC<RevealCardProps> = ({ content, icon, number, subtitle, data }) => {
   return (
     <div className='relative h-full border-[2px] bg-card-bg/50 border-brand-purple/20 rounded-[16px] overflow-hidden'>
       {number == true ? (
@@ -30,6 +31,15 @@ const HoverRevealCard: React.FC<RevealCardProps> = ({ content, number, subtitle,
             {content.subtitle}
           </div>
         </div>
+      ) : icon == true ? (
+        <div className={`${styles.reveal_card_title} w-full px-[34px] py-[24px] flex flex-col gap-[10px]`}>
+          <div className='text-center text-[#AE98FF] font-neue-regrade font-semibold'>
+            <span className="material-symbols-outlined !text-[40px]">{content.icon}</span>
+          </div>
+          <div className='text-center text-white font-neue-regrade font-medium text-[20px]'>
+            {content.title}
+          </div>
+        </div>
       ) : (
         <div className='w-full'>
           <div className={`${styles.reveal_card_title} text-center text-symbol-purple/10 font-neue-regrade font-semibold text-[60px] leading-none`}>
@@ -40,7 +50,7 @@ const HoverRevealCard: React.FC<RevealCardProps> = ({ content, number, subtitle,
           </div>
         </div>
       )}
-      <div className='opacity-0 hover:opacity-100 h-full flex items-center px-[34px] py-[24px] bg-white/5 backdrop-blur-lg transition-all duration-300'>
+      <div className='opacity-0 hover:opacity-100 active:opacity-100 h-full flex items-center px-[34px] py-[24px] bg-white/5 backdrop-blur-lg transition-all duration-300'>
         <div className='text-body-grey-2 text-center font-montserrat font-normal text-[16px]'>
           {data == true ? (
             <div className='flex flex-col items-start gap-[5px]'>

@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Button from '@/components/ui/Button';
 import ContactModal from '@/components/ui/ContactModal';
-import styles from '../style.module.css';
 
 type AboveFooterProps = {
   title: string;

@@ -1,14 +1,9 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { gsap } from 'gsap';
 
-interface HorizontalSliderProps {
-  images: string[];
-  folder: string;
-}
-
-// const HorizontalSlider: React.FC<HorizontalSliderProps> = ({ images, folder }) => {
 const HorizontalSlider: React.FC = () => {
   const images = [
     '/images/home/trusted-by/image1.png',
@@ -46,10 +41,12 @@ const HorizontalSlider: React.FC = () => {
         className="flex gap-[80px] w-max"
       >
         {duplicatedImages.map((img, index) => (
-          <img
+          <Image
             key={index}
             src={`${img}`}
             alt={`Image ${index}`}
+            width={300}
+            height={150}
             className="w-[180px] h-[80px] object-cover rounded-[8px] flex-shrink-0"
           />
         ))}

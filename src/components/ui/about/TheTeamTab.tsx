@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TeamMembers } from '@/types';
 import TeamMember from '../TeamMember';
 

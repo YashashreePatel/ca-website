@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
+
 import { InsightArticle } from '@/types';
 
 interface InsightCardProps {
@@ -9,9 +11,11 @@ const InsightCard: React.FC<InsightCardProps> = ({ article }) => {
   return (
     <div className='relative flex flex-col gap-[32px] bg-black'>
       <div className='w-full justify-center'>
-        <img
+        <Image
           src={article.image}
           alt={article.title}
+          width={1000}
+          height={1000}
           className='w-full h-auto object-contain'
         />
       </div>

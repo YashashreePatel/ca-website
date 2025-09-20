@@ -54,15 +54,15 @@ const ExecutionPhilosophy: React.FC = () => {
             src='/images/home/philosophy.png'
             alt='Cogniify Logo'
             width={1000}
-            height={48}
+            height={200}
             priority
             className='w-full h-auto hidden desktop:block'
           />
           <Image
             src='/images/home/philosophy-sm.png'
             alt='Cogniify Logo'
-            width={500}
-            height={24}
+            width={1000}
+            height={500}
             priority
             className='w-full h-auto block desktop:hidden'
           />

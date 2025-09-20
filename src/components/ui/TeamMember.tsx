@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
+
 import { TeamMembers } from '@/types';
 import Link from 'next/link';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -11,9 +13,11 @@ const TeamMember: React.FC<TeamMemberCardProps> = ({ member }) => {
   return (
     <div className='relative w-full flex flex-col gap-[32px] bg-black'>
       <div className='w-full justify-center'>
-        <img
+        <Image
           src={member.image}
           alt={member.name}
+          width={1000}
+          height={1000}
           className='w-full h-[350px] object-cover'
         />
       </div>

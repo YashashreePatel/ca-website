@@ -29,8 +29,8 @@ const CompliaceCertificate: React.FC = () => {
               key={index}
               src={img}
               alt='Certificate'
-              width={160}
-              height={48}
+              width={500}
+              height={100}
               priority
               className='h-[240px] w-auto'
             />

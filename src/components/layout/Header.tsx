@@ -30,10 +30,10 @@ const Header: React.FC = () => {
 
   const navigation = [
     { name: 'About Us', href: '/about-us' },
-    { name: 'Services', href: '/services' },
+    { name: 'Offerings', href: '/offerings' },
     // { name: 'Industries', href: '/' },
     // { name: 'Resources', href: '/' },
-    { name: 'Careers', href: 'https://app.dover.com/jobs/cognifyanalytics' },
+    { name: 'Careers', href: 'https://app.dover.com/jobs/cogniify' },
   ];
 
   const isActiveLink = (href: string) => {
@@ -56,10 +56,10 @@ const Header: React.FC = () => {
           <Image
             src='/images/logo-white.png'
             alt='Cogniify Logo'
-            width={160}
-            height={48}
+            width={300}
+            height={50}
             priority
-            className='w-120px h-auto'
+            className='w-[140px] h-auto'
           />
         </Link>
 
@@ -69,7 +69,7 @@ const Header: React.FC = () => {
             <Link
               key={item.name}
               href={item.href}
-              className={`${styles.nav_link} !hover:text-symbol-purple ${isActiveLink(item.href) ? 'nav-link-active' : ''
+              className={`text-[14px] font-normal font-montserrat text-white hover:text-symbol-purple px-[24px] py-[12px] transition-all duration-300 ${isActiveLink(item.href) ? 'nav-link-active' : ''
                 }`}
               aria-current={isActiveLink(item.href) ? 'page' : undefined}
             >

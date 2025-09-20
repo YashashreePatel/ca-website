@@ -45,10 +45,7 @@ const CookieConsent: React.FC = () => {
       <div className='w-full fixed bottom-0 left-0 z-50 bg-white/5 px-[24px] py-[50px] tablet:px-[60px] desktop:px-[100px] desktop:py-[80px] backdrop-blur-lg'>
         <div className='flex flex-col items-center justify-center gap-[10px]'>
           <div className='text-white font-montserrat font-normal text-[16px]'>
-            We use cookies to enhance your experience and analyze site usage. 
-            <a href="/privacy" className="text-brand-bule hover:underline">
-              Learn more
-            </a>
+            We use cookies to enhance your experience and analyze site usage.  <a className='text-brand-blue underline' href='/privacy-policy' target='blank'>Learn More</a>.
           </div>
           <div className='w-full flex flex-col tablet:flex-row justify-center gap-[10px]'>
             {/* <Button onClick={() => setShowPreferences(true)} variant='primary'>Customize</Button> */}

@@ -1,6 +1,7 @@
 export interface RevealCard {
   id: number;
   title: string;
+  icon?: string;
   subtitle?: string;
   description?: string;
   data?: string[];

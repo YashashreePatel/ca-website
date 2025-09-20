@@ -3,7 +3,6 @@
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 
-import styles from '../style.module.css';
 import { CompanyValues, CompanyImpacts, CompanyNumerics } from '@/types';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -46,8 +45,8 @@ const ValuesSlide: React.FC<{ values: CompanyValues }> = ({ values }) => {
           <Image
             src={values.image}
             alt={`Slide ${values.slide}`}
-            width={160}
-            height={48}
+            width={800}
+            height={200}
             priority
             className='w-full h-auto'
           />
@@ -109,10 +108,10 @@ const ImpactSlide: React.FC<{ impacts: CompanyImpacts }> = ({ impacts }) => {
           <Image
             src={impacts.image}
             alt={`${impacts.slide}`}
-            width={160}
-            height={48}
+            width={800}
+            height={200}
             priority
-            className='w-full h-auto'
+            className='w-full desktop:w-[300px] h-auto'
           />
         </div>
         <div className='flex flex-col gap-[50px] items-center justify-end'>
@@ -132,9 +131,11 @@ const NumericSlide: React.FC<{ numerics: CompanyNumerics }> = ({ numerics }) => 
   const renderValueItem = (item: { id: number; icon: string; number: string; description: string }) => (
     <div key={item.id} className='flex flex-col gap-[8px] justify-center items-center'>
       <div className='w-full flex flex-row gap-[16px] items-center justify-center'>
-        <img
+        <Image
           src={item.icon}
           alt={item.number}
+          width={300}
+          height={300}
           className='w-[40px] h-[40px] object-cover'
         />
         <div className='text-symbol-purple font-neue-regrade font-semibold text-[40px] leading-none'>
@@ -175,8 +176,6 @@ const NumericSlide: React.FC<{ numerics: CompanyNumerics }> = ({ numerics }) => 
 };
 
 const WhyUsSlider: React.FC = () => {
-  const [activeItem, setActiveItem] = useState<number | null>(null);
-
   const slide1: CompanyValues = {
     slide: 1,
     title: 'Elevating Intelligence. Accelerating impact. Building what truly matters.',
@@ -354,7 +353,7 @@ const WhyUsSlider: React.FC = () => {
       <div className='relative flex flex-row gap-[40px] mt-[40px] items-center justify-center'>
         <button
           onClick={goToPrev}
-          className="relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
+          className="cursor-pointer relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
           <span className="material-symbols-outlined">arrow_back</span>
         </button>
         <div className="flex flex-row gap-[10px]">
@@ -362,13 +361,13 @@ const WhyUsSlider: React.FC = () => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-[5px] h-[5px] bg-white rounded-full ${currentSlide === index ? 'w-[40px]' : ''}`}
+              className={`cursor-pointer w-[5px] h-[5px] bg-white rounded-full ${currentSlide === index ? 'w-[40px]' : ''}`}
             />
           ))}
         </div>
         <button
           onClick={goToNext}
-          className="relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
+          className="cursor-pointer relative w-[40px] h-[40px] rounded-[12px] bg-black hover:bg-body-grey-2 text-white text-[10px] after:content-[''] border-[1px] border-white/30 flex items-center justify-center">
           <span className="material-symbols-outlined">arrow_forward</span>
         </button>
       </div>

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Image from 'next/image';
 
 const AboutUsTab: React.FC = () => {
   return (
@@ -20,8 +21,8 @@ const AboutUsTab: React.FC = () => {
         </div>
       </div>
 
-      <div className='flex flex-col tablet:flex-row gap-[40px] items-center'>
-        <div className='w-full tablet:w-1/2 flex flex-col gap-[24px] font-montserrat'>
+      <div className='w-full flex flex-col tablet:flex-row gap-[40px] items-center'>
+        <div className='w-full tablet:w-1/2 desktop:w-2/3 flex flex-col gap-[24px] font-montserrat'>
           <div className='font-semibold text-[24px] text-white'>
             We believe that artificial intelligence is not just a technology—it&apos;s a mindset.
           </div>
@@ -35,10 +36,12 @@ const AboutUsTab: React.FC = () => {
             We partner with organizations that are ready to rethink what&apos;s possible—leaders who understand that real transformation starts with asking the right questions, not just chasing trends.
           </div>
         </div>
-        <img
+        <Image
           src='/images/about/tabs/about-us.gif'
           alt='about us tab image'
-          className='h-full w-auto object-cover rounded-[8px]'
+          width={1000}
+          height={1000}
+          className='h-full w-full tablet:w-1/2 desktop:w-1/3 object-cover rounded-[8px]'
         />
       </div>
 

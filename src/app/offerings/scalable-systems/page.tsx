@@ -1,5 +1,5 @@
 import React from 'react';
-import FAQ from '@/components/ui/FAQ';
+// import FAQ from '@/components/ui/FAQ';
 import AboveFooter from '@/components/layout/AboveFooter';
 import BackButton from '@/components/ui/BackButton';
 
@@ -7,17 +7,17 @@ import { RevealCard } from '@/types';
 import HoverRevealCard from '@/components/ui/HoverRevealCard';
 
 
-type FAQItem = {
-  question: string;
-  answer: string;
-};
+// type FAQItem = {
+//   question: string;
+//   answer: string;
+// };
 
-const faqs: FAQItem[] = [
-  {
-    question: "",
-    answer: ""
-  }
-];
+// const faqs: FAQItem[] = [
+//   {
+//     question: "",
+//     answer: ""
+//   }
+// ];
 
 export default async function SecuredGovernance() {
   const revealCards: RevealCard[] = [
@@ -34,7 +34,7 @@ export default async function SecuredGovernance() {
       id: 2,
       title: 'Architecture Design',
       data: [
-        'Architect compute, storage, and networking services',
+        'Architect compute, storage, and networking offerings',
         'Pick the right provider (AWS, Azure, GCP)',
         'Plan for high availability, disaster recovery, and cost efficiency'
       ]
@@ -54,7 +54,7 @@ export default async function SecuredGovernance() {
       data: [
         'Containerize applications (Docker, Kubernetes, ECS/EKS/GKE/AKS)',
         'Implement CI/CD pipelines for consistent, automated deployments',
-        'Configure services ex.load balancers, DNS routing, and API gateways'
+        'Configure offerings ex.load balancers, DNS routing, and API gateways'
       ]
     },
     {
@@ -108,8 +108,8 @@ export default async function SecuredGovernance() {
 
         <div className='grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-[20px] desktop:gap-[30px] items-stretch'>
           {revealCards.map((card) => (
-            <div key={card.id} className='col-span-1 h-auto tablet:h-[300px]'>
-              <HoverRevealCard content={card} number={true} subtitle={false} data={true} />
+            <div key={card.id} className='col-span-1 h-auto desktop:h-[300px]'>
+              <HoverRevealCard content={card} icon={false} number={true} subtitle={false} data={true} />
             </div>
           ))}
         </div>
@@ -118,14 +118,19 @@ export default async function SecuredGovernance() {
       <div className='flex flex-col gap-[40px] font-montserrat font-normal text-[16px] text-white'>
         <div className='flex flex-col gap-[5px] items-start text-white'>
           <span>Who It&apos;s For?</span>
-          <span className='pl-[5px]'>- Business leaders seeking confidence in decision-making.</span>
-          <span className='pl-[5px]'>- Strategy and operations teams needing data-driven clarity.</span>
-          <span className='pl-[5px]'>- Organizations ready to move from reactive to proactive growth.</span>
+          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Technology & Engineering Leaders</span>, like CTOs and VP Engineering, who want confidence in deploying AI solutions that perform under growing demand.</span>
+          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Data Platform & DevOps Teams</span> tasked with building resilient, efficient infrastructure that supports evolving workflows and complex integrations.</span>
+          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Business Executives & Strategy Teams</span> needing assurance that intelligence-driven initiatives remain reliable, cost-effective, and aligned with business growth.</span>
+          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Enterprises Modernizing Legacy Tech</span>, aiming to migrate fragile systems into agile, cloud-native architectures without sacrificing performance or security.</span>
         </div>
 
         <div className='flex flex-col gap-[5px] items-start text-white'>
           <span>The Outcome</span>
-          <span>With Scalable System, your data stops being a pile of numbers and becomes a powerful decision-making asset. You gain sharper foresight, improved performance, and the agility to adapt with certainty.</span>
+          <span></span>
+          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Boundless Scalability:</span> your systems expand effortlessly with demand, ensuring uptime and performance at scale.</span>
+          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Operational Agility:</span> streamlined CI/CD and infrastructure automation empower rapid, safe iterations and deployments.</span>
+          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Rock-Solid Resilience:</span> resilient cloud-native architectures with built-in high availability, monitoring, and disaster recovery.</span>
+          <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>Data-Driven Confidence:</span> real-time observability, autoscaling, and cost controls provide clarity and control over performance and spend.</span>
         </div>
       </div>
 
@@ -138,8 +143,8 @@ export default async function SecuredGovernance() {
       </div> */}
 
       <AboveFooter
-        title="Want to unlock scalability from your data?"
-        subtitle='Explore how Scalable Systems can transform your decision-making.'
+        title="Want your systems to grow as fast as your vision?"
+        subtitle='Discover how Scalable Systems can deliver resilience, agility, and performance at any scale.'
         buttonText="Contact Us"
       />
     </div>

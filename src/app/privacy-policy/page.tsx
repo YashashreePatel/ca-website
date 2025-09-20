@@ -4,19 +4,19 @@ export default async function Privacy() {
   return (
     <div className={`w-full flex flex-col gap-[80px] items-center justify-center px-[24px] pb-[80px] pt-[180px] tablet:px-[60px] desktop:px-[100px] bg-black`}>
       <div className='text-white text-center font-neue-regrade font-semibold text-[48px] leading-none'>
-        <span className='text-[#AE98FF]'>Cogniify Analytics</span> Privacy Policy
+        Cogniify <span className='text-[#AE98FF]'>Privacy</span> Policy
       </div>
       <div className='w-full flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
         <span>
-          Cogniify Analytics is committed to the protection of the privacy rights of individuals. This Privacy Policy (&apos;<span className='font-semibold text-[#AE98FF]'>Cogniify Privacy Policy</span>&apos;) explains how Cogniify handles information relating to an identified or identifiable individual (&apos;Personal Information&apos;) that is provided to Cogniify or that Cogniify collects when you visit <a target='blank' href='www.cogniify.ai' className='text-brand-blue underline'>www.cogniify.ai</a> (the &apos;<span className='font-semibold text-[#AE98FF]'>Site</span>&apos;). More specifically, this Privacy Policy informs you as to the categories of Personal Information that we collect or process, why such Personal Information is processed, how it is used and what rights you have. This Privacy Policy does not apply to Personal Information collected on any third-party site or application (including advertising) that may link to or be accessible from our websites. We are not responsible for the privacy policies or data collection, use and disclosure practices of those sites. We encourage you to review the privacy policies of each site you visit.
+          Cogniify is committed to the protection of the privacy rights of individuals. This Privacy Policy (&apos;<span className='text-[#AE98FF]'>Cogniify Privacy Policy</span>&apos;) explains how Cogniify handles information relating to an identified or identifiable individual (&apos;Personal Information&apos;) that is provided to Cogniify or that Cogniify collects when you visit <a target='blank' href='www.cogniify.ai' className='text-brand-blue'>www.cogniify.ai</a> (the &apos;<span className='text-[#AE98FF]'>Site</span>&apos;). More specifically, this Privacy Policy informs you as to the categories of Personal Information that we collect or process, why such Personal Information is processed, how it is used and what rights you have. This Privacy Policy does not apply to Personal Information collected on any third-party site or application (including advertising) that may link to or be accessible from our websites. We are not responsible for the privacy policies or data collection, use and disclosure practices of those sites. We encourage you to review the privacy policies of each site you visit.
         </span>
         <span>
-          The terms &apos;you,&apos; &apos;your,&apos; and &apos;yours&apos; refer to anyone utilizing the Site. The terms &apos;Cogniify,&apos; &apos;we,&apos; &apos;us,&apos; and &apos;our&apos; refer to Cogniify Analytics, Inc. and its subsidiaries and affiliates. By using the Site, you consent to the practices set forth in this Privacy Policy. We may periodically make changes to this Privacy Policy that we will include on this page. It is your responsibility to review this Privacy Policy frequently and remain informed about any changes.
+          The terms &apos;you,&apos; &apos;your,&apos; and &apos;yours&apos; refer to anyone utilizing the Site. The terms &apos;Cogniify,&apos; &apos;we,&apos; &apos;us,&apos; and &apos;our&apos; refer to Cogniify, Inc. and its subsidiaries and affiliates. By using the Site, you consent to the practices set forth in this Privacy Policy. We may periodically make changes to this Privacy Policy that we will include on this page. It is your responsibility to review this Privacy Policy frequently and remain informed about any changes.
         </span>
       </div>
 
       <div className='w-full flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
-        <span className='text-[#AE98FF] font-semibold'>
+        <span className='text-[#AE98FF]'>
           1. How and What Personal Information Is Collected
         </span>
         <span>
@@ -27,7 +27,7 @@ export default async function Privacy() {
         </span>
 
         <span className='pl-[30px] text-white'><span className='italic'>a. Essential Cookies.</span> Essential cookies facilitate your use and navigation of the Site. Essential cookies include session cookies, which are temporary cookies that remain in the cookie file of your browser until you close the browser.</span>
-        <span className='pl-[30px] text-white'><span className='italic'>b. Analytics Cookies.</span> We and our service providers use analytics cookies that collect aggregated and / or anonymous information to analyze the performance of the Site and how it is used. For example, analytics cookies show us which areas of the Site are most frequently visited. An example of a third-party analytics cookie is the Google Analytics cookie. Users may obtain information on how to opt out of Google Analytics cookies at the following URL: <a target='blank' href='https://policies.google.com/technologies/ads' className='text-brand-blue underline'>https://policies.google.com/technologies/ads.</a></span>
+        <span className='pl-[30px] text-white'><span className='italic'>b. Analytics Cookies.</span> We and our service providers use analytics cookies that collect aggregated and / or anonymous information to analyze the performance of the Site and how it is used. For example, analytics cookies show us which areas of the Site are most frequently visited. An example of a third-party analytics cookie is the Google Analytics cookie. Users may obtain information on how to opt out of Google Analytics cookies at the following URL: <a target='blank' href='https://policies.google.com/technologies/ads' className='text-brand-blue'>https://policies.google.com/technologies/ads.</a></span>
         <span className='pl-[30px] text-white'><span className='italic'>c. Third Party Marketing Cookies.</span> These cookies collect information on your activities on the Site and other sites to display targeted marketing based on your interests.</span>
 
         <span>
@@ -36,7 +36,7 @@ export default async function Privacy() {
       </div>
 
       <div className='w-full flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
-        <span className='text-[#AE98FF] font-semibold'>
+        <span className='text-[#AE98FF]'>
           2. How Information Is Used
         </span>
         <span>
@@ -56,7 +56,7 @@ export default async function Privacy() {
       </div>
 
       <div className='w-full flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
-        <span className='text-[#AE98FF] font-semibold'>
+        <span className='text-[#AE98FF]'>
           3. Legal Basis for Processing
         </span>
         <span>
@@ -69,7 +69,7 @@ export default async function Privacy() {
       </div>
 
       <div className='w-full flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
-        <span className='text-[#AE98FF] font-semibold'>
+        <span className='text-[#AE98FF]'>
           4. Duration of Processing Personal Data
         </span>
         <span>
@@ -78,7 +78,7 @@ export default async function Privacy() {
       </div>
 
       <div className='w-full flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
-        <span className='text-[#AE98FF] font-semibold'>
+        <span className='text-[#AE98FF]'>
           5. Sharing and Disclosure of Information
         </span>
         <span>
@@ -87,7 +87,7 @@ export default async function Privacy() {
       </div>
 
       <div className='w-full flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
-        <span className='text-[#AE98FF] font-semibold'>
+        <span className='text-[#AE98FF]'>
           6. Your Rights and How to Exercise Them
         </span>
         <span>
@@ -114,7 +114,7 @@ export default async function Privacy() {
       </div>
 
       <div className='w-full flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
-        <span className='text-[#AE98FF] font-semibold'>
+        <span className='text-[#AE98FF]'>
           7. Information Security
         </span>
         <span>
@@ -123,7 +123,7 @@ export default async function Privacy() {
       </div>
 
       <div className='w-full flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
-        <span className='text-[#AE98FF] font-semibold'>
+        <span className='text-[#AE98FF]'>
           8. International Transfers
         </span>
         <span>
@@ -132,7 +132,7 @@ export default async function Privacy() {
       </div>
 
       <div className='w-full flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
-        <span className='text-[#AE98FF] font-semibold'>
+        <span className='text-[#AE98FF]'>
           9. Children
         </span>
         <span>
@@ -141,16 +141,16 @@ export default async function Privacy() {
       </div>
 
       <div className='w-full flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
-        <span className='text-[#AE98FF] font-semibold'>
+        <span className='text-[#AE98FF]'>
           10. California Consumer Privacy Rights
         </span>
         <span>
-          If you are a California Consumer you may have additional rights.
+          If you are a California Consumer you may have additional rights. See <a className='text-brand-blue' href='/privacy-policy/ccpa-notice'>California Consumer Privacy Rights</a> for additional information.
         </span>
       </div>
 
       <div className='w-full flex flex-col gap-[24px] font-montserrat text-[16px] font-normal text-white'>
-        <span className='text-[#AE98FF] font-semibold'>
+        <span className='text-[#AE98FF]'>
           11. Questions and Concerns
         </span>
         <span>
@@ -158,7 +158,7 @@ export default async function Privacy() {
         </span>
 
         <span className='pl-[30px] flex flex-col gap-[5px]'>
-          <span>Cogniify Analytics,</span>
+          <span>Cogniify,</span>
           <span>141 Burgess Ct,</span>
           <span>Danville , CA 94526</span>
         </span>

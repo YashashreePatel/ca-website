@@ -9,7 +9,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 // import YouTube from '@/assets/icons/youtube-fill.svg';
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+  // const currentYear = new Date().getFullYear();
 
   const footerSections = {
     // product: {
@@ -26,8 +26,8 @@ const Footer: React.FC = () => {
       title: 'Company',
       links: [
         { name: 'About Us', href: '/about-us' },
-        { name: 'Services', href: '/services' },
-        { name: 'Careers', href: 'https://app.dover.com/jobs/cognifyanalytics' },
+        { name: 'Offerings', href: '/offerings' },
+        { name: 'Careers', href: 'https://app.dover.com/jobs/cogniify' },
         // { name: 'Manifesto', href: '/' },
         // { name: 'Press', href: '/' },
         // { name: 'Contract', href: '/' }
@@ -46,36 +46,37 @@ const Footer: React.FC = () => {
     legal: {
       title: 'Legal',
       links: [
-        { name: 'Privacy & Terms', href: '/privacy' },
+        { name: 'Privacy & Terms', href: '/privacy-policy' },
+        { name: 'Data Processing Agreements (DPA)', href: '/dpa' },
         // { name: 'Terms', href: '/' },
         { name: 'Security', href: '/#security' }
       ],
     }
   };
 
-  const socialLinks = [
-    {
-      name: 'Twitter',
-      href: '',
-      // icon: (
-      //   <Twitter className="w-5 h-5 text-white" />
-      // )
-    },
-    {
-      name: 'Instagram',
-      href: '',
-      // icon: (
-      //   <Instagram className="w-5 h-5 text-white" />
-      // )
-    },
-    {
-      name: 'YouTube',
-      href: '',
-      // icon: (
-      //   <YouTube className="w-5 h-5 text-white" />
-      // )
-    }
-  ];
+  // const socialLinks = [
+  //   {
+  //     name: 'Twitter',
+  //     href: '',
+  //     // icon: (
+  //     //   <Twitter className="w-5 h-5 text-white" />
+  //     // )
+  //   },
+  //   {
+  //     name: 'Instagram',
+  //     href: '',
+  //     // icon: (
+  //     //   <Instagram className="w-5 h-5 text-white" />
+  //     // )
+  //   },
+  //   {
+  //     name: 'YouTube',
+  //     href: '',
+  //     // icon: (
+  //     //   <YouTube className="w-5 h-5 text-white" />
+  //     // )
+  //   }
+  // ];
 
   return (
     <footer className='w-full px-[24px] py-[40px] tablet:px-[60px] desktop:px-[100px] bg-black border-t-[1px] border-t-white/15'>
@@ -89,8 +90,8 @@ const Footer: React.FC = () => {
             <Image
               src='/images/logo-white.png'
               alt='Cogniify Logo'
-              width={160}
-              height={48}
+              width={300}
+              height={50}
               priority
               className='w-[140px] h-auto'
             />
@@ -146,11 +147,11 @@ const Footer: React.FC = () => {
         <div className='w-full flex flex-col desktop:flex-row flex-wrap justify-center desktop:justify-end items-end desktop:items-start gap-[30px] desktop:gap-[80px]'>
           {/* Navigation sections */}
           {Object.entries(footerSections).map(([key, section]) => (
-            <div key={key} className='flex flex-col justify-center items-start gap-[20px]'>
+            <div key={key} className='flex flex-col justify-center items-end desktop:items-start gap-[5px] desktop:gap-[20px]'>
               <h3 className='text-white font-neue-regrade font-semibold text-[20px] leading-none'>
                 {section.title}
               </h3>
-              <ul role='list' className='hidden desktop:flex flex-col justify-center items-start gap-[20px]'>
+              <ul role='list' className='flex flex-col justify-center items-end desktop:items-start gap-[5px] desktop:gap-[20px]'>
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <Link

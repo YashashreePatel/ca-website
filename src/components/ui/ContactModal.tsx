@@ -1,7 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import Button from '@/components/ui/Button';
+
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string;
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -34,6 +37,15 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
+  const handleCaptchaChange = (token: string | null) => {
+    setCaptchaToken(token);
+    if (errors.privacy) {
+      setErrors({ ...errors, privacy: undefined });
+    }
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -88,6 +100,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
       newErrors.privacy = 'You must agree to the policy and terms';
     }
 
+    if (!captchaToken) {
+      newErrors.privacy = 'Please complete the reCAPTCHA';
+    }
+    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -109,7 +125,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         phone: formData.phone.trim() || null,
         project: formData.project.trim(),
         submittedAt: new Date().toISOString(),
-        status: 'new'
+        status: 'new',
+        token: captchaToken,
       };
 
       const response = await fetch('/api/submit-form', {
@@ -195,7 +212,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             </div>
             <div className="flex items-center gap-[5px]">
               <span className="material-symbols-outlined text-symbol-purple">mail</span>
-              <span className="text-body-grey-1 underline font-montserrat"><a target='blank' href='mailto:info@cogniify.ai'>iinfo@cogniify.ai</a></span>
+              <span className="text-body-grey-1 underline font-montserrat"><a target='blank' href='mailto:info@cogniify.ai'>info@cogniify.ai</a></span>
             </div>
           </div>
         </div>
@@ -281,12 +298,20 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                   onChange={handleCheckboxChange}
                   className="mt-1"
                 />
-                <span>I agree to the <a className='text-brand-blue underline' href='/privacy' target='blank'>policy and terms.</a></span>
+                <span>I agree to the <a className='text-brand-blue underline' href='/privacy-policy' target='blank'>policy and terms.</a></span>
               </label>
               {errors.privacy && (
                 <p className="text-red-500 text-sm mt-1">{errors.privacy}</p>
               )}
             </div>
+            
+            <ReCAPTCHA 
+              sitekey={SITE_KEY}
+              onChange={handleCaptchaChange}
+            />
+            {errors.privacy && (
+              <p className="text-red-500 text-sm mt-1">{errors.privacy}</p>
+            )}
 
             {/* Submit Button */}
             <Button 
@@ -303,7 +328,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         {!showSuccessMessage && (
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center text-gray-300 hover:text-white transition-colors"
+            className="cursor-pointer absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center text-gray-300 hover:text-white transition-colors"
           >
             <span className="material-symbols-outlined text-lg">close</span>
           </button>

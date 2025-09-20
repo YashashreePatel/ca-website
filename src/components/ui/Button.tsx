@@ -23,7 +23,7 @@ export default function Button({
   return (
     <button
       {...props}
-      className={`${styles.button} ${variantClasses[variant]} ${variant === 'primary' ? styles.primary_button : styles.secondary_button}`}
+      className={`cursor-pointer hover:opacity-80 ${styles.button} ${variantClasses[variant]} ${variant === 'primary' ? styles.primary_button : styles.secondary_button}`}
     >
       {iconSrc && <Image src={iconSrc} alt={iconAlt} width={20} height={20} />}
       {children}

@@ -10,28 +10,28 @@ const IntelligenceFramework: React.FC = () => {
       title: 'Sharper Analytics',
       description: 'Turn raw data into clarity, enabling business leaders to act with confidence, and take data-driven smarter decisions',
       image: '/images/home/intelligence/analytics.png',
-      link: '/services/sharper-analytics'
+      link: '/offerings/sharper-analytics'
     },
     {
       id: 2,
       title: 'Smarter AI',
       description: 'Deploy enterprise-grade AI that adapts, scales, and drives measurable business outcomes.',
       image: '/images/home/intelligence/ai.png',
-      link: '/services/smarter-ai'
+      link: '/offerings/smarter-ai'
     },
     {
       id: 3,
       title: 'Scalable Systems',
       description: 'Building resilient, cloud-native systems that scale AI securely across enterprises.',
       image: '/images/home/intelligence/systems.png',
-      link: '/services/scalable-systems'
+      link: '/offerings/scalable-systems'
     },
     {
       id: 4,
       title: 'Secured Governance',
       description: 'Ensuring trust, compliance, and transparency while empowering smarter, safer decisions.',
       image: '/images/home/intelligence/governance.png',
-      link: '/services/secured-governance'
+      link: '/offerings/secured-governance'
     }
   ];
 
@@ -49,9 +49,11 @@ const IntelligenceFramework: React.FC = () => {
             The 4S Intelligence Framework is designed to help your business unlock clarity, accelerate innovation, and achieve your true potential with confidence and precision.
           </div>
         </div>
-        <div className='flex flex-col desktop:flex-row gap-[40px] justify-between items-stretch'>
+        <div className='h-full grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-4 gap-[20px]'>
           {frameworkCards.map((card) => (
-            <IntelligenceCard key={card.id} card={card} />
+            <div key={card.id} className='col-span-1 h-full'>
+              <IntelligenceCard key={card.id} card={card} />
+            </div>
           ))}
         </div> 
       </div>
