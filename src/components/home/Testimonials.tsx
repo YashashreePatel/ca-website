@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 import ContactModal from '@/components/ui/ContactModal';
 import TestimonialCard from '@/components/ui/home/TestimonialCard';
-import { Testimonial } from '@/types';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,6 +10,35 @@ const Testimonials: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [sectionTitle, setSectionTitle] = useState("");
+  const [sectionSubtitle, setSectionSubtitle] = useState("");
+  const [sectionContent, setSectionContent] = useState("");
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/pages/")
+      .then((res) => res.json())
+      .then((pages) => {
+
+        // find page
+        const homePage = pages.find((p: any) => p.slug === "home");
+        if (!homePage) return;
+
+        // find section
+        const section = homePage.sections.find(
+          (s: any) => s.name === "testimonials"
+        );
+        
+        if (!section) return;
+
+        setSectionTitle(section.title);
+        setSectionSubtitle(section.subtitle);
+        setSectionContent(section.content);
+        setData(section.testimonials || []);
+      })
+      .catch(console.error);
+  }, []);
 
   useEffect(() => {
     setIsClient(true);
@@ -23,40 +51,6 @@ const Testimonials: React.FC = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  // Mock data - ready for admin panel
-  const testimonials: Testimonial[] = [
-     {
-      id: 1,
-      name: "Versha Singh",
-      role: "Fractional Chief Product Officer",
-      company: "Singh Advisories",
-      industry: 'Consulting / Product Strategy',
-      content: "Cogniify contributed technical support during our early development stage and helped resolve some key issues in the build. Their blockchain understanding was useful in navigating toward audit readiness",
-      avatar: "/images/home/testimonials/singh-advisories.png",
-      tags: ["Trusted Partner", "Product Innovation", "Engineering Solutions"]
-    },
-    {
-      id: 2,
-      name: "Eli Meerson",
-      role: "Founder",
-      company: "TokenQuest",
-      industry: 'Blockchain / Crypto',
-      content: "Cogniify contributed technical support during our early development stage and helped resolve some key issues in the build. Their blockchain understanding was useful in navigating toward audit readiness",
-      avatar: "/images/home/testimonials/token-quest.png",
-      tags: ["Technical Support", "Blockchain Expertise", "Audit Readiness"]
-    },
-    {
-      id: 3,
-      name: "James Rodriguez",
-      role: "Marketing Director",
-      company: "Spenga",
-      industry: 'Health & Fitness / Wellness',
-      content: "Cogniify transformed our marketing strategy. Their data-driven approach helped us separate and optimize leads from different agencies, giving us unprecedented insights into our marketing performance",
-      avatar: "/images/home/testimonials/spenga.png",
-      tags: ["Data Driven", "Marketing Optimization", "Lead Insights"]
-    }
-  ];
 
   const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -110,18 +104,18 @@ const Testimonials: React.FC = () => {
       <div className='relative w-full flex flex-col gap-[80px] items-center justify-center'>
         <div className='w-full desktop:w-[830px] flex flex-col gap-[16px] justify-center items-center'>
           <div className='text-white text-center font-neue-regrade font-medium tablet:font-semibold text-[28px] tablet:text-[48px] leading-none'>
-            Testimonials
+            {sectionTitle}
           </div>
           <div className='text-body-grey-2 text-center font-montserrat font-normal text-[16px]'>
-            Hear our client what to say about our work.
+            {sectionContent}
           </div>
           <Button onClick={() => setIsModalOpen(true)} variant='primary'>Connect with Us</Button>
         </div>
         <div className='coverflow-slider w-full relative flex flex-col gap-[40px] justify-between items-stretch'>
           {isClient && windowWidth > 0 && (
             <Slider ref={sliderRef} {...getSettings()}>
-              {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="slide-wrapper">
+              {data.map((testimonial, index) => (
+                <div key={index} className="slide-wrapper">
                   <div className="slide-content flex justify-center">
                     <TestimonialCard testimonial={testimonial} />
                   </div>
@@ -136,7 +130,7 @@ const Testimonials: React.FC = () => {
               <span className="material-symbols-outlined">arrow_back</span>
             </button>
             <div className="flex flex-row gap-[10px]">
-              {testimonials.map((_, index) => (
+              {data.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}

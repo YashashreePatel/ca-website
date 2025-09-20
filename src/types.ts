@@ -45,12 +45,12 @@ export interface OutcomeMetric {
 
 export interface Testimonial {
   id: number;
-  name: string;
-  role: string;
-  company: string;
-  industry: string;
+  author_name: string;
+  author_role: string;
+  author_company: string;
+  company_industry: string;
   content: string;
-  avatar: string;
+  author_image: string;
   tags: string[];
 }
 
@@ -98,7 +98,7 @@ export interface InsightArticle {
   description: string;
   image: string;
   date: string;
-  readTime: string;
+  read_time: string;
   tags: string[];
   link: string;
 }

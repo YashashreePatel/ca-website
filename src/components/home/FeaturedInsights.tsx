@@ -1,42 +1,37 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import InsightCard from '@/components/ui/home/InsightCard';
 import Slider from 'react-slick';
 import { InsightArticle } from '@/types';
 
 const FeaturedInsights: React.FC = () => {
-  // Mock data - ready for admin panel
-  const featuredArticles: InsightArticle[] = [
-    {
-      id: 1,
-      title: "Unlocking Value with Advanced Analytics",
-      description: "Strategies to move beyond POCs and deploy enterprise AI systems with speed and governance.",
-      image: "/images/home/insights/analytics.png",
-      date: "11 Jan 2025",
-      readTime: "7 mins read",
-      tags: ["Leadership", "Management", "Presentations"],
-      link: "/insights/unlocking-value-advanced-analytics"
-    },
-    {
-      id: 2,
-      title: "Scaling AI from Pilot to Production in a few months",
-      description: "How modern analytics drives better decisions, cost savings, and faster growth across industries.",
-      image: "/images/home/insights/scaling-ai.png",
-      date: "11 Jan 2025",
-      readTime: "7 mins read",
-      tags: ["Leadership", "Presentations"],
-      link: "/insights/scaling-ai-pilot-production"
-    },
-    {
-      id: 3,
-      title: "Cloud-Native Data Infrastructure: A Blueprint",
-      description: "Key principles for designing secure, scalable, and future-ready data foundations.",
-      image: "/images/home/insights/cloud-native.png",
-      date: "11 Jan 2025",
-      readTime: "7 mins read",
-      tags: ["Leadership", "Management"],
-      link: "/insights/cloud-native-data-infrastructure"
-    }
-  ];
+  const [sectionTitle, setSectionTitle] = useState("");
+    const [sectionSubtitle, setSectionSubtitle] = useState("");
+    const [sectionContent, setSectionContent] = useState("");
+    const [data, setData] = useState([]);
+  
+    useEffect(() => {
+      fetch("http://127.0.0.1:8000/api/pages/")
+        .then((res) => res.json())
+        .then((pages) => {
+  
+          // find home page
+          const homePage = pages.find((p: any) => p.slug === "home");
+          if (!homePage) return;
+  
+          // find testimonial section
+          const section = homePage.sections.find(
+            (s: any) => s.name === "insights"
+          );
+          
+          if (!section) return;
+  
+          setSectionTitle(section.title);
+          setSectionSubtitle(section.subtitle);
+          setSectionContent(section.content);
+          setData(section.case_studies || []);
+        })
+        .catch(console.error);
+    }, []);
 
   const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -75,9 +70,9 @@ const FeaturedInsights: React.FC = () => {
         </div>
         <div className='tablet:hidden coverflow-slider w-full h-full relative flex flex-col gap-[40px] justify-between items-stretch'>
           <Slider ref={sliderRef} {...settings}>
-            {featuredArticles.map((article) => (
+            {data.map((article, index) => (
               <div key={0} className="slide-wrapper h-full">
-                <InsightCard key={article.id} article={article} />
+                <InsightCard key={index} article={article} />
               </div>
             ))}
           </Slider>
@@ -104,8 +99,8 @@ const FeaturedInsights: React.FC = () => {
           </div>
         </div>
         <div className='hidden tablet:flex flex-row gap-[30px] desktop:gap-[80px] justify-between items-stretch'>
-          {featuredArticles.map((article) => (
-            <InsightCard key={article.id} article={article} />
+          {data.map((article, index) => (
+            <InsightCard key={index} article={article} />
           ))}
         </div>
       </div>

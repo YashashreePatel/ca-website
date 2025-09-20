@@ -11,7 +11,7 @@ import Testimonials from '@/components/home/Testimonials';
 import FeaturedInsights from '@/components/home/FeaturedInsights';
 import AboveFooter from '@/components/layout/AboveFooter';
 
-export default async function Home() {
+export default function Home() {
   return (
     <div>
         <Hero />

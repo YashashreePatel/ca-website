@@ -9,14 +9,14 @@ interface InsightCardProps {
 
 const InsightCard: React.FC<InsightCardProps> = ({ article }) => {
   return (
-    <div className='relative flex flex-col gap-[32px] bg-black'>
+    <div className='w-full relative flex flex-col gap-[32px] bg-black'>
       <div className='w-full justify-center'>
         <Image
-          src={article.image}
+          src={article.image || '/images/home/outcome.jpeg'}
           alt={article.title}
           width={1000}
           height={1000}
-          className='w-full h-auto object-contain'
+          className='w-full h-auto rounded-[6px] object-contain'
         />
       </div>
       <div className='flex flex-col gap-[24px] justify-center items-start'>
@@ -24,7 +24,7 @@ const InsightCard: React.FC<InsightCardProps> = ({ article }) => {
           <div className='flex flex-row gap-[12px] items-center justify-center text-symbol-purple text-[14px] font-montserrat font-normal'>
             <span>{article.date}</span>
             <span>•</span>
-            <span>{article.readTime}</span>
+            <span>{article.read_time}</span>
           </div>
           <div className='flex flex-row gap-[5px] justify-between items-center'>
             <div className='text-white font-neue-regrade font-semibold text-[20px] leading-none'>{article.title}</div>

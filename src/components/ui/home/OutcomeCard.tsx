@@ -32,7 +32,7 @@ const OutcomeCard: React.FC<OutcomeCardProps> = ({ card }) => {
     <div className='relative items-center w-full flex flex-col-reverse tablet:flex-row items-start gap-[80px] p-[40px] bg-black border-[2px] border-brand-purple/20 rounded-[16px]'>
       <div className='w-full desktop:w-2/3 flex flex-col gap-[12px] desktop:gap-[24px] justify-center items-start'>
         <div className='flex flex-wrap gap-[16px]'>
-          {card.tags.map((tag, index) => (
+          {card.tags && card.tags.map((tag, index) => (
             <div
               key={index}
               className='px-[12px] py-[8px] bg-tag-bg text-white text-[14px] font-montserrat font-light rounded-[6px] border border-tag-border'
@@ -54,13 +54,13 @@ const OutcomeCard: React.FC<OutcomeCardProps> = ({ card }) => {
       </div>
       <div className='relative h-full w-full desktop:w-1/3 justify-center'>
         <Image
-          src={card.image}
+          src={card.image || '/images/home/outcome.jpeg'}
           alt={card.title}
           width={1000}
           height={1000}
           className='h-full w-full object-cover rounded-[8px]'
         />
-        {card.metrics.map((metric) => (
+        {card.metrics && card.metrics.map((metric) => (
           <MetricBadge key={metric.id} metric={metric} />
         ))}
       </div>
