@@ -11,7 +11,7 @@ const DrivingOutcomes: React.FC = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/pages/")
+    fetch("https://ca-website-1.onrender.com/api/pages/")
       .then((res) => res.json())
       .then((pages) => {
 
