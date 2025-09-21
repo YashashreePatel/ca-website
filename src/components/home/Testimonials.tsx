@@ -37,6 +37,7 @@ const Testimonials: React.FC = () => {
         setSectionSubtitle(section.subtitle);
         setSectionContent(section.content);
         setData(section.testimonials || []);
+        console.log('datatttta', data);
       })
       .catch(console.error);
   }, []);
