@@ -115,7 +115,7 @@ const Testimonials: React.FC = () => {
         <div className='coverflow-slider w-full relative flex flex-col gap-[40px] justify-between items-stretch'>
           {isClient && windowWidth > 0 && (
             <Slider ref={sliderRef} {...getSettings()}>
-              {data.map((testimonial, index) => (
+              {data && data.map((testimonial, index) => (
                 <div key={index} className="slide-wrapper">
                   <div className="slide-content flex justify-center">
                     <TestimonialCard testimonial={testimonial} />
@@ -131,7 +131,7 @@ const Testimonials: React.FC = () => {
               <span className="material-symbols-outlined">arrow_back</span>
             </button>
             <div className="flex flex-row gap-[10px]">
-              {data.map((_, index) => (
+              {data && data.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}

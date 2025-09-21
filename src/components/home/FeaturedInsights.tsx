@@ -70,7 +70,7 @@ const FeaturedInsights: React.FC = () => {
         </div>
         <div className='tablet:hidden coverflow-slider w-full h-full relative flex flex-col gap-[40px] justify-between items-stretch'>
           <Slider ref={sliderRef} {...settings}>
-            {data.map((article, index) => (
+            {data && data.map((article, index) => (
               <div key={0} className="slide-wrapper h-full">
                 <InsightCard key={index} article={article} />
               </div>
@@ -99,7 +99,7 @@ const FeaturedInsights: React.FC = () => {
           </div>
         </div>
         <div className='hidden tablet:flex flex-row gap-[30px] desktop:gap-[80px] justify-between items-stretch'>
-          {data.map((article, index) => (
+          {data && data.map((article, index) => (
             <InsightCard key={index} article={article} />
           ))}
         </div>
