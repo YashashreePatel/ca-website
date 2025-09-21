@@ -32,7 +32,7 @@ const Testimonials: React.FC = () => {
         );
         
         if (!section) return;
-
+        console.log('hihi', section);
         setSectionTitle(section.title);
         setSectionSubtitle(section.subtitle);
         setSectionContent(section.content);
