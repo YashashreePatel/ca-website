@@ -24,6 +24,7 @@ const Testimonials: React.FC = () => {
 
         // find page
         const homePage = pages.find((p: any) => p.slug === "home");
+        console.log('homepagehihi', homePage);
         if (!homePage) return;
         console.log('homepagehihi', homePage);
         // find section
@@ -42,17 +43,17 @@ const Testimonials: React.FC = () => {
       .catch(console.error);
   }, []);
 
-  useEffect(() => {
-    setIsClient(true);
-    setWindowWidth(window.innerWidth);
+  // useEffect(() => {
+  //   setIsClient(true);
+  //   setWindowWidth(window.innerWidth);
     
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
+  //   const handleResize = () => {
+  //     setWindowWidth(window.innerWidth);
+  //   };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  //   window.addEventListener('resize', handleResize);
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
 
   const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
