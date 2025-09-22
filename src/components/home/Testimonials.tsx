@@ -25,7 +25,7 @@ const Testimonials: React.FC = () => {
         // find page
         const homePage = pages.find((p: any) => p.slug === "home");
         if (!homePage) return;
-
+        console.log('homepagehihi', homePage);
         // find section
         const section = homePage.sections.find(
           (s: any) => s.name === "testimonials"
