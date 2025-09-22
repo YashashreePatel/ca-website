@@ -18,7 +18,6 @@ const Testimonials: React.FC = () => {
 
   useEffect(() => {
     fetch("https://ca-website-1.onrender.com/api/pages/")
-    fetch("/api/pages/")
       .then((res) => res.json())
       .then((pages) => {
 
