@@ -30,7 +30,7 @@ class CaseStudy(models.Model):
     read_time = models.CharField(max_length=50, blank=True, null=True)
     tags = models.JSONField(default=list, blank=True)
     cta_text = models.CharField(max_length=100, blank=True, null=True)
-    cta_link = models.CharField(blank=True, null=True)
+    cta_link = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -58,7 +58,7 @@ class Service(models.Model):
     service_name = models.CharField(max_length=255)
     card_content = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to="images/services/", blank=True, null=True)
-    link = models.CharField(blank=True, null=True)
+    link = models.CharField(max_length=100, blank=True, null=True)
     page_content = models.JSONField(default=list, blank=True)
     outcome_text = models.CharField(max_length=255, default="..")
 
@@ -116,7 +116,7 @@ class Section(models.Model):
     subtitle = models.CharField(max_length=300, blank=True, null=True)
     content = models.TextField(blank=True, null=True)
     button_text = models.CharField(max_length=100, blank=True, null=True)
-    button_link = models.CharField(blank=True, null=True)
+    button_link = models.CharField(max_length=100, blank=True, null=True)
 
     section_type = models.CharField(max_length=20, choices=SECTION_TYPE_CHOICES, default="none")
 

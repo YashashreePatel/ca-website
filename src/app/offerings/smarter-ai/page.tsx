@@ -35,8 +35,8 @@ export default function SmarterAI() {
       <BackButton />
       <div className='flex flex-col gap-[40px] font-montserrat font-normal text-[16px] text-white'>
         <div className='flex flex-col gap-[24px]'>
-          {service?.page_content.map((text) => (
-            <span>
+          {service?.page_content.map((text, index) => (
+            <span key={index}>
               {text}
             </span>
           ))}
@@ -44,8 +44,8 @@ export default function SmarterAI() {
 
         <div className='flex flex-col gap-[5px] items-start text-white'>
           <span>Why Choose {service?.service_name}?</span>
-          {service?.why.map((data) => (
-            <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>{data.highlight_text}:</span> {data.content}</span>
+          {service?.why.map((data, index) => (
+            <span key={index} className='pl-[5px]'>- <span className='text-[#AE98FF]'>{data.highlight_text}:</span> {data.content}</span>
           ))}
         </div>
       </div>
@@ -56,8 +56,8 @@ export default function SmarterAI() {
         </div>
 
         <div className='w-full grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-[20px] desktop:gap-[30px] items-stretch'>
-          {service?.our_approach.map((card) => (
-            <div key={card.id} className='col-span-1 h-auto desktop:h-[300px]'>
+          {service?.our_approach.map((card, index) => (
+            <div key={index} className='col-span-1 h-auto desktop:h-[300px]'>
               <HoverRevealCard data={card} icon={false} number={true} subtitle={false} content={true} />
             </div>
           ))}
@@ -67,16 +67,16 @@ export default function SmarterAI() {
       <div className='flex flex-col gap-[40px] font-montserrat font-normal text-[16px] text-white'>
         <div className='flex flex-col gap-[5px] items-start text-white'>
           <span>Who It&apos;s For?</span>
-          {service?.for_whom.map((data) => (
-            <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>{data.highlight_text}</span> {data.content}</span>
+          {service?.for_whom.map((data, index) => (
+            <span key={index} className='pl-[5px]'>- <span className='text-[#AE98FF]'>{data.highlight_text}</span> {data.content}</span>
           ))}
         </div>
 
         <div className='flex flex-col gap-[5px] items-start text-white'>
           <span>The Outcome</span>
           <span>{service?.outcome_text}</span>
-          {service?.outcome.map((data) => (
-            <span className='pl-[5px]'>- <span className='text-[#AE98FF]'>{data.highlight_text}:</span> {data.content}</span>
+          {service?.outcome.map((data, index) => (
+            <span key={index} className='pl-[5px]'>- <span className='text-[#AE98FF]'>{data.highlight_text}:</span> {data.content}</span>
           ))}
         </div>
       </div>
