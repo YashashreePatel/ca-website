@@ -29,6 +29,7 @@ const FeaturedInsights: React.FC = () => {
           setSectionSubtitle(section.subtitle);
           setSectionContent(section.content);
           setData(section.case_studies || []);
+          console.log('datatttta', data);
         })
         .catch(console.error);
     }, []);
