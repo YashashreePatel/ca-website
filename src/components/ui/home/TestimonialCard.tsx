@@ -12,7 +12,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
     <div className='relative w-full flex flex-col p-[40px] items-start justify-center gap-[32px] bg-card-bg rounded-[16px] overflow-hidden'>
       <div className='w-[120px] h-[64px] justify-center rounded-[8px] shadow-purple-glow'>
         <Image
-          src={'/' + testimonial.author_image}
+          src={testimonial.author_image?.startsWith("/") ? testimonial.author_image : `/${testimonial.author_image || "images/home/outcome.jpeg"}`}
           alt={testimonial.author_name}
           width={300}
           height={150}

@@ -54,7 +54,7 @@ const OutcomeCard: React.FC<OutcomeCardProps> = ({ card }) => {
       </div>
       <div className='relative h-full w-full desktop:w-1/3 justify-center'>
         <Image
-          src={card.image || '/images/home/outcome.jpeg'}
+          src={card.image?.startsWith("/") ? card.image : `/${card.image || "images/home/outcome.jpeg"}`}
           alt={card.title}
           width={1000}
           height={1000}

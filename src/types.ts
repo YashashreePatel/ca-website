@@ -1,18 +1,53 @@
 export interface RevealCard {
-  id: number;
+  order: number;
   title: string;
   icon?: string;
   subtitle?: string;
   description?: string;
-  data?: string[];
+  content?: string[];
 }
 
-export interface FrameworkCard {
-  id: number;
-  title: string;
-  description: string;
+export interface Service {
+  service_name: string;
+  card_content: string;
   image: string;
   link: string;
+  page_content: string[];
+  outcome_text: string;
+
+  why: ServiceWhy[];
+  for_whom: ServiceForWhom[];
+  outcome: ServiceOutcome[];
+  our_approach: ServiceApproach[];
+}
+
+export interface ServiceWhy {
+  id: number;
+  service: number;
+  highlight_text: string;
+  content: string;
+}
+
+export interface ServiceForWhom {
+  id: number;
+  service: number;
+  highlight_text: string;
+  content: string;
+}
+
+export interface ServiceOutcome {
+  id: number;
+  service: number;
+  highlight_text: string;
+  content: string;
+}
+
+export interface ServiceApproach {
+  id: number;
+  service: number;
+  order: number;
+  title: string;
+  content: string[];
 }
 
 export interface PhilosophyStep {

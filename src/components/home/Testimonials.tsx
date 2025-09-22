@@ -17,19 +17,21 @@ const Testimonials: React.FC = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://ca-website-1.onrender.com/api/pages/")
+    fetch("http://127.0.0.1:8000/api/pages/")
       .then((res) => res.json())
       .then((pages) => {
 
         // find page
         const homePage = pages.find((p: any) => p.slug === "home");
         if (!homePage) return;
+
         // find section
         const section = homePage.sections.find(
           (s: any) => s.name === "testimonials"
         );
         
         if (!section) return;
+
         setSectionTitle(section.title);
         setSectionSubtitle(section.subtitle);
         setSectionContent(section.content);
@@ -112,7 +114,7 @@ const Testimonials: React.FC = () => {
         <div className='coverflow-slider w-full relative flex flex-col gap-[40px] justify-between items-stretch'>
           {isClient && windowWidth > 0 && (
             <Slider ref={sliderRef} {...getSettings()}>
-              {data && data.map((testimonial, index) => (
+              {data.map((testimonial, index) => (
                 <div key={index} className="slide-wrapper">
                   <div className="slide-content flex justify-center">
                     <TestimonialCard testimonial={testimonial} />
@@ -128,7 +130,7 @@ const Testimonials: React.FC = () => {
               <span className="material-symbols-outlined">arrow_back</span>
             </button>
             <div className="flex flex-row gap-[10px]">
-              {data && data.map((_, index) => (
+              {data.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}

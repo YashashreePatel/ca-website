@@ -1,61 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import IntelligenceCard from '@/components/ui/home/FrameworkCard';
-import { FrameworkCard } from '@/types';
 
 const IntelligenceFramework: React.FC = () => {
-  // Mock data - ready for admin panel
-  const frameworkCards: FrameworkCard[] = [
-    {
-      id: 1,
-      title: 'Sharper Analytics',
-      description: 'Turn raw data into clarity, enabling business leaders to act with confidence, and take data-driven smarter decisions',
-      image: '/images/home/intelligence/analytics.png',
-      link: '/offerings/sharper-analytics'
-    },
-    {
-      id: 2,
-      title: 'Smarter AI',
-      description: 'Deploy enterprise-grade AI that adapts, scales, and drives measurable business outcomes.',
-      image: '/images/home/intelligence/ai.png',
-      link: '/offerings/smarter-ai'
-    },
-    {
-      id: 3,
-      title: 'Scalable Systems',
-      description: 'Building resilient, cloud-native systems that scale AI securely across enterprises.',
-      image: '/images/home/intelligence/systems.png',
-      link: '/offerings/scalable-systems'
-    },
-    {
-      id: 4,
-      title: 'Secured Governance',
-      description: 'Ensuring trust, compliance, and transparency while empowering smarter, safer decisions.',
-      image: '/images/home/intelligence/governance.png',
-      link: '/offerings/secured-governance'
-    }
-  ];
+  const [sectionTitle, setSectionTitle] = useState("");
+  const [sectionSubtitle, setSectionSubtitle] = useState("");
+  const [sectionContent, setSectionContent] = useState("");
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/pages/")
+      .then((res) => res.json())
+      .then((pages) => {
+
+        // find page
+        const homePage = pages.find((p: any) => p.slug === "home");
+        if (!homePage) return;
+
+        // find section
+        const section = homePage.sections.find(
+          (s: any) => s.name === "framework"
+        );
+
+        if (!section) return;
+
+        setSectionTitle(section.title);
+        setSectionSubtitle(section.subtitle);
+        setSectionContent(section.content);
+        setData(section.services || []);
+      })
+      .catch(console.error);
+  }, []);
 
   return (
     <div className={`w-full flex justify-center items-center px-[24px] py-[50px] tablet:px-[60px] desktop:px-[100px] desktop:py-[80px] bg-black`}>
       <div className='w-full flex flex-col gap-[80px] items-center justify-center'>
         <div className='w-full desktop:w-[830px] flex flex-col gap-[16px] justify-center items-center'>
           <div className='text-white text-center font-neue-regrade font-medium tablet:font-semibold text-[28px] tablet:text-[48px] leading-none'>
-            The 4S Intelligence Framework
+            {sectionTitle}
           </div>
           <div className='text-white text-center font-montserrat font-semibold text-[12px] tablet:text-[16px]'>
-            Sharper insights, smarter AI, scalable systems, secured trust—your intelligence, redefined.
+            {sectionSubtitle}
           </div>
           <div className='text-body-grey-2 text-center font-montserrat font-normal text-[12px] tablet:text-[16px]'>
-            The 4S Intelligence Framework is designed to help your business unlock clarity, accelerate innovation, and achieve your true potential with confidence and precision.
+            {sectionContent}
           </div>
         </div>
         <div className='h-full grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-4 gap-[20px]'>
-          {frameworkCards.map((card) => (
-            <div key={card.id} className='col-span-1 h-full'>
-              <IntelligenceCard key={card.id} card={card} />
+          {data && data.map((card, index) => (
+            <div key={index} className='col-span-1 h-full'>
+              <IntelligenceCard card={card} />
             </div>
           ))}
-        </div> 
+        </div>
       </div>
     </div>
   );

@@ -38,7 +38,7 @@ const Values: React.FC = () => {
       <div className='grid grid-cols-1 tablet:grid-cols-2 gap-[20px] desktop:gap-[30px] items-stretch'>
         {revealCards.map((card) => (
           <div key={card.id} className='col-span-1 h-auto desktop:h-[300px]'>
-            <HoverRevealCard content={card} icon={false} number={false} subtitle={true} data={false} />
+            <HoverRevealCard data={card} icon={false} number={false} subtitle={true} content={false} />
           </div>
         ))}
       </div>

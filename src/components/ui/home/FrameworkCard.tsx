@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { FrameworkCard } from '@/types';
+import { Service } from '@/types';
 import 'material-symbols';
 
 interface CardProps {
-  card: FrameworkCard;
+  card: Service;
 }
 
 const IntelligenceCard: React.FC<CardProps> = ({ card }) => {
@@ -19,18 +19,18 @@ const IntelligenceCard: React.FC<CardProps> = ({ card }) => {
         <span className='material-symbols-outlined text-symbol-purple'>arrow_outward</span>
       </div>
       <Image
-        src={card.image}
-        alt={card.title}
+        src={card.image?.startsWith("/") ? card.image : `/${card.image || "images/home/outcome.jpeg"}`}
+        alt={card.service_name}
         width={800}
         height={800}
         className='w-full h-auto object-contain'
       />
       <div className='flex flex-col gap-[8px] text-center'>
         <div className='text-white font-neue-regrade font-semibold text-[20px] leading-none'>
-          {card.title}
+          {card.service_name}
         </div>
         <div className='text-body-grey-2 font-montserrat font-normal text-[16px]'>
-          {card.description}
+          {card.card_content}
         </div>
       </div>
     </a>

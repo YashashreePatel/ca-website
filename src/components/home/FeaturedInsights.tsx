@@ -10,7 +10,7 @@ const FeaturedInsights: React.FC = () => {
     const [data, setData] = useState([]);
   
     useEffect(() => {
-      fetch("https://ca-website-1.onrender.com/api/pages/")
+      fetch("http://127.0.0.1:8000/api/pages/")
         .then((res) => res.json())
         .then((pages) => {
   
@@ -29,7 +29,6 @@ const FeaturedInsights: React.FC = () => {
           setSectionSubtitle(section.subtitle);
           setSectionContent(section.content);
           setData(section.case_studies || []);
-          console.log('datatttta', data);
         })
         .catch(console.error);
     }, []);
@@ -71,7 +70,7 @@ const FeaturedInsights: React.FC = () => {
         </div>
         <div className='tablet:hidden coverflow-slider w-full h-full relative flex flex-col gap-[40px] justify-between items-stretch'>
           <Slider ref={sliderRef} {...settings}>
-            {data && data.map((article, index) => (
+            {data.map((article, index) => (
               <div key={0} className="slide-wrapper h-full">
                 <InsightCard key={index} article={article} />
               </div>
@@ -100,7 +99,7 @@ const FeaturedInsights: React.FC = () => {
           </div>
         </div>
         <div className='hidden tablet:flex flex-row gap-[30px] desktop:gap-[80px] justify-between items-stretch'>
-          {data && data.map((article, index) => (
+          {data.map((article, index) => (
             <InsightCard key={index} article={article} />
           ))}
         </div>

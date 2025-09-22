@@ -52,7 +52,7 @@ const PhilosophyTab: React.FC = () => {
       <div className='grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-[20px] desktop:gap-[30px] items-stretch'>
         {revealCards.map((card) => (
           <div key={card.id} className='h-auto desktop:h-[300px] col-span-1'>
-            <HoverRevealCard content={card} icon={true} number={false} subtitle={false} data={false} />
+            <HoverRevealCard data={card} icon={true} number={false} subtitle={false} content={false} />
           </div>
         ))}
       </div>

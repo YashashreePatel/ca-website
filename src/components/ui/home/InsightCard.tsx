@@ -12,7 +12,7 @@ const InsightCard: React.FC<InsightCardProps> = ({ article }) => {
     <div className='w-full relative flex flex-col gap-[32px] bg-black'>
       <div className='w-full justify-center'>
         <Image
-          src={article.image || '/images/home/outcome.jpeg'}
+          src={article.image?.startsWith("/") ? article.image : `/${article.image || "images/home/outcome.jpeg"}`}
           alt={article.title}
           width={1000}
           height={1000}

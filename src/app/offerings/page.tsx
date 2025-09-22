@@ -1,43 +1,42 @@
-import React from 'react';
-import IntelligenceCard from '@/components/ui/home/FrameworkCard';
-import { FrameworkCard } from '@/types';
+'use client';
 
-export default async function Offerings() {
-  const frameworkCards: FrameworkCard[] = [
-    {
-      id: 1,
-      title: 'Sharper Analytics',
-      description: 'Turn raw data into clarity, enabling business leaders to act with confidence, and take data-driven smarter decisions',
-      image: '/images/home/intelligence/analytics.png',
-      link: '/offerings/sharper-analytics'
-    },
-    {
-      id: 2,
-      title: 'Smarter AI',
-      description: 'Deploy enterprise-grade AI that adapts, scales, and drives measurable business outcomes.',
-      image: '/images/home/intelligence/ai.png',
-      link: '/offerings/smarter-ai'
-    },
-    {
-      id: 3,
-      title: 'Scalable Systems',
-      description: 'Building resilient, cloud-native systems that scale AI securely across enterprises.',
-      image: '/images/home/intelligence/systems.png',
-      link: '/offerings/scalable-systems'
-    },
-    {
-      id: 4,
-      title: 'Secured Governance',
-      description: 'Ensuring trust, compliance, and transparency while empowering smarter, safer decisions.',
-      image: '/images/home/intelligence/governance.png',
-      link: '/offerings/secured-governance'
-    }
-  ];
+import React, { useEffect, useState } from 'react';
+import IntelligenceCard from '@/components/ui/home/FrameworkCard';
+
+export default function Offerings() {
+  const [sectionTitle, setSectionTitle] = useState("");
+  const [sectionSubtitle, setSectionSubtitle] = useState("");
+  const [sectionContent, setSectionContent] = useState("");
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/pages/")
+      .then((res) => res.json())
+      .then((pages) => {
+
+        // find page
+        const homePage = pages.find((p: any) => p.slug === "offerings");
+        if (!homePage) return;
+
+        // find section
+        const section = homePage.sections.find(
+          (s: any) => s.name === "landing"
+        );
+
+        if (!section) return;
+
+        setSectionTitle(section.title);
+        setSectionSubtitle(section.subtitle);
+        setSectionContent(section.content);
+        setData(section.services || []);
+      })
+      .catch(console.error);
+  }, []);
 
   return (
     <div className={`w-full flex flex-col gap-[80px] items-center justify-center px-[24px] pb-[80px] pt-[180px] tablet:px-[60px] desktop:px-[100px] bg-black`}>
       <div className='text-white text-center font-neue-regrade font-semibold text-[48px] leading-none'>
-        Our Offerings - Solutions Built for Scale
+        {sectionTitle}
       </div>
       <div className='flex flex-col gap-[24px] font-montserrat text-[16px]'>
         <div className='font-semibold text-[#AE98FF]'>
@@ -52,12 +51,12 @@ export default async function Offerings() {
       </div>
 
       <div className='h-full grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-4 gap-[20px]'>
-          {frameworkCards.map((card) => (
-            <div key={card.id} className='col-span-1 h-full'>
-              <IntelligenceCard key={card.id} card={card} />
-            </div>
-          ))}
-        </div> 
+        {data && data.map((card, index) => (
+          <div key={index} className='col-span-1 h-full'>
+            <IntelligenceCard card={card} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
