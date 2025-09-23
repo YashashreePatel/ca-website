@@ -39,7 +39,7 @@ export default function SharperAnalytics() {
   const [service, setService] = useState<Service | null>(null);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/services/1/`)
+    fetch(`https://ca-website-1.onrender.com/api/services/1/`)
       .then((res) => res.json())
       .then((data: Service) => setService(data))
       .catch(console.error);
