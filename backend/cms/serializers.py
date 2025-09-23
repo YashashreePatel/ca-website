@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Page, Section, CaseStudyMetric, CaseStudy, Testimonial, Service, ServiceWhy, ServiceForWhom, ServiceOutcome, ServiceApproach
+from .models import AboutUsTab, Page, Section, CaseStudyMetric, CaseStudy, TeamMember, Testimonial, Service, ServiceWhy, ServiceForWhom, ServiceOutcome, ServiceApproach
 
 class CaseStudyMetricSerializer(serializers.ModelSerializer):
     position = serializers.SerializerMethodField()
@@ -85,8 +85,25 @@ class SectionSerializer(serializers.ModelSerializer):
         model = Section
         fields = "__all__"
 
+class AboutUsTabSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AboutUsTab
+        fields = "__all__"
+
+class TeamMemberSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+    class Meta:
+        model = TeamMember
+        fields = "__all__"
+    
+    def get_image(self, obj):
+        if obj.image:
+            return obj.image.name
+        return None
+    
 class PageSerializer(serializers.ModelSerializer):
     sections = SectionSerializer(many=True, read_only=True)
+    about_tabs = AboutUsTabSerializer(many=True, read_only=True)
 
     class Meta:
         model = Page

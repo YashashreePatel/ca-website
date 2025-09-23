@@ -14,7 +14,7 @@ const TeamMember: React.FC<TeamMemberCardProps> = ({ member }) => {
     <div className='relative w-full flex flex-col gap-[32px] bg-black'>
       <div className='w-full justify-center'>
         <Image
-          src={member.image}
+          src={member.image?.startsWith("/") ? member.image : `/${member.image || "images/home/outcome.jpeg"}`}
           alt={member.name}
           width={1000}
           height={1000}

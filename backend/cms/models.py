@@ -10,6 +10,15 @@ class Page(models.Model):
     def __str__(self):
         return self.name
 
+class AboutUsTab(models.Model):
+    page = models.ForeignKey(Page, related_name="about_tabs", on_delete=models.CASCADE, default='1')
+    title = models.CharField(max_length=255)
+    enabled = models.BooleanField(default=True)
+    order = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.title} ({'Enabled' if self.enabled else 'Disabled'})"
+
 class Testimonial(models.Model):
     author_name = models.CharField(max_length=100)
     author_role = models.CharField(max_length=100)
@@ -126,3 +135,18 @@ class Section(models.Model):
 
     def __str__(self):
         return f"{self.page.name} - {self.title}"
+    
+class TeamMember(models.Model):
+    TEAM_CHOICES = [
+        ("core", "Core"),
+        ("advisor", "Advisor"),
+    ]
+
+    name = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
+    team = models.CharField(max_length=20, choices=TEAM_CHOICES)
+    image = models.ImageField(upload_to="images/team/")
+    linkedin = models.URLField(max_length=500, blank=True)
+
+    def __str__(self):
+        return f"{self.name} ({self.team})"

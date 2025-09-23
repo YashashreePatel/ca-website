@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Page, Section, CaseStudyMetric, CaseStudy, Testimonial, Service, ServiceWhy, ServiceForWhom, ServiceOutcome, ServiceApproach
+from .models import AboutUsTab, Page, Section, CaseStudyMetric, CaseStudy, TeamMember, Testimonial, Service, ServiceWhy, ServiceForWhom, ServiceOutcome, ServiceApproach
 
 class CaseStudyMetricInline(admin.TabularInline):
     model = CaseStudyMetric
@@ -50,11 +50,27 @@ class SectionAdmin(admin.ModelAdmin):
                 fields.append("services")
         return fields
 
+class AboutUsTabInline(admin.TabularInline):
+    model = AboutUsTab
+    extra = 1
+    fields = ("title", "enabled", "order")
+
+class TeamMemberAdmin(admin.ModelAdmin):
+    list_display = ("name", "title", "team")
+    list_filter = ("team",)
+
 class PageAdmin(admin.ModelAdmin):
     list_display = ("name", "slug", "meta_title")
+
+    def get_inlines(self, request, obj=None):
+        if obj and obj.slug == "about-us":
+            return [AboutUsTabInline]
+        return []
+    
 
 admin.site.register(Page, PageAdmin)
 admin.site.register(Section, SectionAdmin)
 admin.site.register(CaseStudy, CaseStudyAdmin)
 admin.site.register(Testimonial, TestimonialAdmin)
 admin.site.register(Service, ServiceAdmin)
+admin.site.register(TeamMember, TeamMemberAdmin)

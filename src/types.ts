@@ -138,6 +138,12 @@ export interface InsightArticle {
   link: string;
 }
 
+export interface Tab  {
+  id: number;
+  title: string;
+  enabled: boolean;
+};
+
 export interface TeamMembers {
   id: number;
   name: string;
